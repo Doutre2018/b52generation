@@ -50,3 +50,13 @@ bool Transactions::conditionselect()
 {
 	return false;
 }
+
+bool Transactions::conditiongeneratechild()
+{
+	return false;
+}
+
+bool Transactions::conditionmutate()
+{
+	return false;
+}

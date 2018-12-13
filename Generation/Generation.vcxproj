@@ -146,6 +146,7 @@
     <ClCompile Include="Shape2D.cpp" />
     <ClCompile Include="Size.cpp" />
     <ClCompile Include="Solution.cpp" />
+    <ClCompile Include="Transactions.cpp" />
     <ClCompile Include="Transformation.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +178,7 @@
     <ClInclude Include="Shape2D.h" />
     <ClInclude Include="Size.h" />
     <ClInclude Include="Solution.h" />
+    <ClInclude Include="Transactions.h" />
     <ClInclude Include="Transform2d.h" />
     <ClInclude Include="Transformation.h" />
   </ItemGroup>

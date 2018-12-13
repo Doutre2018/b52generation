@@ -32,7 +32,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 		break;
 	case StateRep::mutate:
 		if (Transactions::getInstance().conditionmutate()) {
-			return StateRep::select();
+			return StateRep::select;
 		}
 		else {
 			return state;
