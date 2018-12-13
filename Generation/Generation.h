@@ -15,6 +15,9 @@ public:
 
 	void start();
 	void loop(State state);
+	void processInput();
+	void render(State state);
+	State update(State& state);
 
 };
 #endif //GENERATION_H
