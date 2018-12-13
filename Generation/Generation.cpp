@@ -39,3 +39,8 @@ Generation::State Generation::update(State & state)
 {
 	return State();
 }
+
+void Generation::nextState(State & state)
+{
+	state = (State) ((int) state + 1);
+}
