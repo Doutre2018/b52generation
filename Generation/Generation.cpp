@@ -1,6 +1,6 @@
 #include "Generation.h"
 #include "Area.h"
-
+#include "Transactions.h"
 
 Generation::Generation()
 {
@@ -40,62 +40,64 @@ void Generation::render(State state)
 
 Generation::State Generation::update(State & state)
 {
-	//idle, generation1, fitness, stop,  elitetransfer, selectparent, generatechild, mutate, substitute
+	//idle, generation1, fitness, stop,  elitetransfer, reproduct, substitute
 	switch (state) {
 	case State::idle : 
-		if(true){
-			return state;
+		if(Transactions::getInstance().conditionidle()){
+			return nextState(state);
 		}
 		else {
-			return nextState(state);
+			return state;
 		}
 		break;
 	case State::generation1:
-		if (true) {
-			return state;
+		if (Transactions::getInstance().conditiongen1()) {
+			return nextState(state);
 		}
 		else {
-			return nextState(state);
+			return state;
 		}
 		break;
 	case State::fitness:
-		if (true) {
-			return state;
+		if (Transactions::getInstance().conditionfitness()) {
+			return nextState(state);
 		}
 		else {
-			return nextState(state);
+			return state;
 		}
 		break;
 	case State::stop:
-		if (true) {
+		if (Transactions::getInstance().conditionstop()) {
+			//si les conditions sont vrais, arrêter.
 			return state;
 		}
 		else {
+			//si les conditions sont fausses pour stop, continuer
 			return nextState(state);
 		}
 		break;
 	case State::elitetransfer:
-		if (true) {
-			return state;
+		if (Transactions::getInstance().conditionelitetransfer()) {
+			return nextState(state);
 		}
 		else {
-			return nextState(state);
+			return state;
 		}
 		break;
 	case State::reproduct:
-		if (true) {
-			return state;
+		if (Transactions::getInstance().conditionreproduct()) {
+			return nextState(state);
 		}
 		else {
-			return nextState(state);
+			return state;
 		}
 		break;
 	case State::substitute:
-		if (true) {
-			return state;
+		if (Transactions::getInstance().conditionsubstitute()) {
+			return State::fitness;
 		}
 		else {
-			return nextState(state);
+			return state;
 		}
 		break;
 	}

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef REPRODUCTION_H
+#define REPRODUCTION_H
 class Reproduction
 {
 private:
@@ -17,3 +18,4 @@ public:
 
 };
 
+#endif //REPRODUCTION_H

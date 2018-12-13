@@ -1,5 +1,5 @@
 #include "Reproduction.h"
-
+#include "Transactions.h"
 Reproduction::Reproduction()
 {
 }
@@ -15,27 +15,27 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 	//select, generatechild, mutate
 	switch (state) {
 	case StateRep::select:
-		if (true) {
-			return state;
+		if (Transactions::getInstance().conditionselect()) {
+			return nextState(state);
 		}
 		else {
-			return nextState(state);
+			return state;
 		}
 		break;
 	case StateRep::generatechild:
-		if (true) {
-			return state;
+		if (Transactions::getInstance().conditiongeneratechild()) {
+			return nextState(state);
 		}
 		else {
-			return nextState(state);
+			return state;
 		}
 		break;
 	case StateRep::mutate:
-		if (true) {
-			return state;
+		if (Transactions::getInstance().conditionmutate()) {
+			return StateRep::select();
 		}
 		else {
-			return nextState(state);
+			return state;
 		}
 		break;
 	}
