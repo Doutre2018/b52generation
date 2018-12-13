@@ -100,5 +100,5 @@ Generation::State Generation::update(State & state)
 
 Generation::State Generation::nextState(State & state)
 {
-	state = (State) ((int) state + 1);
+	return (State) ((int) state + 1);
 }

@@ -142,6 +142,7 @@
     <ClCompile Include="Population.cpp" />
     <ClCompile Include="Populations.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Reproduction.cpp" />
     <ClCompile Include="Shape2D.cpp" />
     <ClCompile Include="Size.cpp" />
     <ClCompile Include="Solution.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Population.h" />
     <ClInclude Include="Populations.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="Reproduction.h" />
     <ClInclude Include="Shape2D.h" />
     <ClInclude Include="Size.h" />
     <ClInclude Include="Solution.h" />
