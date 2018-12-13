@@ -4,6 +4,6 @@ using namespace std;
 
 int main()
 {
-	Game::getInstance().start();
+	Generation::getInstance().start();
 	return 0;
 }

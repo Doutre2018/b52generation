@@ -1,5 +1,5 @@
 #include "Generation.h"
-
+#include "Area.h"
 
 
 Generation::Generation()
@@ -13,6 +13,8 @@ Generation::~Generation()
 
 void Generation::start()
 {
+	Area::getInstance().generatePoint();
+	loop(State::idle);
 }
 
 void Generation::loop(State state) {
