@@ -37,10 +37,68 @@ void Generation::render(State state)
 
 Generation::State Generation::update(State & state)
 {
-	return State();
+	//idle, generation1, fitness, stop,  elitetransfer, selectparent, generatechild, mutate, substitute
+	switch (state) {
+	case State::idle : 
+		if(true){
+			return state;
+		}
+		else {
+			return nextState(state);
+		}
+		break;
+	case State::generation1:
+		if (true) {
+			return state;
+		}
+		else {
+			return nextState(state);
+		}
+		break;
+	case State::fitness:
+		if (true) {
+			return state;
+		}
+		else {
+			return nextState(state);
+		}
+		break;
+	case State::stop:
+		if (true) {
+			return state;
+		}
+		else {
+			return nextState(state);
+		}
+		break;
+	case State::elitetransfer:
+		if (true) {
+			return state;
+		}
+		else {
+			return nextState(state);
+		}
+		break;
+	case State::reproduct:
+		if (true) {
+			return state;
+		}
+		else {
+			return nextState(state);
+		}
+		break;
+	case State::substitute:
+		if (true) {
+			return state;
+		}
+		else {
+			return nextState(state);
+		}
+		break;
+	}
 }
 
-void Generation::nextState(State & state)
+Generation::State Generation::nextState(State & state)
 {
 	state = (State) ((int) state + 1);
 }
