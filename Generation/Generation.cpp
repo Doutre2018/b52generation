@@ -13,7 +13,10 @@ Generation::~Generation()
 
 void Generation::start()
 {
+	Area::getInstance().generateArea();
 	Area::getInstance().generatePoint();
+	Area::getInstance().showPoint();
+
 	loop(State::idle);
 }
 
