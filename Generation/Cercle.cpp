@@ -14,7 +14,15 @@ Cercle::~Cercle()
 }
 
 int Cercle::calculateArea() {
-	
+	int d = calculateDiameter();
+	return (M_PI*(d*d)) / 4;
 }
 
+int Cercle::calculateDiameter() {
+	return 2*radius;
+}
+
+int Cercle::calculateCirconference() {
+	return 2 * M_PI * radius;
+}
 
