@@ -16,9 +16,9 @@ public:
 	virtual int64_t encodePropreties() = 0;
 	virtual void decodePropreties(int64_t data) = 0;
 	virtual void draw(ConsoleImage & image) = 0;
+	virtual void pointInShape();
+
 protected:
-
-
 	double mX;
 	double mY;
 	int mHeight;

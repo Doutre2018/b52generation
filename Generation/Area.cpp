@@ -57,4 +57,9 @@ void Area::drawShape(shapeList_t liste) {
 	Console::getInstance().writer().push("area");
 }
 
+std::list<Point2d> Area::points()
+{
+	return points_m;
+}
+
 
