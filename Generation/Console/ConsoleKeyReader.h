@@ -4,10 +4,6 @@
 
 #include "ConsoleKeyFilter.h"
 #include <list>
-<<<<<<< HEAD
-
-=======
->>>>>>> 3757d03158beed1f9b9b487193dd780fd9f4cf63
 #include <memory>
 
 class Console;

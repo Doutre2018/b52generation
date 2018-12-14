@@ -1,15 +1,8 @@
 #include "Cercle.h"
 
-
-
-<<<<<<< HEAD
 Cercle::Cercle(Point2d point, int radius)
 	:mPoint{point},
 	mRadius{ radius }
-=======
-Cercle::Cercle(Point2d point, int radius) :shape{ Shape2D(point,radius,radius) },
-mRadius{ radius }
->>>>>>> 3757d03158beed1f9b9b487193dd780fd9f4cf63
 {
 	
 }

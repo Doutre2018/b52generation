@@ -3,8 +3,7 @@
 
 
 Shape2D::Shape2D(Point2d point, int height, int width)
-	:mX{ point.x },
-	mY{ point.y },
+	:mPoint{point},
 	mHeight{ height },
 	mWidth{ width }
 {
