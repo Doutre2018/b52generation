@@ -2,7 +2,7 @@
 
 
 
-Cercle::Cercle(Point2d point, int radius)
+Cercle::Cercle(Point2d & point, int radius)
 	:mX{ point.x },
 	mY{ point.y },
 	mRadius{ radius }
@@ -29,9 +29,9 @@ int Cercle::calculateArea() {
 
 
 int Cercle::calculateCirconference() {
-	return 2 * M_PI * radius;
+	return 2 * M_PI * mRadius;
 }
 
 int Cercle::calculateDiameter() {
-	return 2 * radius;
+	return 2 * mRadius;
 }

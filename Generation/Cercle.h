@@ -6,7 +6,7 @@
 class Cercle : protected Shape2D
 {
 public:
-	Cercle(Point2d point, int radius);
+	Cercle(Point2d & point, int radius);
 	~Cercle();
 
 private:
@@ -16,4 +16,7 @@ private:
 
 
 	virtual int64_t encodePropreties() override;
+	int calculateArea();
+	int calculateCirconference();
+	int calculateDiameter();
 };

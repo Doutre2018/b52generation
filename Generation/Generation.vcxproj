@@ -135,6 +135,7 @@
     <ClInclude Include="Generation.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Point2d.h" />
     <ClInclude Include="Population.h" />
     <ClInclude Include="Populations.h" />
     <ClInclude Include="Random.h" />

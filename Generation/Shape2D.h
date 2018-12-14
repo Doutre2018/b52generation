@@ -3,6 +3,8 @@
 #define SHAPE2D_H
 
 #include <stdint.h>
+
+#define _USE_MATH_DEFINES
 #include <cmath>
 
 class Shape2D
