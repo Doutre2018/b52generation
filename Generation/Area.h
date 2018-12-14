@@ -21,7 +21,7 @@ private:
 	Area();
 	~Area();
 public:
-	static std::string shape_g;
+	std::string shape_g = "cercle";
 	void generateArea();
 	void generatePoint();
 	void testArea();
