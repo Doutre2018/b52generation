@@ -11,6 +11,8 @@ public:
 	Cercle(Point2d point, int radius);
 	~Cercle();
 
+	int calculateArea();
+
 private:
 
 	int mX;

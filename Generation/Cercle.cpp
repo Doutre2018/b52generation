@@ -12,3 +12,9 @@ mRadius{ radius }
 Cercle::~Cercle()
 {
 }
+
+int Cercle::calculateArea() {
+
+}
+
+

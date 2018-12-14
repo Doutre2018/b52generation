@@ -14,6 +14,7 @@ protected:
 	int mY;
 	int mHeight;
 	int mWidth;
+	virtual int calculateArea()=0;
 
 };
 
