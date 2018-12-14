@@ -2,7 +2,8 @@
 
 Cercle::Cercle(Point2d point, int radius)
 	:mPoint{point},
-	mRadius{ radius }
+	mRadius{ radius },
+	Shape2D(point, radius, radius)
 {
 	
 }
