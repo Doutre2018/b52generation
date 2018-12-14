@@ -1,4 +1,8 @@
-#pragma once
+#ifndef SHORTCUT_H
+#define SHORTCUT_H
+
+
+#include "Generation.h"
 class Shortcut
 {
 private:
@@ -13,7 +17,8 @@ public:
 
 	void addCivilisations();
 	void removeCivilisations();
-	void pause();
+	void pause(Generation::State & state);
 	void stepbystep();
 };
 
+#endif // !SHORTCUT_H

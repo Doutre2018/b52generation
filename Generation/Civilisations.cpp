@@ -21,9 +21,23 @@ void Civilisations::createNewPopulations() {
 	
 }
 
+void Civilisations::removeLastPopulations() {
+
+	if (color != Color::brightblue) {
+		civilisations_m.pop_back();
+		lastColor();
+	}
+
+}
+
 void Civilisations::nextColor() {
 	color = (Color)((int)color + 1);
 }
+
+void Civilisations::lastColor() {
+	color = (Color)((int)color - 1);
+}
+
 Populations Civilisations::getPopulation(int id)
 {
 	return civilisations_m.at(id);
@@ -32,4 +46,8 @@ Populations Civilisations::getPopulation(int id)
 std::vector<Populations> Civilisations::getAll()
 {
 	return civilisations_m;
+}
+
+size_t Civilisations::size() {
+	return (int)color;
 }

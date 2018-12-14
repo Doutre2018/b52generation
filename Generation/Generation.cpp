@@ -1,8 +1,11 @@
 #include "Generation.h"
+
 #include "Area.h"
 #include "Transactions.h"
 #include "Civilisations.h"
 #include "Shortcut.h"
+#include "Console\ConsoleKeyFilterModifiers.h"
+#include "Console\ConsoleKeyFilterUp.h"
 Generation::Generation():reader_m{ nullptr }
 {
 }
@@ -17,13 +20,10 @@ void Generation::start()
 	Area::getInstance().generateArea();
 	Area::getInstance().generatePoint();
 	Area::getInstance().showPoint();
-	
-	for (int i = 0; i < 12; i++) {
-		Civilisations::getInstance().createNewPopulations();
-	}
 
 	Generation::getInstance().reader_m = &(Console::getInstance().keyReader());
-
+	//Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterModifiers());
+	Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterUp());
 	loop(State::idle);
 }
 
@@ -32,15 +32,28 @@ void Generation::loop(State state) {
 	while (true)
 	{
 		processInput();
-		testShortcut();
+		testShortcut(state);
 		state = update(state);
 		render(state);
 	}
 }
 
-void Generation::testShortcut() {
+void Generation::testShortcut(State & state) {
 	if (keyEvents.size() > 0) {
-
+		
+		for (ConsoleKeyEvent k : keyEvents) {
+			if (k.modifier(ConsoleKeyEvent::KeyModifier::LeftAlt)) {
+				if (toupper(k.keyA()) == '1') {
+					Shortcut::getInstance().removeCivilisations();
+				}
+				else if (toupper(k.keyA()) == '2') {
+					Shortcut::getInstance().addCivilisations();
+				}
+				else if (toupper(k.keyA()) == 'P') {
+					Shortcut::getInstance().pause(state);
+				}
+			}
+		}
 	}
 }
 void Generation::processInput()
@@ -51,6 +64,9 @@ void Generation::processInput()
 
 void Generation::render(State state)
 {
+	Area::getInstance().showPoint();
+	Area::getInstance().showCivilisations();
+
 }
 
 Generation::State Generation::update(State & state)
@@ -121,4 +137,15 @@ Generation::State Generation::update(State & state)
 Generation::State Generation::nextState(State & state)
 {
 	return (State) ((int) state + 1);
+}
+
+void Generation::pause(State & state) {
+	if (pausedState == State::pause) {
+		pausedState = state;
+		state = State::pause;
+	}
+	else {
+		state = pausedState;
+		pausedState = State::pause;
+	}
 }

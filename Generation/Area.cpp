@@ -1,5 +1,9 @@
+
+
+
 #include "Area.h"
 #include "Console\ConsoleColor.h"
+#include "Civilisations.h"
 Area::Area():area_m{nullptr}, screenheight_m {SIZEH}, screenwidth_m{SIZEW}
 {
 	ConsoleContext context(screenwidth_m, screenheight_m, "Guess the best place!", 4, 4, L"Consolas");
@@ -13,8 +17,6 @@ Area::~Area()
 
 void Area::generateArea() {
 	area_m = &(Console::getInstance().writer().createImage("area"));
-	area_m->fill(178, ConsoleColor::bK + ConsoleColor::tb);
-	Console::getInstance().writer().push("area");
 }
 
 void Area::generatePoint()
@@ -26,16 +28,24 @@ void Area::generatePoint()
 }
 
 void Area::testArea() {
-	area_m = &(Console::getInstance().writer().createImage("area"));
 	area_m->fill(178, ConsoleColor::bK + ConsoleColor::tr);
 	Console::getInstance().writer().push("area");
 }
 
 void Area::showPoint()
 {
-	
+	area_m->fill(178, ConsoleColor::bk + ConsoleColor::tk);
+
 	for (Point2d p : points_m) {
 		area_m->drawPoint(p.x(), p.y(), 178, ConsoleColor::bb + ConsoleColor::tw);
+	}
+	Console::getInstance().writer().push("area");
+
+}
+
+void Area::showCivilisations() {
+	for (int i = 0; i < Civilisations::getInstance().size();++i) {
+		Civilisations::getInstance().getPopulation(i).draw(*area_m);
 	}
 	Console::getInstance().writer().push("area");
 
@@ -48,5 +58,3 @@ void Area::drawShape(Shape2D** liste, size_t size, ConsoleColor::Text color)
 	}
 	Console::getInstance().writer().push("area");
 }
-
-

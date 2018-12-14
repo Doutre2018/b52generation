@@ -1,3 +1,6 @@
+#ifndef CIVILISATIONS_H
+#define CIVILISATIONS_H
+
 #include "Populations.h"
 #include <vector> 
 #include "Console\Console.h"
@@ -20,11 +23,17 @@ public :
 	
 	void createNewPopulations();
 
+	void removeLastPopulations();
+
 	void nextColor();
+
+	void lastColor();
 
 	Populations getPopulation(int id);
 	std::vector<Populations> getAll();
+	size_t size();
 private:
 
 };
 
+#endif //CIVILISATIONS_H

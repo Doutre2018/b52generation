@@ -2,11 +2,20 @@
 
 
 
-Solution::Solution()
+Solution::Solution(Shape2D* shape)
+	:mShape{ shape }
+{
+}
+
+Solution::~Solution()
 {
 }
 
 
-Solution::~Solution()
+int Solution::fitnessEvaluation()
 {
+	//if()
+
+
+	return 0;
 }
