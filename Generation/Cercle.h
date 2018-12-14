@@ -1,10 +1,23 @@
-#pragma once
+#ifndef CERCLE_H
+#define CERCLE_H
+
 #include "Shape2D.h"
-class Cercle :
-	protected Shape2D
+
+
+
+class Cercle : public Shape2D
 {
 public:
-	Cercle();
+	Cercle(Point2d point, int radius);
 	~Cercle();
+
+private:
+
+	int mX;
+	int mY;
+	int mRadius;
+
+
 };
 
+#endif //CERCLE_H
