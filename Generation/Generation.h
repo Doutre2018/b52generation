@@ -1,6 +1,7 @@
 #ifndef GENERATION_H
 #define GENERATION_H
 #include "Console\Console.h"
+
 class Generation
 {
 private:

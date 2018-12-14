@@ -2,6 +2,9 @@
 #include "Area.h"
 #include "Transactions.h"
 
+#define SHAPE cercle
+• la forme géométrique.
+
 Generation::Generation():reader_m{ nullptr }
 {
 }

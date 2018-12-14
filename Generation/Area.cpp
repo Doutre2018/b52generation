@@ -1,6 +1,6 @@
 #include "Area.h"
 
-Area::Area():area_m{nullptr}, screenheight_m {200}, screenwidth_m{350}
+Area::Area():area_m{nullptr}, screenheight_m {SIZEH}, screenwidth_m{SIZEW}
 {
 	ConsoleContext context(screenwidth_m, screenheight_m, "Guess the best place!", 4, 4, L"Consolas");
 	Console::defineContext(context);
@@ -19,10 +19,16 @@ void Area::generateArea() {
 
 void Area::generatePoint()
 {
-	for (int i = 0; i < nbPts_m; ++i) {
+	for (int i = 0; i < NBOBSTACLES; ++i) {
 		points_m.push_back(Point2d(Random::getInstance().uniformRandomize(0, screenwidth_m), Random::getInstance().uniformRandomize(0, screenheight_m)));
 
 	}
+}
+
+void Area::testArea() {
+	area_m = &(Console::getInstance().writer().createImage("area"));
+	area_m->fill(178, ConsoleColor::bK + ConsoleColor::tr);
+	Console::getInstance().writer().push("area");
 }
 
 void Area::showPoint()
