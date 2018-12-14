@@ -3,6 +3,7 @@
 
 #include "Shape2D.h"
 #include "Point2d.h"
+#include "Polygon2d.h"
 
 
 class Cercle : public Shape2D
@@ -25,6 +26,8 @@ private:
 	int mY;
 	Point2d mPoint;
 	int mRadius;
+
+	Polygon2d mPoly;
 
 };
 #endif //CERCLE_H

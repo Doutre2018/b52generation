@@ -1,3 +1,6 @@
+#ifndef AREA_H
+#define AREA_H
+
 #include "Console\Console.h"
 #include "Point2d.h"
 #include "Random.h"
@@ -7,10 +10,10 @@
 #define SIZEW 350
 #define SIZEH 200
 
-#define NBOBSTACLES 100
-#define SHAPE "cercle"
+#define NBPOPULATION 10
 
-#define NBPOPULATION 100
+#define SHAPE "cercle"
+#define NBOBSTACLES 100
 
 class Area
 {
@@ -22,6 +25,7 @@ public:
 	void generatePoint();
 	void testArea();
 	void showPoint();
+	void showCivilisations();
 	void drawShape(Shape2D ** liste, size_t size, ConsoleColor::Text color);
 	static Area& getInstance()
 	{
@@ -41,8 +45,11 @@ public:
 
 private :
 	ConsoleImage * area_m;
+	ConsoleImage * mBackground;
+
 	std::list<Point2d> points_m;
 	size_t screenheight_m;
 	size_t screenwidth_m;
 };
 
+#endif //AREA_H
