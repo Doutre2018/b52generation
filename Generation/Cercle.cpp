@@ -1,4 +1,5 @@
 #include "Cercle.h"
+#include "Area.h"
 #define PI 3.14159265358979323846
 Cercle::Cercle(Point2d point, int radius)
 	:mPoint{point},
@@ -28,6 +29,12 @@ void Cercle::decodePropreties(int64_t data)
 	mask << 24;
 
 	mX = mask & data;
+}
+
+bool Cercle::pointInShape()
+{
+	
+
 }
 
 int Cercle::calculateArea() {
