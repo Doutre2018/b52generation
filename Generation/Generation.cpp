@@ -21,9 +21,15 @@ void Generation::start()
 	Area::getInstance().generatePoint();
 	Area::getInstance().showPoint();
 
+
 	Generation::getInstance().reader_m = &(Console::getInstance().keyReader());
 	//Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterModifiers());
 	Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterUp());
+
+
+
+
+
 	loop(State::idle);
 }
 

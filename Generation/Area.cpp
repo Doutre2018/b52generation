@@ -61,4 +61,9 @@ std::list<Point2d> Area::points()
 	return points_m;
 }
 
+std::list<Point2d> Area::points()
+{
+	return points_m;
+}
+
 

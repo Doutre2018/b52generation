@@ -30,15 +30,15 @@ void Cercle::decodePropreties(int64_t data)
 	mX = (data >> 8) & mask;
 }
 
+
 bool Cercle::pointInShape()
 {
-
 	for (auto Point2d : Area::getInstance().points())
 	{
 		if (mPoly.contained(Point2d))
 			return true;
 	}
-
+	
 	return false;
 }
 
