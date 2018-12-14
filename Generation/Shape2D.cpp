@@ -1,5 +1,9 @@
 #include "Shape2D.h"
+
 #include "Polygon2d.h"
+
+
+#include "Point2d.h"
 
 
 
@@ -7,10 +11,10 @@ Shape2D::Shape2D()
 {
 }
 
-
 Shape2D::~Shape2D()
 {
 }
+
 
 /*   Temporary off, polygon shape construction pending 
 Point2d Shape2D::centerPoint(Shape2D polygonOrigin) {
@@ -31,3 +35,4 @@ Point2d Shape2D::centerPoint(Shape2D polygonOrigin) {
 
 }
 */
+

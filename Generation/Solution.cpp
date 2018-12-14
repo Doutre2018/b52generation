@@ -1,10 +1,18 @@
 #include "Solution.h"
 
 
-Solution::Solution()
-{
+
+Solution::Solution() {
+
+
 }
 
+
+Solution::Solution(Shape2D* shape)
+	
+
+{
+}
 
 Solution::~Solution()
 {
@@ -79,4 +87,13 @@ bool Solution::collision(Point2d obstacle, Shape2D evaluated_form) {
 
 }
 
+
+
+int Solution::fitnessEvaluation()
+{
+	//if()
+
+
+	return 0;
+}
 

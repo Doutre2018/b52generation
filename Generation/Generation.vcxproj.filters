@@ -96,7 +96,17 @@
     <ClCompile Include="Console\ConsoleWriter.cpp">
       <Filter>Fichiers sources\Console</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Fitness,cpp.cpp">
+=======
+    <ClCompile Include="Reproduction.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Transactions.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Shortcut.cpp">
+>>>>>>> 2bca550d72a14e458bc7d84b614be261011d420d
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -188,7 +198,17 @@
     <ClInclude Include="Console\ConsoleWriter.h">
       <Filter>Fichiers d%27en-tête\Console</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Fitness.h">
+=======
+    <ClInclude Include="Reproduction.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Transactions.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Shortcut.h">
+>>>>>>> 2bca550d72a14e458bc7d84b614be261011d420d
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
