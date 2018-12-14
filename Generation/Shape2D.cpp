@@ -9,3 +9,4 @@ Shape2D::Shape2D()
 Shape2D::~Shape2D()
 {
 }
+

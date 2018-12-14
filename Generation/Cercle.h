@@ -19,6 +19,7 @@ public:
 	int calculateCirconference();
 	int calculateDiameter();
 	void draw(ConsoleImage & image, ConsoleColor::Text color);
+
 private:
 	int mX;
 	int mY;

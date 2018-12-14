@@ -3,10 +3,10 @@
 #include "Transactions.h"
 #include "Civilisations.h"
 #include "Shortcut.h"
+
 Generation::Generation():reader_m{ nullptr }
 {
 }
-
 
 Generation::~Generation()
 {
@@ -18,11 +18,10 @@ void Generation::start()
 	Area::getInstance().generatePoint();
 	Area::getInstance().showPoint();
 	
-	for (int i = 0; i < 12; i++) {
-		Civilisations::getInstance().createNewPopulations();
-	}
+
 
 	Generation::getInstance().reader_m = &(Console::getInstance().keyReader());
+
 
 	loop(State::idle);
 }

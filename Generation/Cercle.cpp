@@ -5,6 +5,8 @@ Cercle::Cercle(Point2d point, int radius)
 	:mPoint{point},
 	mRadius{ radius }
 {
+	mX = mPoint.x();
+	mY = mPoint.y();
 }
 
 Cercle::~Cercle()
@@ -13,29 +15,31 @@ Cercle::~Cercle()
 
 int64_t Cercle::encodePropreties()
 {
-	int64_t mask{ 0b1111'1111'1111'1111 };
+	int64_t mask{ 0b1111'1111 };
 
-	return (mX & mask) << 24 | (mY & mask) << 12 | (mRadius & mask);
+	return ((mX & mask) << 8 | (mY & mask) << 16 | (mRadius & mask));
 }
 
 void Cercle::decodePropreties(int64_t data)
 {
-	int64_t mask{ 0b1111'1111'1111'1111 };
+	int64_t mask{ 0b1111'1111 };
 
 	mRadius = mask & data;
-	mask << 12;
-
-	mY = mask & data;
-	mask << 24;
-
-	mX = mask & data;
+	mY = (data >> 16) & mask;
+	mX = (data >> 8) & mask;
 }
 
 bool Cercle::pointInShape()
 {
-	
+	for (auto Point2d : Area::getInstance().points())
+	{
+		if (Point2d.distance2(mPoint) < mRadius)
+			return true;
+	}
 
+	return false;
 }
+
 
 int Cercle::calculateArea() {
 	int d = calculateDiameter();

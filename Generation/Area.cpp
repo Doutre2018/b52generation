@@ -49,4 +49,9 @@ void Area::drawShape(Shape2D** liste, size_t size, ConsoleColor::Text color)
 	Console::getInstance().writer().push("area");
 }
 
+std::list<Point2d> Area::points()
+{
+	return points_m;
+}
+
 
