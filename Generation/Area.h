@@ -10,7 +10,7 @@
 #define SIZEW 350
 #define SIZEH 200
 
-#define NBPOPULATION 200
+#define NBPOPULATION 10
 
 #define SHAPE "cercle"
 #define NBOBSTACLES 100
@@ -38,6 +38,9 @@ public:
 
 	size_t nbObstacles() { return NBOBSTACLES; }
 	std::string shape() { return SHAPE; }
+
+
+	std::list<Point2d> points();
 
 
 private :

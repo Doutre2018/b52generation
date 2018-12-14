@@ -4,7 +4,6 @@
 Populations::Populations(ConsoleColor::Text color):
 mColor{color}
 {
-
 	for (int i = 0; i < NBPOPULATION; ++i) {
 		int x = Random::getInstance().uniformRandomize(0, SIZEW);
 		int y = Random::getInstance().uniformRandomize(0, SIZEH);
@@ -12,8 +11,6 @@ mColor{color}
 		mListe[i] = new Cercle(Point2d(x, y), radius);
 		
 	}
-
-	Area::getInstance().drawShape(mListe, NBPOPULATION, mColor);
 }
 
 Populations::~Populations()
