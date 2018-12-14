@@ -16,6 +16,10 @@ void Generation::start()
 	Area::getInstance().generateArea();
 	Area::getInstance().generatePoint();
 	Area::getInstance().showPoint();
+	shapeList_t liste;
+
+	liste.push_back(new Cercle(Point2d(30, 30), 10));
+	Area::getInstance().drawShape(liste);
 
 	Generation::getInstance().reader_m = &(Console::getInstance().keyReader());
 
