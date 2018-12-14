@@ -19,6 +19,7 @@ void Generation::start()
 	Area::getInstance().showPoint();
 	shapeList_t liste;
 
+<<<<<<< HEAD
 
 	Cercle cercle(Point2d(10, 10), 100);
 	int64_t data = cercle.encodePropreties();
@@ -28,6 +29,9 @@ void Generation::start()
 	liste.push_back(new Cercle(Point2d(10, 10), 100));
 
 
+=======
+	liste.push_back(new Cercle(Point2d(30, 30), 10));
+>>>>>>> 643d2b9f66fc009d9c9172e90623a38c8af44e91
 	Area::getInstance().drawShape(liste);
 
 

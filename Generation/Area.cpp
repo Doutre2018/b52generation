@@ -35,13 +35,13 @@ void Area::showPoint()
 
 }
 
-void Area::drawCercle(std::list<Cercle> liste) {
-	for (Cercle c  : liste) {
-		c.draw(*area_m);
-	}
-	Console::getInstance().writer().push("area");
-
-}
+//void Area::drawCercle(std::list<Cercle> liste) {
+//	for (Cercle c  : liste) {
+//		c.draw(*area_m);
+//	}
+//	Console::getInstance().writer().push("area");
+//
+//}
 
 void Area::drawShape(shapeList_t liste) {
 	
