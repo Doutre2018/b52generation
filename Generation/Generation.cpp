@@ -1,7 +1,8 @@
 #include "Generation.h"
 #include "Area.h"
 #include "Transactions.h"
-
+#include "Civilisations.h"
+#include "Shortcut.h"
 Generation::Generation():reader_m{ nullptr }
 {
 }
@@ -16,17 +17,10 @@ void Generation::start()
 	Area::getInstance().generateArea();
 	Area::getInstance().generatePoint();
 	Area::getInstance().showPoint();
-	Shape2D *liste[NBPOPULATION];
-
-	for (int i = 0; i < NBPOPULATION; ++i) {
-		int x = Random::getInstance().uniformRandomize(0, SIZEW);
-		int y = Random::getInstance().uniformRandomize(0, SIZEH);
-		size_t radius = Random::getInstance().uniformRandomize(0, SIZEH);
-		liste[i] = new Cercle(Point2d(x, y), radius);
-
+	
+	for (int i = 0; i < 12; i++) {
+		Civilisations::getInstance().createNewPopulations();
 	}
-
-	Area::getInstance().drawShape(liste, NBPOPULATION);
 
 	Generation::getInstance().reader_m = &(Console::getInstance().keyReader());
 
@@ -38,11 +32,17 @@ void Generation::loop(State state) {
 	while (true)
 	{
 		processInput();
+		testShortcut();
 		state = update(state);
 		render(state);
 	}
 }
 
+void Generation::testShortcut() {
+	if (keyEvents.size() > 0) {
+
+	}
+}
 void Generation::processInput()
 {
 	reader_m->read(keyEvents);

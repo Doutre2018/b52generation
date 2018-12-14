@@ -1,5 +1,5 @@
 #include "Area.h"
-
+#include "Console\ConsoleColor.h"
 Area::Area():area_m{nullptr}, screenheight_m {SIZEH}, screenwidth_m{SIZEW}
 {
 	ConsoleContext context(screenwidth_m, screenheight_m, "Guess the best place!", 4, 4, L"Consolas");
@@ -41,20 +41,12 @@ void Area::showPoint()
 
 }
 
-void Area::drawShape(Shape2D** liste, size_t size)
+void Area::drawShape(Shape2D** liste, size_t size, ConsoleColor::Text color)
 {
 	for (int i = 0; i < size; ++i) {
-		liste[i]->draw(*area_m);
+		liste[i]->draw(*area_m, color);
 	}
 	Console::getInstance().writer().push("area");
 }
-
-//void Area::drawCercle(std::list<Cercle> liste) {
-//	for (Cercle c  : liste) {
-//		c.draw(*area_m);
-//	}
-//	Console::getInstance().writer().push("area");
-//
-//}
 
 

@@ -22,7 +22,7 @@ public:
 	void generatePoint();
 	void testArea();
 	void showPoint();
-	void drawShape(Shape2D ** liste, size_t size);
+	void drawShape(Shape2D ** liste, size_t size, ConsoleColor::Text color);
 	static Area& getInstance()
 	{
 		static Area instance;

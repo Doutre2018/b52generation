@@ -28,6 +28,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 			return nextState(state);
 		}
 		else {
+			
 			return state;
 		}
 		break;

@@ -15,7 +15,7 @@ public:
 	~Shape2D();
 	virtual int64_t encodePropreties() = 0;
 	virtual void decodePropreties(int64_t data) = 0;
-	virtual void draw(ConsoleImage & image) = 0;
+	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) = 0;
 	virtual int calculateArea() = 0;
 
 protected:

@@ -18,6 +18,7 @@ public:
 	void start();
 private :
 	void loop(State state);
+	void testShortcut();
 	void processInput();
 	void render(State state);
 	State update(State& state);
