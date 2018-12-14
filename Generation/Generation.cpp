@@ -2,7 +2,7 @@
 #include "Area.h"
 #include "Transactions.h"
 
-Generation::Generation()
+Generation::Generation():reader_m{ nullptr }
 {
 }
 
@@ -16,6 +16,8 @@ void Generation::start()
 	Area::getInstance().generateArea();
 	Area::getInstance().generatePoint();
 	Area::getInstance().showPoint();
+
+	Generation::getInstance().reader_m = &(Console::getInstance().keyReader());
 
 	loop(State::idle);
 }
@@ -32,6 +34,8 @@ void Generation::loop(State state) {
 
 void Generation::processInput()
 {
+	reader_m->read(keyEvents);
+
 }
 
 void Generation::render(State state)
@@ -43,7 +47,7 @@ Generation::State Generation::update(State & state)
 	//idle, generation1, fitness, stop,  elitetransfer, reproduct, substitute
 	switch (state) {
 	case State::idle : 
-		if(Transactions::getInstance().conditionidle()){
+		if(Transactions::getInstance().conditionidle(keyEvents)){
 			return nextState(state);
 		}
 		else {

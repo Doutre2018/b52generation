@@ -18,7 +18,6 @@ private:
 	int mX;
 	int mY;
 	int mRadius;
-	Shape2D shape;
 
 
 };

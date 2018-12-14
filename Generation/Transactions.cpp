@@ -11,8 +11,12 @@ Transactions::~Transactions()
 {
 }
 
-bool Transactions::conditionidle()
+bool Transactions::conditionidle(ConsoleKeyReader::KeyEvents & keyEvents)
 {
+	if (keyEvents.size() > 0) {
+		keyEvents.clear();
+		return true;
+	}
 	return false;
 }
 

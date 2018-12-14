@@ -2,7 +2,7 @@
 
 
 
-Cercle::Cercle(Point2d point, int radius) :shape{ Shape2D(point,radius,radius) },
+Cercle::Cercle(Point2d point, int radius):
 mRadius{ radius }
 {
 	
