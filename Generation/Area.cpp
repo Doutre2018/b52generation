@@ -51,6 +51,7 @@ void Area::showCivilisations() {
 void Area::drawShape(Shape2D** liste, size_t size, ConsoleColor::Text color)
 {
 	for (int i = 0; i < size; ++i) {
+		liste[i]->randomize();
 		liste[i]->draw(*area_m, color);
 	}
 }

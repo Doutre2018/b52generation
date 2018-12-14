@@ -5,10 +5,8 @@ Populations::Populations(ConsoleColor::Text color):
 mColor{color}
 {
 	for (int i = 0; i < NBPOPULATION; ++i) {
-		int x = Random::getInstance().uniformRandomize(0, SIZEW);
-		int y = Random::getInstance().uniformRandomize(0, SIZEH);
-		size_t radius = Random::getInstance().uniformRandomize(0, SIZEH);
-		mListe[i] = new Cercle(Point2d(x, y), radius);
+		mListe[i] = new Cercle();
+		mListe[i]->randomize();
 		
 	}
 }
