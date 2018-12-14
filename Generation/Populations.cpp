@@ -4,11 +4,28 @@
 Populations::Populations(ConsoleColor::Text color):
 mColor{color}
 {
-	for (int i = 0; i < NBPOPULATION; ++i) {
-		mListe[i] = new Cercle();
-		mListe[i]->randomize();
-		
+	if (Area::getInstance().shape_g == "cercle") {
+		for (int i = 0; i < NBPOPULATION; ++i) {
+			mListe[i] = new Cercle();
+			mListe[i]->randomize();
+
+		}
 	}
+	else if (Area::getInstance().shape_g == "triangle") {
+		for (int i = 0; i < NBPOPULATION; ++i) {
+			//mListe[i] = new Triangle();
+			//mListe[i]->randomize();
+
+		}
+	}
+	else {
+		for (int i = 0; i < NBPOPULATION; ++i) {
+			//mListe[i] = new Rectangle();
+			//mListe[i]->randomize();
+
+		}
+	}
+	
 }
 
 Populations::~Populations()

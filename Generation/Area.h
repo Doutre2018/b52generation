@@ -21,6 +21,7 @@ private:
 	Area();
 	~Area();
 public:
+	static std::string shape_g;
 	void generateArea();
 	void generatePoint();
 	void testArea();
@@ -38,7 +39,7 @@ public:
 	size_t sizeH() { return SIZEH; }
 
 	size_t nbObstacles() { return NBOBSTACLES; }
-	std::string shape() { return SHAPE; }
+	std::string shape() { return shape_g; }
 
 
 	std::list<Point2d> points();
