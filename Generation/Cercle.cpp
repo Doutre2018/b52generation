@@ -17,36 +17,21 @@ Cercle::~Cercle()
 
 int64_t Cercle::encodePropreties()
 {
-	int64_t mask{ 0b1111'1111'1111'1111 };
+	int64_t mask{ 0b1111'1111 };
 
-
-	int xEncode = mX & mask;
-	int yEncode = mY & mask;
-	int radiusEncode = mRadius & mask;
-
-	int64_t data{ 0 };
-
-	data = data | xEncode;
-	data = data << 9;
-	data = data | yEncode;
-	data = data << 18;
-	data = data | radiusEncode;
-
-
-	return data;
+	return ((mX & mask) << 8 | (mY & mask) << 16 | (mRadius & mask));
 }
 
 
 
 void Cercle::decodePropreties(int64_t data)
 {
-	int64_t mask{ 0 };
+	int64_t mask{ 0b1111'1111 };
 
 	mRadius = mask & data;
-	mask = mask >> 12;
-	mY = mask & data;
-	mask = mask >> 24;
-	mX = mask & data;
+	mY = (data >> 16) & mask;
+	mX = (data >> 8) & mask;
+	
 }
 
 int Cercle::calculateArea() {
