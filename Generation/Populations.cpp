@@ -1,5 +1,6 @@
 #include "Populations.h"
-
+#include "Civilisations.h"
+#include "Civilisations.h"
 
 Populations::Populations(ConsoleColor::Text color):
 mColor{color}
@@ -19,4 +20,9 @@ Populations::~Populations()
 
 void Populations::draw(ConsoleImage & image) {
 	Area::getInstance().drawShape(mListe, NBPOPULATION, mColor);
+}
+
+Shape2D* Populations::getShape(int index)
+{
+	return mListe[index];;
 }

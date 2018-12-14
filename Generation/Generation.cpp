@@ -6,6 +6,7 @@
 #include "Shortcut.h"
 #include "Console\ConsoleKeyFilterModifiers.h"
 #include "Console\ConsoleKeyFilterUp.h"
+#include "Reproduction.h"
 
 Generation::Generation():reader_m{ nullptr }, Mstep_by_step{false}
 {
@@ -30,7 +31,7 @@ void Generation::start()
 
 
 
-	loop(State::idle);
+	loop(State::reproduct);
 }
 
 void Generation::loop(State state) {
@@ -143,6 +144,7 @@ Generation::State Generation::update(State & state)
 			return nextState(state);
 		}
 		else {
+			Reproduction::getInstance().createChild(&Reproduction::StateRep::select);
 			return state;
 		}
 		break;

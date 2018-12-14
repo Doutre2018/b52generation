@@ -1,6 +1,9 @@
 #include "Reproduction.h"
 #include "Transactions.h"
 #include "Random.h"
+#include "Populations.h"
+#include "Civilisations.h"
+
 Reproduction::Reproduction()
 	:mParent1{0},
 	mParent2{0},
@@ -27,8 +30,10 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 			int randomParentIndex1 = Random::getInstance().uniformRandomize(1, 23); //23est un nombre bidon pour le nombre de forme que nous allons avoir setter
 			int randomParentIndex2 = Random::getInstance().uniformRandomize(1, 23); //23est un nombre bidon pour le nombre de forme que nous allons avoir setter
 
-			//parent1= ArrayForme[randomParentIndex1] ;
-			//parent1= ArrayForme[randomParentIndex1] ;
+			
+			//Shape2D *parent1= 
+			mParent1=Civilisations::getInstance().getPopulation(1).getShape(randomParentIndex1)->encodePropreties();
+			mParent1 = Civilisations::getInstance().getPopulation(1).getShape(randomParentIndex2)->encodePropreties();
 			return state;
 		}
 		break;
