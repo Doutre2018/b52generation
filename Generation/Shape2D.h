@@ -25,7 +25,6 @@ protected:
 	int mHeight;
 	int mWidth;
 	Point2d	mPoint;
-
 };
 
 #endif //SHAPE2D_H

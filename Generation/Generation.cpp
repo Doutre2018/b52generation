@@ -16,10 +16,17 @@ void Generation::start()
 	Area::getInstance().generateArea();
 	Area::getInstance().generatePoint();
 	Area::getInstance().showPoint();
-	shapeList_t liste;
+	Shape2D *liste[NBPOPULATION];
 
-	liste.push_back(new Cercle(Point2d(30, 30), 10));
-	Area::getInstance().drawShape(liste);
+	for (int i = 0; i < NBPOPULATION; ++i) {
+		int x = Random::getInstance().uniformRandomize(0, SIZEW);
+		int y = Random::getInstance().uniformRandomize(0, SIZEH);
+		size_t radius = Random::getInstance().uniformRandomize(0, SIZEH);
+		liste[i] = new Cercle(Point2d(x, y), radius);
+
+	}
+
+	Area::getInstance().drawShape(liste, NBPOPULATION);
 
 	Generation::getInstance().reader_m = &(Console::getInstance().keyReader());
 

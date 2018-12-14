@@ -10,7 +10,7 @@
 #define NBOBSTACLES 100
 #define SHAPE "cercle"
 
-typedef std::list<Shape2D*> shapeList_t;
+#define NBPOPULATION 100
 
 class Area
 {
@@ -22,7 +22,7 @@ public:
 	void generatePoint();
 	void testArea();
 	void showPoint();
-	void drawShape(shapeList_t liste);
+	void drawShape(Shape2D ** liste, size_t size);
 	static Area& getInstance()
 	{
 		static Area instance;

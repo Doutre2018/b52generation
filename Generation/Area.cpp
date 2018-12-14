@@ -41,6 +41,14 @@ void Area::showPoint()
 
 }
 
+void Area::drawShape(Shape2D** liste, size_t size)
+{
+	for (int i = 0; i < size; ++i) {
+		liste[i]->draw(*area_m);
+	}
+	Console::getInstance().writer().push("area");
+}
+
 //void Area::drawCercle(std::list<Cercle> liste) {
 //	for (Cercle c  : liste) {
 //		c.draw(*area_m);
@@ -48,19 +56,5 @@ void Area::showPoint()
 //	Console::getInstance().writer().push("area");
 //
 //}
-
-void Area::drawShape(shapeList_t liste) {
-	
-	for (shapeList_t::const_iterator iteration = liste.begin(),
-		endIteration = liste.end();
-		iteration != endIteration;
-		++iteration)
-	{
-		Shape2D *shape = *iteration;
-		shape->draw(*area_m);
-	}
-	
-	Console::getInstance().writer().push("area");
-}
 
 
