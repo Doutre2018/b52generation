@@ -6,7 +6,7 @@
 #include "Shortcut.h"
 #include "Console\ConsoleKeyFilterModifiers.h"
 #include "Console\ConsoleKeyFilterUp.h"
-Generation::Generation():reader_m{ nullptr }
+Generation::Generation():reader_m{ nullptr }, Mstep_by_step{false}
 {
 }
 
@@ -31,9 +31,15 @@ void Generation::loop(State state) {
 
 	while (true)
 	{
+
 		processInput();
 		testShortcut(state);
-		state = update(state);
+		if (Mstep_by_step) {
+			state = update(state);
+		}
+		else {
+			state = update(state);
+		}
 		render(state);
 	}
 }
