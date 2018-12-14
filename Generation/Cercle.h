@@ -12,14 +12,15 @@ public:
 	Cercle(Point2d point, int radius);
 	~Cercle();
 
-	int calculateArea();
+	virtual int calculateArea() override;
 	virtual int64_t encodePropreties() override;
 	virtual void decodePropreties(int64_t data) override;
 	virtual bool pointInShape() override;
+	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) override;
 
 	int calculateCirconference();
 	int calculateDiameter();
-	void draw(ConsoleImage & image, ConsoleColor::Text color);
+	
 
 private:
 	int mX;

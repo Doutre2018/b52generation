@@ -33,6 +33,7 @@ public:
 		return instance;
 	}
 
+
 	size_t sizeW() { return SIZEW; }
 	size_t sizeH() { return SIZEH; }
 
@@ -41,6 +42,7 @@ public:
 
 
 	std::list<Point2d> points();
+
 
 
 private :
