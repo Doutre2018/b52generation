@@ -21,3 +21,17 @@ int64_t Cercle::encodePropreties()
 
 	return (mX & mask) << 12 | (mY & mask) << 12 | (mRadius & mask);
 }
+
+int Cercle::calculateArea() {
+	int d = calculateDiameter();
+	return (M_PI*(d*d)) / 4;
+}
+
+
+int Cercle::calculateCirconference() {
+	return 2 * M_PI * radius;
+}
+
+int Cercle::calculateDiameter() {
+	return 2 * radius;
+}

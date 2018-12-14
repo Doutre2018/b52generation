@@ -1,8 +1,9 @@
+
 #ifndef SHAPE2D_H
 #define SHAPE2D_H
 
 #include <stdint.h>
-
+#include <cmath>
 
 class Shape2D
 {
