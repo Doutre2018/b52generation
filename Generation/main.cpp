@@ -9,9 +9,6 @@ int main()
 {
 	Generation::getInstance().start();
 
-	Cercle cercle{Point2d::Point2d(24,25), 26};
-	cercle.
-
 
 	return 0;
 }

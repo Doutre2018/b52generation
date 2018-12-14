@@ -5,6 +5,9 @@ Cercle::Cercle(Point2d point, int radius)
 	mRadius{ radius },
 	Shape2D(point, radius, radius)
 {
+	mX = mPoint.x();
+	mY = mPoint.y();
+
 }
 
 
@@ -16,19 +19,33 @@ int64_t Cercle::encodePropreties()
 {
 	int64_t mask{ 0b1111'1111'1111'1111 };
 
-	return (mX & mask) << 24 | (mY & mask) << 12 | (mRadius & mask);
+
+	int xEncode = mX & mask;
+	int yEncode = mY & mask;
+	int radiusEncode = mRadius & mask;
+
+	int64_t data{ 0 };
+
+	data = data | xEncode;
+	data = data << 9;
+	data = data | yEncode;
+	data = data << 18;
+	data = data | radiusEncode;
+
+
+	return data;
 }
+
+
 
 void Cercle::decodePropreties(int64_t data)
 {
-	int64_t mask{ 0b1111'1111'1111'1111 };
+	int64_t mask{ 0 };
 
 	mRadius = mask & data;
-	mask << 12;
-
+	mask = mask >> 12;
 	mY = mask & data;
-	mask << 24;
-
+	mask = mask >> 24;
 	mX = mask & data;
 }
 
