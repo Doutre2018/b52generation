@@ -1,11 +1,15 @@
 #ifndef REPRODUCTION_H
 #define REPRODUCTION_H
+#include <stdint.h>
+
 class Reproduction
 {
 private:
 	Reproduction();
 	~Reproduction();
-	int64_t parent1, parent2, binaireEnfant;
+	int64_t mParent1;
+	int64_t mParent2;
+	int64_t mEnfant;
 	int percentageMutate;
 public:
 	static Reproduction& getInstance()

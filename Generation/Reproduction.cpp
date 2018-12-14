@@ -2,6 +2,9 @@
 #include "Transactions.h"
 #include "Random.h"
 Reproduction::Reproduction()
+	:mParent1{0},
+	mParent2{0},
+	mEnfant{0}
 {
 }
 
@@ -39,7 +42,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 			int indexSplit = Random::getInstance().uniformRandomize(1, 36);
 			int mask{ (int)pow(2,indexSplit) - 1 };
 			//Je realise l'enfant
-			binaireEnfant = parent1 & mask | parent2 & ~mask;
+			mEnfant = mParent1 & mask | mParent2 & ~mask;
 
 			return state;
 		}
