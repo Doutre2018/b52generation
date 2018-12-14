@@ -6,8 +6,6 @@ Cercle::Cercle(Point2d point, int radius)
 	:mPoint{point},
 	mRadius{ radius }
 {
-	mX = point.x ;
-	mY = point.y;
 }
 
 

@@ -84,7 +84,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SimpleGeometryUtilitiesd_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -115,8 +120,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Area.cpp" />
     <ClCompile Include="Cercle.cpp" />
     <ClCompile Include="Civilisations.cpp" />
+    <ClCompile Include="Console\Console.cpp" />
+    <ClCompile Include="Console\ConsoleColor.cpp" />
+    <ClCompile Include="Console\ConsoleContext.cpp" />
+    <ClCompile Include="Console\ConsoleImage.cpp" />
+    <ClCompile Include="Console\ConsoleKeyEvent.cpp" />
+    <ClCompile Include="Console\ConsoleKeyFilterDown.cpp" />
+    <ClCompile Include="Console\ConsoleKeyFilterModifiers.cpp" />
+    <ClCompile Include="Console\ConsoleKeyFilterUp.cpp" />
+    <ClCompile Include="Console\ConsoleKeyReader.cpp" />
+    <ClCompile Include="Console\ConsolePixel.cpp" />
+    <ClCompile Include="Console\ConsoleWriter.cpp" />
     <ClCompile Include="Generation.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="main.cpp" />
@@ -130,18 +147,34 @@
     <ClCompile Include="Transformation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Area.h" />
     <ClInclude Include="Cercle.h" />
     <ClInclude Include="Civilisations.h" />
+    <ClInclude Include="Console\Console.h" />
+    <ClInclude Include="Console\ConsoleColor.h" />
+    <ClInclude Include="Console\ConsoleContext.h" />
+    <ClInclude Include="Console\ConsoleImage.h" />
+    <ClInclude Include="Console\ConsoleKeyEvent.h" />
+    <ClInclude Include="Console\ConsoleKeyFilter.h" />
+    <ClInclude Include="Console\ConsoleKeyFilterAny.h" />
+    <ClInclude Include="Console\ConsoleKeyFilterDown.h" />
+    <ClInclude Include="Console\ConsoleKeyFilterModifiers.h" />
+    <ClInclude Include="Console\ConsoleKeyFilterUp.h" />
+    <ClInclude Include="Console\ConsoleKeyReader.h" />
+    <ClInclude Include="Console\ConsolePixel.h" />
+    <ClInclude Include="Console\ConsoleWriter.h" />
     <ClInclude Include="Generation.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Point2d.h" />
+    <ClInclude Include="Polygon2d.h" />
     <ClInclude Include="Population.h" />
     <ClInclude Include="Populations.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Shape2D.h" />
     <ClInclude Include="Size.h" />
     <ClInclude Include="Solution.h" />
+    <ClInclude Include="Transform2d.h" />
     <ClInclude Include="Transformation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

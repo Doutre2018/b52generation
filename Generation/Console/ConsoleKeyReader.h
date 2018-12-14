@@ -5,6 +5,7 @@
 #include "ConsoleKeyFilter.h"
 #include <list>
 
+#include <memory>
 
 class Console;
 
