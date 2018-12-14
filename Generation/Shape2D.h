@@ -27,8 +27,6 @@ protected:
 	int mWidth;
 	Point2d	mPoint;
 
-
-	virtual void draw(ConsoleImage & image) = 0;
 };
 
 #endif //SHAPE2D_H
