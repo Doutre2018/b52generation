@@ -40,6 +40,9 @@ public:
 	std::string shape() { return SHAPE; }
 
 
+	std::list<Point2d> points();
+
+
 private :
 	ConsoleImage * area_m;
 	ConsoleImage * mBackground;
