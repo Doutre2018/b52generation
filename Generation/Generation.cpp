@@ -35,7 +35,7 @@ void Generation::loop(State state) {
 		processInput();
 		testShortcut(state);
 		if (Mstep_by_step) {
-			state = update(state);
+			state = updateSbS(state);
 		}
 		else {
 			state = update(state);
@@ -58,6 +58,15 @@ void Generation::testShortcut(State & state) {
 				else if (toupper(k.keyA()) == 'P') {
 					Shortcut::getInstance().pause(state);
 				}
+				else if (toupper(k.keyA()) == 'S') {
+					if (Mstep_by_step) {
+						Mstep_by_step = false;
+					}
+					else {
+						Mstep_by_step = true;
+					}
+				}
+				
 			}
 		}
 	}
@@ -133,6 +142,72 @@ Generation::State Generation::update(State & state)
 		break;
 	case State::substitute:
 		if (Transactions::getInstance().conditionsubstitute()) {
+			return State::fitness;
+		}
+		else {
+			return state;
+		}
+		break;
+	}
+}
+
+
+Generation::State Generation::updateSbS(State & state)
+{
+	//idle, generation1, fitness, stop,  elitetransfer, reproduct, substitute
+	switch (state) {
+	case State::idle:
+		if (Transactions::getInstance().conditionidle(keyEvents) && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
+			return nextState(state);
+		}
+		else {
+			return state;
+		}
+		break;
+	case State::generation1:
+		if (Transactions::getInstance().conditiongen1() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
+			return nextState(state);
+		}
+		else {
+			return state;
+		}
+		break;
+	case State::fitness:
+		if (Transactions::getInstance().conditionfitness() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
+			return nextState(state);
+		}
+		else {
+			return state;
+		}
+		break;
+	case State::stop:
+		if (Transactions::getInstance().conditionstop() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
+			//si les conditions sont vrais, arrêter.
+			return state;
+		}
+		else {
+			//si les conditions sont fausses pour stop, continuer
+			return nextState(state);
+		}
+		break;
+	case State::elitetransfer:
+		if (Transactions::getInstance().conditionelitetransfer() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
+			return nextState(state);
+		}
+		else {
+			return state;
+		}
+		break;
+	case State::reproduct:
+		if (Transactions::getInstance().conditionreproduct() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
+			return nextState(state);
+		}
+		else {
+			return state;
+		}
+		break;
+	case State::substitute:
+		if (Transactions::getInstance().conditionsubstitute() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
 			return State::fitness;
 		}
 		else {
