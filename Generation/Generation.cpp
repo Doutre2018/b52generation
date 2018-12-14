@@ -19,7 +19,7 @@ void Generation::start()
 	Area::getInstance().showPoint();
 	shapeList_t liste;
 
-	liste.push_back(new Cercle(Point2d(10, 10), 100));
+	liste.push_back(new Cercle(Point2d(30, 30), 10));
 	Area::getInstance().drawShape(liste);
 
 	loop(State::idle);
