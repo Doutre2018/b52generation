@@ -45,7 +45,7 @@ Reproduction::StateRep Reproduction::nextState(StateRep & state) {
 	return (StateRep)((int)state + 1);
 }
 
-Reproduction::StateRep Reproduction::getState()
+Reproduction::StateRep & Reproduction::getState()
 {
 	return state;
 }

@@ -166,7 +166,7 @@ Generation::State Generation::update(State & state)
 			return nextState(state);
 		}
 		else {
-			Reproduction::getInstance().createChild(Reproduction::StateRep::select);
+			Reproduction::getInstance().createChild(Reproduction::getInstance().getState());
 			return state;
 		}
 		break;

@@ -17,7 +17,7 @@ public:
 	StateRep createChild(StateRep & state);
 	StateRep nextState(StateRep & state);
 
-	StateRep getState();
+	StateRep & getState();
 };
 
 #endif //REPRODUCTION_H
