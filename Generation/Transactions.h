@@ -1,5 +1,7 @@
 #ifndef TRANSACTIONS_H
 #define TRANSACTIONS_H
+
+#include "Console\Console.h"
 class Transactions
 {
 private:
@@ -11,8 +13,7 @@ public :
 		static Transactions instance;
 		return instance;
 	}
-
-	bool conditionidle();
+	bool conditionidle(ConsoleKeyReader::KeyEvents & keyEvents);
 	bool conditiongen1();
 	bool conditionfitness();
 	bool conditionstop();

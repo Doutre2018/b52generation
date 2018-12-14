@@ -144,6 +144,7 @@
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Reproduction.cpp" />
     <ClCompile Include="Shape2D.cpp" />
+    <ClCompile Include="Shortcut.cpp" />
     <ClCompile Include="Size.cpp" />
     <ClCompile Include="Solution.cpp" />
     <ClCompile Include="Transactions.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Random.h" />
     <ClInclude Include="Reproduction.h" />
     <ClInclude Include="Shape2D.h" />
+    <ClInclude Include="Shortcut.h" />
     <ClInclude Include="Size.h" />
     <ClInclude Include="Solution.h" />
     <ClInclude Include="Transactions.h" />

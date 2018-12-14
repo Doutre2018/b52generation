@@ -1,8 +1,9 @@
 #include "Generation.h"
 #include "Area.h"
 #include "Transactions.h"
-
-Generation::Generation()
+#include "Civilisations.h"
+#include "Shortcut.h"
+Generation::Generation():reader_m{ nullptr }
 {
 }
 
@@ -16,6 +17,12 @@ void Generation::start()
 	Area::getInstance().generateArea();
 	Area::getInstance().generatePoint();
 	Area::getInstance().showPoint();
+	
+	for (int i = 0; i < 12; i++) {
+		Civilisations::getInstance().createNewPopulations();
+	}
+
+	Generation::getInstance().reader_m = &(Console::getInstance().keyReader());
 
 	loop(State::idle);
 }
@@ -25,13 +32,21 @@ void Generation::loop(State state) {
 	while (true)
 	{
 		processInput();
+		testShortcut();
 		state = update(state);
 		render(state);
 	}
 }
 
+void Generation::testShortcut() {
+	if (keyEvents.size() > 0) {
+
+	}
+}
 void Generation::processInput()
 {
+	reader_m->read(keyEvents);
+
 }
 
 void Generation::render(State state)
@@ -43,7 +58,7 @@ Generation::State Generation::update(State & state)
 	//idle, generation1, fitness, stop,  elitetransfer, reproduct, substitute
 	switch (state) {
 	case State::idle : 
-		if(Transactions::getInstance().conditionidle()){
+		if(Transactions::getInstance().conditionidle(keyEvents)){
 			return nextState(state);
 		}
 		else {

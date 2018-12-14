@@ -20,14 +20,12 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 			return nextState(state);
 		}
 		else {
-
 			//Je choisie mes 2 prant dans le vecteur de forme je dois en choisir random 2
 			int randomParentIndex1 = Random::getInstance().uniformRandomize(1, 23); //23est un nombre bidon pour le nombre de forme que nous allons avoir setter
 			int randomParentIndex2 = Random::getInstance().uniformRandomize(1, 23); //23est un nombre bidon pour le nombre de forme que nous allons avoir setter
 
 			//parent1= ArrayForme[randomParentIndex1] ;
 			//parent1= ArrayForme[randomParentIndex1] ;
-
 			return state;
 		}
 		break;
