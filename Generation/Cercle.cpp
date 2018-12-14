@@ -2,10 +2,10 @@
 
 
 
-Cercle::Cercle(Point2d point, int radius)
+Cercle::Cercle(Point2d point, int radius) :shape{ Shape2D(point,radius,radius) },
+mRadius{ radius }
 {
-	:Shape2D(point),
-	mRadius{Shape2d}
+	
 }
 
 
