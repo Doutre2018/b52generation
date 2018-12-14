@@ -14,6 +14,7 @@ public:
 	int calculateArea();
 	virtual int64_t encodePropreties() override;
 	virtual void decodePropreties(int64_t data) override;
+	virtual bool pointInShape() override;
 
 	int calculateCirconference();
 	int calculateDiameter();

@@ -17,6 +17,7 @@ public:
 	virtual void decodePropreties(int64_t data) = 0;
 	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) = 0;
 	virtual int calculateArea() = 0;
+	virtual bool pointInShape() = 0;
 
 protected:
 
