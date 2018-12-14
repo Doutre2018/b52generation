@@ -19,5 +19,5 @@ int64_t Cercle::encodePropreties()
 	
 	int mask{ 0b1111'1111'1111'1111 };
 
-	
+	return (mX & mask) << 12 | (mY & mask) << 12 | (mRadius & mask);
 }
