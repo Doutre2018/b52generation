@@ -66,6 +66,8 @@ void Generation::render(State state)
 {
 	Area::getInstance().showPoint();
 	Area::getInstance().showCivilisations();
+	Console::getInstance().writer().push("area");
+
 
 }
 

@@ -34,7 +34,7 @@ void Cercle::decodePropreties(int64_t data)
 bool Cercle::pointInShape()
 {
 	
-
+	return false;
 }
 
 int Cercle::calculateArea() {

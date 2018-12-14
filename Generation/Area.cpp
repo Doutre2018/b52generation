@@ -39,15 +39,12 @@ void Area::showPoint()
 	for (Point2d p : points_m) {
 		area_m->drawPoint(p.x(), p.y(), 178, ConsoleColor::bb + ConsoleColor::tw);
 	}
-	Console::getInstance().writer().push("area");
-
 }
 
 void Area::showCivilisations() {
 	for (int i = 0; i < Civilisations::getInstance().size();++i) {
 		Civilisations::getInstance().getPopulation(i).draw(*area_m);
 	}
-	Console::getInstance().writer().push("area");
 
 }
 
@@ -56,5 +53,4 @@ void Area::drawShape(Shape2D** liste, size_t size, ConsoleColor::Text color)
 	for (int i = 0; i < size; ++i) {
 		liste[i]->draw(*area_m, color);
 	}
-	Console::getInstance().writer().push("area");
 }
