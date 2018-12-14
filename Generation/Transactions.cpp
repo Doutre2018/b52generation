@@ -64,3 +64,14 @@ bool Transactions::conditionmutate()
 {
 	return false;
 }
+
+bool Transactions::conditionstepbystepKey(ConsoleKeyReader::KeyEvents & keyEvents) {
+	if (keyEvents.size() > 0) {
+		for (ConsoleKeyEvent k : keyEvents) {
+			if (toupper(k.keyV()) == VK_UP) {
+				return true;
+			}
+		}
+	}
+	return false;
+}

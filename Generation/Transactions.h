@@ -25,5 +25,7 @@ public :
 	bool conditiongeneratechild();
 	bool conditionmutate();
 
+	bool conditionstepbystepKey(ConsoleKeyReader::KeyEvents & keyEvents);
+	
 };
 #endif //TRANSACTIONS_H
