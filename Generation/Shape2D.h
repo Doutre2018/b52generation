@@ -14,6 +14,7 @@ public:
 
 protected:
 	virtual int64_t encodePropreties() = 0;
+	virtual void decodePropreties(int64_t data) = 0;
 
 	int mX;
 	int mY;

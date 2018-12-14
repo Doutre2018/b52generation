@@ -19,8 +19,10 @@ private:
 
 
 	virtual int64_t encodePropreties() override;
+	virtual void decodePropreties(int64_t data) override;
 	int calculateArea();
 	int calculateCirconference();
 	int calculateDiameter();
 };
 #endif //CERCLE_H
+
