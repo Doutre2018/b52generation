@@ -33,7 +33,6 @@ void Cercle::decodePropreties(int64_t data)
 
 bool Cercle::pointInShape()
 {
-	
 
 }
 

@@ -56,6 +56,18 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 
 			if (int a = Random::getInstance().uniformRandomize(1, 100) <= percentageMutate)
 			{
+				//nombre de bit a changer
+				int nbBitChange{ 1 };
+				//Position aléatoire
+				for (int i = 0; i < nbBitChange; ++i)
+				{
+					int indexAléatoire = Random::getInstance().uniformRandomize(1, 36);
+					int maskMutate = 1;
+					maskMutate <<= indexAléatoire - 1;
+					mEnfant = mEnfant ^ maskMutate;
+
+
+				}
 				
 			}
 
