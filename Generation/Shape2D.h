@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 #include "Point2d.h"
+#include "Console\Console.h"
+
 #define _USE_MATH_DEFINES
 #include <cmath>
 
@@ -11,9 +13,10 @@ class Shape2D
 public:
 	Shape2D(Point2d point, int height, int width);
 	~Shape2D();
-
-protected:
 	virtual int64_t encodePropreties() = 0;
+	virtual void draw(ConsoleImage & image) = 0;
+protected:
+	
 
 	int mX;
 	int mY;

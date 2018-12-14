@@ -1,11 +1,10 @@
 #include "Cercle.h"
-
+#define PI 3.14159265358979323846
 Cercle::Cercle(Point2d point, int radius)
 	:mPoint{point},
 	mRadius{ radius },
 	Shape2D(point, radius, radius)
 {
-	
 }
 
 
@@ -23,14 +22,18 @@ int64_t Cercle::encodePropreties()
 
 int Cercle::calculateArea() {
 	int d = calculateDiameter();
-	return (M_PI*(d*d)) / 4;
+	return (PI*(d*d)) / 4;
 }
 
 
 int Cercle::calculateCirconference() {
-	return 2 * M_PI * mRadius;
+	return 2 * PI * mRadius;
 }
 
 int Cercle::calculateDiameter() {
 	return 2 * mRadius;
+}
+
+void Cercle::draw(ConsoleImage & image) {
+	image.drawCircle(mPoint.x(), mPoint.y(), mRadius, 178, ConsoleColor::bb + ConsoleColor::tg);
 }
