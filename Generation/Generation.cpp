@@ -2,6 +2,7 @@
 #include "Area.h"
 #include "Transactions.h"
 
+
 Generation::Generation()
 {
 }
@@ -16,6 +17,10 @@ void Generation::start()
 	Area::getInstance().generateArea();
 	Area::getInstance().generatePoint();
 	Area::getInstance().showPoint();
+	shapeList_t liste;
+
+	liste.push_back(new Cercle(Point2d(10, 10), 100));
+	Area::getInstance().drawShape(liste);
 
 	loop(State::idle);
 }

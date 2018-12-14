@@ -1,5 +1,11 @@
 #include "Console\Console.h"
 #include "Point2d.h"
+#include "Random.h"
+#include "Shape2D.h"
+#include "Cercle.h"
+
+typedef std::list<Shape2D*> shapeList_t;
+
 class Area
 {
 private:
@@ -9,6 +15,8 @@ public:
 	void generateArea();
 	void generatePoint();
 	void showPoint();
+	void drawCercle(std::list<Cercle> liste);
+	void drawShape(shapeList_t liste);
 	static Area& getInstance()
 	{
 		static Area instance;
