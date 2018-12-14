@@ -96,6 +96,9 @@
     <ClCompile Include="Console\ConsoleWriter.cpp">
       <Filter>Fichiers sources\Console</Filter>
     </ClCompile>
+    <ClCompile Include="Fitness,cpp.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Generation.h">
@@ -184,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="Console\ConsoleWriter.h">
       <Filter>Fichiers d%27en-tête\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Fitness.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
