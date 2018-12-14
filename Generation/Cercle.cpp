@@ -7,9 +7,7 @@ Cercle::Cercle(Point2d point, int radius)
 {
 	mX = mPoint.x();
 	mY = mPoint.y();
-
 }
-
 
 Cercle::~Cercle()
 {
@@ -21,8 +19,6 @@ int64_t Cercle::encodePropreties()
 
 	return ((mX & mask) << 8 | (mY & mask) << 16 | (mRadius & mask));
 }
-
-
 
 void Cercle::decodePropreties(int64_t data)
 {
