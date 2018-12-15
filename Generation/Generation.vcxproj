@@ -135,7 +135,7 @@
     <ClCompile Include="Console\ConsoleKeyReader.cpp" />
     <ClCompile Include="Console\ConsolePixel.cpp" />
     <ClCompile Include="Console\ConsoleWriter.cpp" />
-    <ClCompile Include="Fitness,cpp.cpp" />
+    <ClCompile Include="Fitness.cpp" />
     <ClCompile Include="Generation.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="main.cpp" />

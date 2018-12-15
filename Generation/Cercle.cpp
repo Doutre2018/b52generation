@@ -59,3 +59,8 @@ int Cercle::calculateDiameter() {
 void Cercle::draw(ConsoleImage & image, ConsoleColor::Text color) {
 	image.drawCircle(mPoint.x(), mPoint.y(), mRadius, 178, ConsoleColor::bb + color);
 }
+
+void setSolution(double value) {
+
+	this.solution = value;
+}

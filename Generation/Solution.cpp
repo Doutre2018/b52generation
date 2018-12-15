@@ -10,14 +10,20 @@ Solution::Solution() {
 
 Solution::Solution(Shape2D* shape)
 	
-
 {
+
+
 }
 
 Solution::~Solution()
 {
 }
 
+void evalSolutionValue(Shape2D & evaluated_form) {
+
+	evaluated_form.solution = evaluated_form.mArea * 1; //Solution::scalability(evaluated_form); SCALABILITY needs further work hence placeholder neutral value 1
+
+}
 
 double Solution::MaxScalingPotential(Shape2D evaluated_form) {
 	

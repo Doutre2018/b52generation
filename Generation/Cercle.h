@@ -17,7 +17,7 @@ public:
 	virtual void decodePropreties(int64_t data) override;
 	virtual bool pointInShape() override;
 	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) override;
-
+	void setSolution(double value);
 	int calculateCirconference();
 	int calculateDiameter();
 	
@@ -27,6 +27,7 @@ private:
 	int mY;
 	Point2d mPoint;
 	int mRadius;
+	double solution;
 
 	Polygon2d mPoly;
 

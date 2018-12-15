@@ -1,4 +1,3 @@
-
 #pragma once
 #include <vector>
 #ifndef SHAPE2D_H
@@ -7,6 +6,7 @@
 #include <stdint.h>
 #include "Point2d.h"
 #include "Console\Console.h"
+#include <string>
 
 #define _USE_MATH_DEFINES
 #include <cmath>
@@ -18,21 +18,26 @@ public:
 	Shape2D();
 	~Shape2D();
 
-	Point2d centerPoint(Shape2D polygon);
 
+	//virtual Point2d centerPoint();                code temporaire ds cpp en comment - under construction
 	virtual int64_t encodePropreties() = 0;
 	virtual void decodePropreties(int64_t data) = 0;
 
 	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) = 0;
 	virtual int calculateArea() = 0;
 	virtual bool pointInShape() = 0;
+	
 
 protected:
 	double mX;
 	double mY;
 	int mHeight;
 	int mWidth;
-	Point2d	mPoint;
+	Point2d	mCloseCollider;
+	double mArea;
+	double solution;
+	double fitness;
+	std::string type = "Circle";    //hardcode temporaire, utile pour collisions
 
 
 };

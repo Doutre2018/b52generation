@@ -1,5 +1,6 @@
 #pragma once
-
+//#include <array>
+#include "Shape2D.h"
 
 class Fitness {
 
@@ -8,11 +9,13 @@ class Fitness {
 
 	
 
+	public:
+		void fitnessValue(Shape2D & solutions); //array filled with all shapes from a cohort 
 
 
 
-private:
-
+	private:
+		
 
 
 
