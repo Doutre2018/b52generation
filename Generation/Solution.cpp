@@ -2,7 +2,7 @@
 
 
 
-Solution::Solution(Shape2D* shape)
+Solution::Solution(Shape2D* shape, int fitness)
 	:mShape{ shape }
 {
 }
@@ -15,11 +15,14 @@ Solution::~Solution()
 
 int Solution::fitnessEvaluation()
 {
-	
 	if (mShape->pointInShape())
-		return 0;
+		mFitness = 0;
 
 	else
-		return 1;
-	
+		mFitness = 1;
+}
+
+Shape2D * Solution::shape()
+{
+	return mShape;
 }

@@ -4,10 +4,11 @@
 class Solution
 {
 public:
-	Solution(Shape2D* shape);
+	Solution(Shape2D* shape, int fitness = 0);
 	~Solution();
 
 	int fitnessEvaluation();
+	Shape2D * shape();
 
 private:
 	Shape2D* mShape;
