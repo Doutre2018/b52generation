@@ -4,6 +4,7 @@
 #include "Shape2D.h"
 #include "Area.h"
 #include "Console\ConsoleColor.h"
+#include "Solution.h"
 
 class Population
 {
