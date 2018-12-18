@@ -36,6 +36,10 @@ void Population::draw(ConsoleImage & image) {
 	Area::getInstance().drawShape(mSolutions, NBPOPULATION, mColor);
 }
 
-Shape2D * Population::getSolutions(size_t i) {
+Shape2D * Population::getSolution(size_t i) {
 	return mSolutions[i];
+}
+
+Shape2D** Population::getListe() {
+	return mSolutions;
 }
