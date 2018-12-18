@@ -5,8 +5,7 @@
 #include "Console\ConsoleColor.h"
 #include "Civilisations.h"
 
-Area::Area():area_m{nullptr}, screenheight_m {SIZEH}, screenwidth_m{SIZEW}
-{
+Area::Area():area_m{nullptr}, screenheight_m {SIZEH}, screenwidth_m{SIZEW}{
 	ConsoleContext context(screenwidth_m, screenheight_m, "Guess the best place!", 4, 4, L"Consolas");
 	Console::defineContext(context);
 }

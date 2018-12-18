@@ -34,7 +34,7 @@ void Civilisations::reset() {
 size_t Civilisations::nbPopulations() {
 	return civilisations_m.size();
 }
-void Civilisations::createNewPopulation() {
+void Civilisations::createNewPopulations() {
 	
 	if (color != Color::yellow) {
 		civilisations_m.push_back(Population(colors[(int)color]));
@@ -43,7 +43,7 @@ void Civilisations::createNewPopulation() {
 	
 }
 
-void Civilisations::removeLastPopulation() {
+void Civilisations::removeLastPopulations() {
 
 	if (color != Color::brightblue) {
 		civilisations_m.pop_back();

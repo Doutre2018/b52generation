@@ -5,9 +5,14 @@
 class Generation
 {
 private:
-public:
 	Generation();
 	~Generation();
+public:
+	static Generation& getInstance()
+	{
+		static Generation instance;
+		return instance;
+	}
 
 	void start(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles);
 

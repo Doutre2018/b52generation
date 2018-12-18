@@ -23,9 +23,9 @@ public :
 	
 	size_t nbPopulations();
 
-	void createNewPopulation();
+	void createNewPopulations();
 
-	void removeLastPopulation();
+	void removeLastPopulations();
 
 	void nextColor();
 	void lastColor();

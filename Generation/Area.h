@@ -22,6 +22,7 @@ private:
 	~Area();
 public:
 	std::string shape_g = "cercle";
+	void setArea(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles);
 	void generateArea();
 	void generatePoint();
 	void testArea();
