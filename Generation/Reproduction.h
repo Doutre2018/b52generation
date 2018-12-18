@@ -6,21 +6,18 @@
 class Reproduction
 {
 private:
-	Reproduction();
-	~Reproduction();
+
 	int64_t mParent1;
 	int64_t mParent2;
 	int64_t mEnfant;
 	int percentageMutate;
 	size_t mNbChild;
-	Solution mChildSolution[NBPOPULATION];
+	Solution * mChildSolution;
 
 public:
-	static Reproduction& getInstance()
-	{
-		static Reproduction instance;
-		return instance;
-	}
+	Reproduction();
+	~Reproduction();
+
 	enum class StateRep { select, generatechild, mutate };
 	StateRep state;
 	StateRep createChild(StateRep & state);

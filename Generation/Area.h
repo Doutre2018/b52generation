@@ -7,18 +7,18 @@
 
 //include de la Team
 #include "Solution.h"
-
+#include "Population.h"
 class Area
 {
-private:
+public:
 	Area(size_t height, size_t width);
 	~Area();
-public:
+
 	void generateArea();
 	void generatePoint(size_t nbObstacles);
 	void testArea();
 	void showPoint();
-	void showCivilisations();
+	void showCivilisations(std::vector<Population>& populations, size_t size);
 	void drawShape(Solution * liste, size_t size, ConsoleColor::Text color);
 
 	std::list<Point2d> points();

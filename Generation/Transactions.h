@@ -2,30 +2,20 @@
 #define TRANSACTIONS_H
 
 #include "Console\Console.h"
+#include "Generation.h"
 class Transactions
 {
 private:
 	Transactions();
 	~Transactions();
 public : 
-	static Transactions& getInstance()
-	{
+	static Transactions& getInstance(){
 		static Transactions instance;
 		return instance;
 	}
-	bool conditionidle(ConsoleKeyReader::KeyEvents & keyEvents);
-	bool conditiongen1();
-	bool conditionfitness();
-	bool conditionstop();
-	bool conditionelitetransfer();
-	bool conditionreproduct();
-	bool conditionsubstitute();
 
 	bool conditionselect();
 	bool conditiongeneratechild();
 	bool conditionmutate();
-
-	bool conditionstepbystepKey(ConsoleKeyReader::KeyEvents & keyEvents);
-	
 };
 #endif //TRANSACTIONS_H

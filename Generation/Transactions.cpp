@@ -7,52 +7,8 @@ Transactions::Transactions()
 {
 }
 
-
 Transactions::~Transactions()
 {
-}
-
-bool Transactions::conditionidle(ConsoleKeyReader::KeyEvents & keyEvents)
-{
-	if (keyEvents.size() > 0) {
-		keyEvents.clear();
-		return true;
-	}
-	return false;
-}
-
-bool Transactions::conditiongen1()
-{
-	return false;
-}
-
-bool Transactions::conditionfitness()
-{
-	return false;
-}
-
-bool Transactions::conditionstop()
-{
-	return false;
-}
-
-bool Transactions::conditionelitetransfer()
-{
-	return false;
-}
-
-bool Transactions::conditionreproduct()
-{
-	if (Reproduction::getInstance().nbChild() >= NBPOPULATION-1) {
-		Reproduction::getInstance().setNbChild(0);
-		return true;
-	}
-	return false;
-}
-
-bool Transactions::conditionsubstitute()
-{
-	return false;
 }
 
 bool Transactions::conditionselect()

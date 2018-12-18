@@ -7,20 +7,16 @@
 class Civilisations
 {
 private:
-	Civilisations(){}
-	~Civilisations(){}
+
 	std::vector<Population> civilisations_m;
 
 	enum class Color { brightblue , blue, brightcyan, cyan, brightgreen,green,brightmagenta, magenta, brightred,red, brightyellow,yellow};
 	static ConsoleColor::Text colors[12];
 	Color color = Color::brightblue;
 public :
-	static Civilisations& getInstance()
-	{
-		static Civilisations instance;
-		return instance;
-	}
-	
+	Civilisations() {}
+	~Civilisations() {}
+
 	size_t nbPopulations();
 
 	void createNewPopulations();

@@ -143,7 +143,6 @@
     <ClCompile Include="Population.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Reproduction.cpp" />
-    <ClCompile Include="Shape2D.cpp" />
     <ClCompile Include="Shortcut.cpp" />
     <ClCompile Include="Size.cpp" />
     <ClCompile Include="Solution.cpp" />

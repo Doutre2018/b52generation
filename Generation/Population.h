@@ -2,7 +2,6 @@
 #define POPULATIONS_H
 
 #include "Shape2D.h"
-#include "Area.h"
 #include "Console\ConsoleColor.h"
 #include "Solution.h"
 
@@ -17,14 +16,15 @@ public:
 	Solution getSolution(size_t i);
 
 	Solution * getListe();
-	Solution randomSolution();
+	Solution randomSolution(size_t size);
 	void setSolution(size_t i, Solution sol);
-	void setSolutions(Solution listes[NBPOPULATION]);
-	void populate();
+	void setSolutions(Solution * listes, size_t size);
+	void populate(std::string type, size_t nbPop);
 	void parentDeath();
+	ConsoleColor::Text color();
 private :
 	ConsoleColor::Text mColor;
-	Solution mSolutions[NBPOPULATION];
+	Solution * mSolutions;
 };
 
 #endif
