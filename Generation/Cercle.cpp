@@ -32,11 +32,19 @@ bool Cercle::pointInShape()
 {
 	for (auto Point2d : Area::getInstance().points())
 	{
-		if (Point2d.distance(mPoint) > mRadius)
-			return true;
+		if (Point2d.distance(mPoint) < mRadius)
+		{
+			if (Point2d.distance(mPoint) < Point2d.distance(mNearestPoint))
+			{
+				mNearestPoint = Point2d;
+			}
+		}
 	}
-	
-	return false;
+
+	if (mNearestPoint != NULL)
+		return true;
+	else
+		return false;
 }
 
 
