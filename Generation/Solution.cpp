@@ -1,4 +1,5 @@
 #include "Solution.h"
+#include "Population.h"
 
 
 
@@ -19,17 +20,22 @@ Solution::~Solution()
 {
 }
 
-void evalSolutionValue(Shape2D & evaluated_form) {
+void evalSolutionValue(std::vector<std::vector<Shape2D*>*> m) {
 
-	evaluated_form.solution = evaluated_form.mArea * 1; //Solution::scalability(evaluated_form); SCALABILITY needs further work hence placeholder neutral value 1
+	m->solution = m->mArea * 1; //Solution::scalability(evaluated_form); SCALABILITY needs further work hence placeholder neutral value 1
 
 }
-
+//THIS GOES INTO INJECTION
+/*
 double Solution::MaxScalingPotential(Shape2D evaluated_form) {
 	
 	return evaluated_form.area * Solution::scalability;
 }
+*/
+
 /*
+
+
 MODIFY ERRORS BEFORE COMMIT
 
 
@@ -70,7 +76,7 @@ double Solution::approximateScaleMod(double colliderDistance, double radiusForm)
 
 }
 
-
+/* VOIR JEAN SIMON code collision
 bool Solution::collision(Point2d obstacle, Shape2D evaluated_form) {
 
 	double distanceToPosition2{};
@@ -80,6 +86,10 @@ bool Solution::collision(Point2d obstacle, Shape2D evaluated_form) {
 		if (evaluated_form.type  == "circle")
 			return true;
 
+
+
+
+			*/
 	/*   SECTION YET TO BE CODED (FUNCTION CALLS STILL NOT READY
 
 
@@ -88,12 +98,14 @@ bool Solution::collision(Point2d obstacle, Shape2D evaluated_form) {
 		else if (evaluated_form.type == form_3)
 			return Collision::ComplexCollisionForm3(obstacle, evaluated_form);
 			*/
-	return false;
+	
+/*
+return false;
 
 
 }
-
-
+*/
+/*
 
 int Solution::fitnessEvaluation()
 {
@@ -103,3 +115,4 @@ int Solution::fitnessEvaluation()
 	return 0;
 }
 
+*/

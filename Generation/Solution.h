@@ -18,7 +18,7 @@ public:
 	~Solution();
 
 	
-	//double MaxScalingPotential(Shape2D* evaluated_form);
+	//double MaxScalingPotential(Object* dynamic_cast evaluated_form);
 	//double scalability(Shape2D evaluated_form);
 	double approximateScaleMod(double colliderDistance, double farPoint);
 	//bool collision(Point2d obstacle, Shape2D evaluated_form);

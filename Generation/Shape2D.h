@@ -7,6 +7,7 @@
 #include "Point2d.h"
 #include "Console\Console.h"
 #include <string>
+#include <vector>
 
 #define _USE_MATH_DEFINES
 #include <cmath>
@@ -38,7 +39,7 @@ protected:
 	double solution;
 	double fitness;
 	std::string type = "Circle";    //hardcode temporaire, utile pour collisions
-
+	std::vector<Shape2D*> shapePtrs;
 
 };
 
