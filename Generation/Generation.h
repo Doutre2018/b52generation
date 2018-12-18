@@ -4,6 +4,7 @@
 
 #include "Area.h"
 #include "Reproduction.h"
+#include "Civilisations.h"
 
 class Generation
 {

@@ -19,7 +19,8 @@ public:
 	Solution randomSolution(size_t size);
 	void setSolution(size_t i, Solution sol);
 	void setSolutions(Solution * listes, size_t size);
-	void populate(std::string type, size_t nbPop);
+	void populate(std::string type, size_t nbPop, size_t width, size_t height);
+	void parentDeath(Solution * childSolution, size_t size);
 	ConsoleColor::Text color();
 private :
 	ConsoleColor::Text mColor;

@@ -3,7 +3,7 @@
 #include "Random.h"
 #include "Cercle.h"
 Population::Population(ConsoleColor::Text color):mColor{color}
-{populate();	
+{
 }
 
 Population::~Population()
@@ -33,12 +33,12 @@ void Population::setSolutions(Solution * listes, size_t size) {
 	}
 }
 
-void Population::populate(std::string type, size_t nbPop) {
+void Population::populate(std::string type, size_t nbPop, size_t width, size_t height) {
 	for (int i = 0; i < nbPop - 1; ++i) {
 		Shape2D* shape{ nullptr };
 		if (type == "cercle") {
 			shape = new Cercle();
-			shape->randomize();
+			shape->randomize(width,height);
 		}
 		//if (shape == "triangle")
 		//	Triangle shape;

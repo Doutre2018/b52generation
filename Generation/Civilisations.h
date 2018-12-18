@@ -25,14 +25,13 @@ public :
 
 	void nextColor();
 	void lastColor();
-
-	void regenerate();
+	void regenerate(std::string type, size_t nbShape, size_t width, size_t height);
 
 	void reset();
 
 
-	Population getPopulation(int id);
-	std::vector<Population> getAll();
+	Population & getPopulation(int id);
+	std::vector<Population> &getAll();
 	size_t size();
 
 };

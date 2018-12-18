@@ -18,7 +18,7 @@ Generation::~Generation(){}
 
 void Generation::start(){
 	mArea.generateArea();
-	mArea.generatePoint();
+	mArea.generatePoint(mNbObstacles);
 	mArea.showPoint();
 	reader_m = &(Console::getInstance().keyReader());
 	Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterUp());

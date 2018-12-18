@@ -3,12 +3,13 @@
 
 ConsoleColor::Text Civilisations::colors[12]{ ConsoleColor::tb,ConsoleColor::tB,ConsoleColor::tc,ConsoleColor::tC, ConsoleColor::tg, ConsoleColor::tG, ConsoleColor::tm,ConsoleColor::tM,ConsoleColor::tr,ConsoleColor::tR, ConsoleColor::ty,ConsoleColor::tY };
 
-void Civilisations::regenerate() {
+void Civilisations::regenerate(std::string type, size_t nbShape, size_t width, size_t height) {
 	size_t mSize = size();
 	civilisations_m.clear();
 	color = Color::brightblue;
 	for (int i = 0; i < mSize; ++i) {
 		civilisations_m.push_back(Population(colors[(int)color]));
+		civilisations_m[i].populate(type, nbShape, width,height);
 		nextColor();
 	}
 }
@@ -44,11 +45,11 @@ void Civilisations::lastColor() {
 	color = (Color)((int)color - 1);
 }
 
-Population Civilisations::getPopulation(int id){
+Population & Civilisations::getPopulation(int id){
 	return civilisations_m.at(id);
 }
 
-std::vector<Population> Civilisations::getAll(){
+std::vector<Population> & Civilisations::getAll(){
 	return civilisations_m;
 }
 

@@ -3,7 +3,7 @@
 #include "Random.h"
 #include "Population.h"
 #include "Civilisations.h"
-
+#include "Cercle.h"
 Reproduction::Reproduction()
 	:mParent1{ 0 },
 	mParent2{ 0 },
@@ -16,7 +16,7 @@ Reproduction::Reproduction()
 Reproduction::~Reproduction()
 {
 }
-Reproduction::StateRep Reproduction::createChild(StateRep & state)
+Reproduction::StateRep Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop)
 {
 	
 	//select, generatechild, mutate
@@ -27,11 +27,11 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 		}
 		else {
 			//Je choisie mes 2 prant dans le vecteur de forme je dois en choisir random 2
-			int randomParentIndex1 = Random::getInstance().uniformRandomize(1, NBPOPULATION-1); 
-			int randomParentIndex2 = Random::getInstance().uniformRandomize(1, NBPOPULATION-1); 
+			int randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop -1);
+			int randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop -1);
 
-			mParent1=Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
-			mParent2 = Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
+			mParent1=c.getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
+			mParent2 = c.getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
 			return state;
 		}
 		break;
@@ -108,9 +108,9 @@ int64_t Reproduction::getEnfant()
 }
 
 
-void Reproduction::delivery() {
+void Reproduction::delivery(std::string type) {
 	Shape2D *shape =nullptr;
-	if (SHAPE == "cercle")
+	if (type == "cercle")
 	{
 		shape=new Cercle();
 		shape->decodePropreties(mEnfant);
