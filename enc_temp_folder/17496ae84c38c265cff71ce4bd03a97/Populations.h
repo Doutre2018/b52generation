@@ -11,6 +11,7 @@ public:
 	Populations(ConsoleColor::Text color);
 	~Populations();
 
+	
 	void draw(ConsoleImage & image);
 
 private :
