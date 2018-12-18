@@ -7,7 +7,8 @@
 Reproduction::Reproduction()
 	:mParent1{ 0 },
 	mParent2{ 0 },
-	mEnfant{ 0 }
+	mEnfant{ 0 },
+	state{StateRep::select}
 {}
 
 
@@ -21,7 +22,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 	switch (state) {
 	case StateRep::select:
 		if (Transactions::getInstance().conditionselect()) {
-			return nextState(state);
+			state=  nextState(state);
 		}
 		else {
 			//Je choisie mes 2 prant dans le vecteur de forme je dois en choisir random 2
@@ -47,7 +48,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 			//Je realise l'enfant
 			mEnfant = mParent1 & mask | mParent2 & ~mask;
 
-			return state;
+			state = state;
 		}
 		break;
 	case StateRep::mutate:
@@ -74,7 +75,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 				
 			}
 
-			return state;
+			state = state;
 		}
 		break;
 	}
