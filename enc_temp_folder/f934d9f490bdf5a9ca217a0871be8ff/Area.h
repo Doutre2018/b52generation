@@ -10,7 +10,7 @@
 #define SIZEW 350
 #define SIZEH 200
 
-#define NBPOPULATION 1
+#define NBPOPULATION 300
 
 #define SHAPE "cercle"
 #define NBOBSTACLES 100
