@@ -26,16 +26,16 @@ private :
 	void processInput();
 	void render(State state);
 	State update(State& state);
+
 	Generation::State nextState(State& state);
 
-	Generation::State checkIdle(State & state);
-	Generation::State checkGen1(State & state);
-	Generation::State checkFitness(State & state);
-	Generation::State checkStop(State & state);
-	Generation::State checkEliteTransfer(State & state);
-	Generation::State checkReproduct(State & state);
-
-	Generation::State checkSubstitute(State & state);
+	void checkIdle(State & state);
+	void checkGen1(State & state);
+	void checkFitness(State & state);
+	void checkStop(State & state);
+	void checkEliteTransfer(State & state);
+	void checkReproduct(State & state);
+	void checkSubstitute(State & state);
 
 
 

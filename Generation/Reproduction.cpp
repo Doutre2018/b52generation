@@ -1,5 +1,4 @@
 #include "Reproduction.h"
-#include "Transactions.h"
 #include "Random.h"
 #include "Population.h"
 #include "Cercle.h"
@@ -18,47 +17,29 @@ Reproduction::~Reproduction()
 }
 Reproduction::StateRep Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop, std::string type)
 {
-	
+
 	//select, generatechild, mutate
 	switch (state) {
 	case StateRep::select:
-		if (Transactions::getInstance().conditionselect()) {
-			state=  nextState(state);
-		}
-		else {
 			//Je choisie mes 2 prant dans le vecteur de forme je dois en choisir random 2
-			int randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop -1);
-			int randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop -1);
+			int randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
+			int randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
 
-			mParent1=c.getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
+			mParent1 = c.getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
 			mParent2 = c.getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
-			return state;
-		}
+			checkselect(state);
 		break;
 	case StateRep::generatechild:
-		if (Transactions::getInstance().conditiongeneratechild()) {
-			state = nextState(state);
-		}
-		else {
-			//Je prend mes 2 parents
-			//Je choisie le randomize de la coupure
-			int indexSplit = Random::getInstance().uniformRandomize(1, 36);
-			int mask{ (int)pow(2,indexSplit) - 1 };
-			//Je realise l'enfant
-			mEnfant = mParent1 & mask | mParent2 & ~mask;
+		//Je prend mes 2 parents
+		//Je choisie le randomize de la coupure
+		int indexSplit = Random::getInstance().uniformRandomize(1, 36);
+		int mask{ (int)pow(2,indexSplit) - 1 };
+		//Je realise l'enfant
+		mEnfant = mParent1 & mask | mParent2 & ~mask;
 
-			state = state;
-		}
+		checkgeneratechild(state);
 		break;
 	case StateRep::mutate:
-		if (Transactions::getInstance().conditionmutate()) {
-			delivery(type);
-			state = StateRep::select;
-			mParent1 = 0;
-			mParent2 = 0;
-			mEnfant = 0;
-		}
-		else {
 			//Es ce que je fait un mutant ou pas
 
 			if (int a = Random::getInstance().uniformRandomize(1, 100) <= percentageMutate)
@@ -66,23 +47,41 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state, Civilisations
 				//nombre de bit a changer
 				int nbBitChange{ 1 };
 				//Position aléatoire
-				for (int i = 0; i < nbBitChange; ++i)
-				{
+				for (int i = 0; i < nbBitChange; ++i) {
 					int indexAléatoire = Random::getInstance().uniformRandomize(1, 36);
 					int maskMutate = 1;
 					maskMutate <<= indexAléatoire - 1;
 					mEnfant = mEnfant ^ maskMutate;
-
-
 				}
-				
 			}
-			state = state;
-		}
-		break;
+			checkmutate(state);
+			break;
 	}
-
 }
+
+bool Reproduction::checkselect(StateRep & state){
+	if (mParent1 != 0 && mParent2 != 0){
+		state = nextState(state);
+	}
+}
+
+bool Reproduction::checkgeneratechild(StateRep & state){
+	if (mEnfant != 0){
+		state = nextState(state);
+	} else {
+		return false;
+	}
+}
+bool Reproduction::checkmutate(StateRep & state){
+	if (false) {
+		delivery(type);
+		mParent1 = 0;
+		mParent2 = 0;
+		mEnfant = 0;
+		state = StateRep::select;
+	}
+}
+
 Reproduction::StateRep Reproduction::nextState(StateRep & state) {
 	return (StateRep)((int)state + 1);
 }

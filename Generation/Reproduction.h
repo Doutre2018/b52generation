@@ -30,6 +30,10 @@ public:
 	int64_t getEnfant();
 	Reproduction::StateRep createChild(StateRep & state, Civilisations c, size_t nbPop, std::string type);
 
+	bool checkselect(StateRep & state);
+	bool checkgeneratechild(StateRep & state);
+	bool checkmutate(StateRep & state);
+
 	void delivery(std::string type);
 
 	Solution * getChildren();

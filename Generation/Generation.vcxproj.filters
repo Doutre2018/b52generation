@@ -19,6 +19,9 @@
     <Filter Include="Fichiers sources\Console">
       <UniqueIdentifier>{3b4aa1cd-b92a-4189-b6ba-bd0cf92241db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Outils">
+      <UniqueIdentifier>{8e8863d5-24e7-4ef3-8545-07616c6c4629}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -31,9 +34,6 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Civilisations.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Random.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Solution.cpp">
@@ -78,17 +78,14 @@
     <ClCompile Include="Reproduction.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Transactions.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Shortcut.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="PopulationEngine.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Population.cpp">
       <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <Filter>Fichiers sources\Outils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -162,12 +159,6 @@
       <Filter>Fichiers d%27en-tête\Console</Filter>
     </ClInclude>
     <ClInclude Include="Reproduction.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Transactions.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Shortcut.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="PopulationEngine.h">

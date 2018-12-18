@@ -3,9 +3,7 @@
 #include "Shape2D.h"
 #include "Solution.h"
 #include "Area.h"
-#include "Transactions.h"
 #include "Civilisations.h"
-#include "Shortcut.h"
 #include "Console\ConsoleKeyFilterModifiers.h"
 #include "Console\ConsoleKeyFilterUp.h"
 #include "Reproduction.h"
@@ -41,12 +39,12 @@ void Generation::testShortcut(State & state) {
 		for (ConsoleKeyEvent k : keyEvents) {
 			if (k.modifier(ConsoleKeyEvent::KeyModifier::Alt)) {
 				if (toupper(k.keyA()) == '1') {
-					Shortcut::getInstance().removeCivilisations();
+					mCivilisations.removeLastPopulations();
 				}
 				else if (toupper(k.keyA()) == '2') {
-					Shortcut::getInstance().addCivilisations();
+					mCivilisations.createNewPopulations();
 				} else if (toupper(k.keyA()) == 'P') {
-					Shortcut::getInstance().pause(state);
+					pause(state);
 				} else if (toupper(k.keyA()) == 'S') {
 					if (mStep_by_step) {
 						mStep_by_step = false;
@@ -56,11 +54,11 @@ void Generation::testShortcut(State & state) {
 				}
 			} else if (k.modifier(ConsoleKeyEvent::KeyModifier::Shift)) {
 				if (toupper(k.keyA()) == 'R') {
-					Shortcut::getInstance().regenerate();
-					}
-					if (toupper(k.keyA()) == 'D') {
-						Shortcut::getInstance().reset();
-					}
+					mCivilisations.regenerate(mType, mNbPopulations, mWidth, mHeight);
+				}
+				if (toupper(k.keyA()) == 'D') {
+					mCivilisations.reset();
+				}
 			}else if (k.modifier(ConsoleKeyEvent::KeyModifier::Ctrl)) {
 				if (state == State::idle) {
 					if (toupper(k.keyA()) == '1') {
@@ -77,39 +75,39 @@ void Generation::testShortcut(State & state) {
 }
 
 //Checkers of State
-Generation::State Generation::checkIdle(State & state) {
+void Generation::checkIdle(State & state) {
 	if (keyEvents.size() > 0) {
 		keyEvents.clear();
 		state = nextState(state);
 	}
 }
-Generation::State Generation::checkGen1(State & state) {
+void Generation::checkGen1(State & state) {
 	if (false) {
 		state = nextState(state);
 	}
 }
-Generation::State Generation::checkFitness(State & state) {
+void Generation::checkFitness(State & state) {
 	if (false) {
 		state = nextState(state);
 	}
 }
-Generation::State Generation::checkStop(State & state) {
+void Generation::checkStop(State & state) {
 	if (false) {
 		state = nextState(state);
 	}
 }
-Generation::State Generation::checkEliteTransfer(State & state) {
+void Generation::checkEliteTransfer(State & state) {
 	if (false) {
 		state = nextState(state);
 	}
 }
-Generation::State Generation::checkReproduct(State & state) {
+void Generation::checkReproduct(State & state) {
 	if (mReproductiveSystem.nbChild() >= mNbPopulations - 1) {
 		mReproductiveSystem.setNbChild(0);
 		state = nextState(state);
 	}
 }
-Generation::State Generation::checkSubstitute(State & state) {
+void Generation::checkSubstitute(State & state) {
 	if (false) {
 		state = State::fitness;
 	}
@@ -136,7 +134,7 @@ Generation::State Generation::update(State & state)
 		break;
 	case State::generation1: checkGen1(state);
 		break;
-	case State::fitness:checkFitness(state);
+	case State::fitness: checkFitness(state);
 		break;
 	case State::stop:checkStop(state);
 		break;
@@ -152,6 +150,7 @@ Generation::State Generation::update(State & state)
 		checkSubstitute(state);
 		break;
 	}
+	return state;
 }
 //render
 void Generation::render(State state){
