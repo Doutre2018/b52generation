@@ -25,7 +25,7 @@ void fitnessValue(std::vector<Shape2D*> soluTable) {
 
 void fitnessValue(Solution soluce) {
 
-	int sizeArray = soluce.soluTable->size();
+	int sizeArray = (soluce.soluTable)->size();
 	for (int i = 0; i < sizeArray; ++i)
 	{
 		double preFitness{};

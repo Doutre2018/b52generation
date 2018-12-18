@@ -22,7 +22,7 @@ public:
 	//double scalability(Shape2D evaluated_form);
 	double approximateScaleMod(double colliderDistance, double farPoint);
 	//bool collision(Point2d obstacle, Shape2D evaluated_form);
-	void evalSolutionValue();
+	void evalSolutionValue(Shape2D *mSolutions[NBPOPULATION]);
 	void createSoluTable();
 	void evalFitness();
 

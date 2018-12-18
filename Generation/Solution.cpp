@@ -35,10 +35,11 @@ void Solution::createSoluTable(){
 
 }*/
 
-void Solution::evalSolutionValue() {
+void Solution::evalSolutionValue(Shape2D *mSolutions[NBPOPULATION]) {
 	
-	
-	
+	for (std::vector<Shape2D*>::iterator it = mSolutions->begin(); it != v.end(); ++it) {
+		/* std::cout << *it; ... */
+	}
 
 }
 
