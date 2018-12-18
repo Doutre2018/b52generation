@@ -18,7 +18,8 @@ public:
 	void addCivilisations();
 	void removeCivilisations();
 	void pause(Generation::State & state);
-	void stepbystep();
+	void regenerate();
+	void reset();
 };
 
 #endif // !SHORTCUT_H
