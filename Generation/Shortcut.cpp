@@ -25,6 +25,10 @@ void Shortcut::pause(Generation::State & state)
 	Generation::getInstance().pause(state);
 }
 
-void Shortcut::stepbystep()
-{
+void Shortcut::regenerate() {
+	Civilisations::getInstance().regenerate();
+}
+
+void Shortcut::reset() {
+	Civilisations::getInstance().reset();
 }

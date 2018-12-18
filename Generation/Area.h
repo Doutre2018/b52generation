@@ -10,7 +10,7 @@
 #define SIZEW 350
 #define SIZEH 200
 
-#define NBPOPULATION 10
+#define NBPOPULATION 30
 
 #define SHAPE "cercle"
 #define NBOBSTACLES 100
@@ -21,6 +21,7 @@ private:
 	Area();
 	~Area();
 public:
+	std::string shape_g = "cercle";
 	void generateArea();
 	void generatePoint();
 	void testArea();
@@ -38,7 +39,7 @@ public:
 	size_t sizeH() { return SIZEH; }
 
 	size_t nbObstacles() { return NBOBSTACLES; }
-	std::string shape() { return SHAPE; }
+	std::string shape() { return shape_g; }
 
 
 	std::list<Point2d> points();

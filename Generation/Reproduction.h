@@ -11,6 +11,7 @@ private:
 	int64_t mParent2;
 	int64_t mEnfant;
 	int percentageMutate;
+	
 public:
 	static Reproduction& getInstance()
 	{
@@ -18,10 +19,10 @@ public:
 		return instance;
 	}
 	enum class StateRep { select, generatechild, mutate };
-
+	StateRep state;
 	StateRep createChild(StateRep & state);
 	StateRep nextState(StateRep & state);
-
+	StateRep & getState();
 };
 
 #endif //REPRODUCTION_H

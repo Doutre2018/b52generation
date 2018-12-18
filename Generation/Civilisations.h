@@ -26,13 +26,16 @@ public :
 	void removeLastPopulations();
 
 	void nextColor();
-
 	void lastColor();
+
+	void regenerate();
+
+	void reset();
+
 
 	Populations getPopulation(int id);
 	std::vector<Populations> getAll();
 	size_t size();
-private:
 
 };
 

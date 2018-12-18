@@ -31,7 +31,7 @@ void Generation::start()
 
 
 
-	loop(State::reproduct);
+	loop(State::idle);
 }
 
 void Generation::loop(State state) {
@@ -45,7 +45,7 @@ void Generation::loop(State state) {
 			state = updateSbS(state);
 		}
 		else {
-			state = update(state);
+			state = update(State::reproduct);
 		}
 		render(state);
 	}
@@ -55,7 +55,7 @@ void Generation::testShortcut(State & state) {
 	if (keyEvents.size() > 0) {
 		
 		for (ConsoleKeyEvent k : keyEvents) {
-			if (k.modifier(ConsoleKeyEvent::KeyModifier::LeftAlt)) {
+			if (k.modifier(ConsoleKeyEvent::KeyModifier::Alt)) {
 				if (toupper(k.keyA()) == '1') {
 					Shortcut::getInstance().removeCivilisations();
 				}
@@ -71,6 +71,29 @@ void Generation::testShortcut(State & state) {
 					}
 					else {
 						Mstep_by_step = true;
+					}
+				}
+				
+			}
+			if (k.modifier(ConsoleKeyEvent::KeyModifier::Shift)) {
+				if (toupper(k.keyA()) == 'R') {
+					Shortcut::getInstance().regenerate();
+				}
+				if (toupper(k.keyA()) == 'D') {
+					Shortcut::getInstance().reset();
+				}
+			}
+
+			if (k.modifier(ConsoleKeyEvent::KeyModifier::Ctrl)) {
+				if (state == State::idle) {
+					if (toupper(k.keyA()) == '1') {
+						Area::getInstance().shape_g = "cercle";
+					}
+					if (toupper(k.keyA()) == '2') {
+						Area::getInstance().shape_g = "triangle";
+					}
+					if (toupper(k.keyA()) == '3') {
+						Area::getInstance().shape_g = "rectangle";
 					}
 				}
 				
@@ -144,7 +167,8 @@ Generation::State Generation::update(State & state)
 			return nextState(state);
 		}
 		else {
-			Reproduction::getInstance().createChild(&Reproduction::StateRep::select);
+
+			Reproduction::getInstance().createChild(Reproduction::getInstance().getState());
 			return state;
 		}
 		break;

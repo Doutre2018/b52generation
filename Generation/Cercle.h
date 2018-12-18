@@ -4,18 +4,19 @@
 #include "Shape2D.h"
 #include "Point2d.h"
 #include "Polygon2d.h"
-
+#include "Random.h"
 
 class Cercle : public Shape2D
 {
 public:
-	Cercle(Point2d point, int radius);
+	Cercle();
 	~Cercle();
 
 	virtual int calculateArea() override;
 	virtual int64_t encodePropreties() override;
 	virtual void decodePropreties(int64_t data) override;
 	virtual bool pointInShape() override;
+	virtual void randomize() override;
 	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) override;
 
 	int calculateCirconference();

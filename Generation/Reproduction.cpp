@@ -5,17 +5,15 @@
 #include "Civilisations.h"
 
 Reproduction::Reproduction()
-	:mParent1{0},
-	mParent2{0},
-	mEnfant{0}
-{
-}
+	:mParent1{ 0 },
+	mParent2{ 0 },
+	mEnfant{ 0 }
+{}
 
 
 Reproduction::~Reproduction()
 {
 }
-
 Reproduction::StateRep Reproduction::createChild(StateRep & state)
 {
 	
@@ -32,8 +30,8 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 
 			
 			//Shape2D *parent1= 
-			mParent1=Civilisations::getInstance().getPopulation(1).getShape(randomParentIndex1)->encodePropreties();
-			mParent1 = Civilisations::getInstance().getPopulation(1).getShape(randomParentIndex2)->encodePropreties();
+			mParent1=Civilisations::getInstance().getPopulation(0).getShape(randomParentIndex1)->encodePropreties();
+			mParent1 = Civilisations::getInstance().getPopulation(0).getShape(randomParentIndex2)->encodePropreties();
 			return state;
 		}
 		break;
@@ -84,4 +82,9 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 }
 Reproduction::StateRep Reproduction::nextState(StateRep & state) {
 	return (StateRep)((int)state + 1);
+}
+
+Reproduction::StateRep & Reproduction::getState()
+{
+	return state;
 }

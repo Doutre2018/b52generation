@@ -19,6 +19,7 @@ public:
 	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) = 0;
 	virtual int calculateArea() = 0;
 	virtual bool pointInShape() = 0;
+	virtual void randomize() = 0;
 
 protected:
 	double mX;
