@@ -13,6 +13,8 @@ public:
 
 	void draw(ConsoleImage & image);
 
+	Shape2D * getSolutions(size_t i);
+
 private :
 	ConsoleColor::Text mColor;
 	Shape2D *mSolutions[NBPOPULATION];
