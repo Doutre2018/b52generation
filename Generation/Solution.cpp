@@ -15,9 +15,9 @@ Solution::~Solution()
 
 
 
-int Solution::fitnessEvaluation()
+int Solution::fitnessEvaluation(std::list<Point2d> points)
 {
-	if (mShape->pointInShape())
+	if (mShape->pointInShape(points))
 		mFitness = 0;
 
 	else

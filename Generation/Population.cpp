@@ -33,7 +33,7 @@ void Population::setSolutions(Solution * listes, size_t size) {
 	}
 }
 
-void Population::populate(std::string type, size_t nbPop, size_t width, size_t height) {
+void Population::populate(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> points) {
 	for (int i = 0; i < nbPop - 1; ++i) {
 		Shape2D* shape{ nullptr };
 		if (type == "cercle") {
@@ -46,7 +46,7 @@ void Population::populate(std::string type, size_t nbPop, size_t width, size_t h
 		//	Rectangle shape;
 		if(shape != nullptr){
 			Solution sol(shape);
-			sol.fitnessEvaluation();
+			sol.fitnessEvaluation(points);
 			mSolutions[i] = sol;
 		}
 

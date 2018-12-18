@@ -9,7 +9,7 @@ public:
 	Solution(Shape2D* shape, int fitness = 0);
 	~Solution();
 
-	int fitnessEvaluation();
+	int fitnessEvaluation(std::list<Point2d> points);
 	Shape2D * shape();
 
 private:
