@@ -10,25 +10,20 @@ Shortcut::~Shortcut()
 {
 }
 
-void Shortcut::addCivilisations()
+void Shortcut::addCivilisations(Civilisations & c)
 {
-	Civilisations::getInstance().createNewPopulations();
+	c.createNewPopulations();
 }
 
-void Shortcut::removeCivilisations()
+void Shortcut::removeCivilisations(Civilisations & c)
 {
-	Civilisations::getInstance().removeLastPopulations();
+	c.removeLastPopulations();
 }
 
-void Shortcut::pause(Generation::State & state)
-{
-	Generation::getInstance().pause(state);
+void Shortcut::regenerate(Civilisations & c) {
+	c.regenerate();
 }
 
-void Shortcut::regenerate() {
-	Civilisations::getInstance().regenerate();
-}
-
-void Shortcut::reset() {
-	Civilisations::getInstance().reset();
+void Shortcut::reset(Civilisations & c) {
+	c.reset();
 }

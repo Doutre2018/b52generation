@@ -144,7 +144,7 @@ Generation::State Generation::update(State & state)
 		break;
 	case State::reproduct:
 		if (mCivilisations.nbPopulations()>0) {
-			mReproductiveSystem.createChild(mReproductiveSystem.getState());
+			mReproductiveSystem.createChild(mReproductiveSystem.getState(),mCivilisations, mNbPopulations, mType);
 		}
 		checkReproduct(state);
 		break;

@@ -8,6 +8,9 @@ class Shortcut
 private:
 	Shortcut();
 	~Shortcut();
+	void addCivilisations(Civilisations & c);
+	void removeCivilisations(Civilisations & c);
+	void regenerate(Civilisations & c);
 public:
 	static Shortcut& getInstance()
 	{
@@ -15,11 +18,6 @@ public:
 		return instance;
 	}
 
-	void addCivilisations();
-	void removeCivilisations();
-	void pause(Generation::State & state);
-	void regenerate();
-	void reset();
 };
 
 #endif // !SHORTCUT_H

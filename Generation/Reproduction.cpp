@@ -2,8 +2,8 @@
 #include "Transactions.h"
 #include "Random.h"
 #include "Population.h"
-#include "Civilisations.h"
 #include "Cercle.h"
+
 Reproduction::Reproduction()
 	:mParent1{ 0 },
 	mParent2{ 0 },
@@ -16,7 +16,7 @@ Reproduction::Reproduction()
 Reproduction::~Reproduction()
 {
 }
-Reproduction::StateRep Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop)
+Reproduction::StateRep Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop, std::string type)
 {
 	
 	//select, generatechild, mutate
@@ -52,7 +52,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state, Civilisations
 		break;
 	case StateRep::mutate:
 		if (Transactions::getInstance().conditionmutate()) {
-			delivery();
+			delivery(type);
 			state = StateRep::select;
 			mParent1 = 0;
 			mParent2 = 0;
