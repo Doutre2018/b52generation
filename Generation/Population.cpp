@@ -1,5 +1,5 @@
 #include "Population.h"
-
+#include "Reproduction.h"
 
 Population::Population(ConsoleColor::Text color):
 mColor{color}
@@ -56,5 +56,11 @@ void Population::populate() {
 			mSolutions[i] = sol;
 		}
 
+	}
+}
+void Population::parentDeath() {
+	Solution * children = Reproduction::getInstance().getChildren();
+	for (int i = 0; i < NBPOPULATION - 1; ++i) {
+		mSolutions[i] = children[i];
 	}
 }

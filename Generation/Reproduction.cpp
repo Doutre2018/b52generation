@@ -8,7 +8,8 @@ Reproduction::Reproduction()
 	:mParent1{ 0 },
 	mParent2{ 0 },
 	mEnfant{ 0 },
-	state{StateRep::select}
+	state{StateRep::select},
+	nbChild{0}
 {}
 
 
@@ -31,8 +32,8 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 
 			
 			//Shape2D *parent1= 
-			mParent1=Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex1)->encodePropreties();
-			mParent2 = Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex2)->encodePropreties();
+			mParent1=Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
+			mParent2 = Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
 			return state;
 		}
 		break;
@@ -53,6 +54,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 		break;
 	case StateRep::mutate:
 		if (Transactions::getInstance().conditionmutate()) {
+			delivery();
 			return StateRep::select;
 		}
 		else {
@@ -74,7 +76,6 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 				}
 				
 			}
-
 			state = state;
 		}
 		break;
@@ -98,4 +99,26 @@ int64_t Reproduction::getParent1()
 int64_t Reproduction::getParent2()
 {
 	return mParent2;
+}
+
+void Reproduction::delivery() {
+	Shape2D *shape =nullptr;
+	if (SHAPE == "cercle")
+	{
+		shape=new Cercle();
+		shape->decodePropreties(mEnfant);
+	}
+	if (shape != nullptr) {
+		mChildSolution[nbChild] = Solution(shape);
+		mChildSolution[nbChild].fitnessEvaluation();
+	}
+	nbChild++;
+}
+
+Solution * Reproduction::getChildren() {
+	return mChildSolution;
+}
+
+size_t Reproduction::nbChild() {
+	return nbChild;
 }

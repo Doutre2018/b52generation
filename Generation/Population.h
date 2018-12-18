@@ -21,6 +21,7 @@ public:
 	void setSolution(size_t i, Solution sol);
 	void setSolutions(Solution listes[NBPOPULATION]);
 	void populate();
+	void parentDeath();
 private :
 	ConsoleColor::Text mColor;
 	Solution mSolutions[NBPOPULATION];
