@@ -16,13 +16,9 @@ Area::~Area()
 {
 }
 
-void Area::setArea(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles) {
-
-}
 void Area::generateArea() {
 	area_m = &(Console::getInstance().writer().createImage("area"));
 }
-
 
 void Area::generatePoint()
 {
