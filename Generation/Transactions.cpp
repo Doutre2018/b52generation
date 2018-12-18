@@ -1,4 +1,5 @@
 #include "Transactions.h"
+#include "Reproduction.h"
 
 
 
@@ -52,7 +53,16 @@ bool Transactions::conditionsubstitute()
 
 bool Transactions::conditionselect()
 {
-	return false;
+	if (Reproduction::getInstance().getParent1() != 0 && Reproduction::getInstance().getParent2() != 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+
+	}
+	
 }
 
 bool Transactions::conditiongeneratechild()

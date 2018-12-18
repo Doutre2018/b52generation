@@ -13,6 +13,7 @@ public:
 
 	
 	void draw(ConsoleImage & image);
+	Shape2D * getShape(int index);
 
 private :
 	ConsoleColor::Text mColor;
