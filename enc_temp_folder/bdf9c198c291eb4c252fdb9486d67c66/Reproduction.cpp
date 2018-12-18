@@ -30,6 +30,8 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 			int randomParentIndex1 = Random::getInstance().uniformRandomize(1, 23); //23est un nombre bidon pour le nombre de forme que nous allons avoir setter
 			int randomParentIndex2 = Random::getInstance().uniformRandomize(1, 23); //23est un nombre bidon pour le nombre de forme que nous allons avoir setter
 
+			
+			//Shape2D *parent1= 
 			mParent1=Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
 			mParent2 = Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
 			return state;
@@ -37,7 +39,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 		break;
 	case StateRep::generatechild:
 		if (Transactions::getInstance().conditiongeneratechild()) {
-			state = nextState(state);
+			return nextState(state);
 		}
 		else {
 			//Je prend mes 2 parents
@@ -53,7 +55,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 	case StateRep::mutate:
 		if (Transactions::getInstance().conditionmutate()) {
 			delivery();
-			state = StateRep::select;
+			return StateRep::select;
 		}
 		else {
 			//Es ce que je fait un mutant ou pas
@@ -98,12 +100,6 @@ int64_t Reproduction::getParent2()
 {
 	return mParent2;
 }
-
-int64_t Reproduction::getEnfant()
-{
-	return mEnfant;
-}
-
 
 void Reproduction::delivery() {
 	Shape2D *shape =nullptr;

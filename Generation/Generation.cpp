@@ -49,11 +49,6 @@ void Generation::loop(State state) {
 	while (true)
 	{
 
-		Cercle cercle;
-		cercle.randomize();
-		Solution solution(&cercle);
-		solution.fitnessEvaluation();
-
 		processInput();
 		testShortcut(state);
 		if (Mstep_by_step) {
@@ -156,6 +151,7 @@ Generation::State Generation::update(State & state)
 			return nextState(state);
 		}
 		else {
+			//Solution s
 			return state;
 		}
 		break;
@@ -194,6 +190,8 @@ Generation::State Generation::update(State & state)
 			return State::fitness;
 		}
 		else {
+			Civilisations::getInstance().getPopulation(0).parentDeath();
+
 			return state;
 		}
 		break;

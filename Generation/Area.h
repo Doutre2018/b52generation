@@ -6,7 +6,7 @@
 #include "Random.h"
 #include "Shape2D.h"
 #include "Cercle.h"
-
+#include "Solution.h"
 #define SIZEW 350
 #define SIZEH 200
 
@@ -28,7 +28,7 @@ public:
 	void testArea();
 	void showPoint();
 	void showCivilisations();
-	void drawShape(Shape2D ** liste, size_t size, ConsoleColor::Text color);
+	void drawShape(Solution * liste, size_t size, ConsoleColor::Text color);
 	static Area& getInstance()
 	{
 		static Area instance;
