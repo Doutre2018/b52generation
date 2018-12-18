@@ -20,6 +20,7 @@ int Solution::fitnessEvaluation()
 
 	else
 		mFitness = 1;
+	return mFitness;
 }
 
 Shape2D * Solution::shape()

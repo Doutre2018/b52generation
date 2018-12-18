@@ -55,7 +55,7 @@ void Area::showCivilisations() {
 void Area::drawShape(Solution** liste, size_t size, ConsoleColor::Text color)
 {
 	for (int i = 0; i < size; ++i) {
-		liste[i]draw(*area_m, color);
+		liste[i]->shape()->draw(*area_m, color);
 	}
 }
 

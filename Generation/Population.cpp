@@ -40,16 +40,17 @@ void Population::setSolutions(Solution * listes[NBPOPULATION]) {
 }
 
 void Population::populate() {
-	for (int i = 0; i < NBPOPULATION; ++i) {
-		Shape2D* shape;
-		if (SHAPE == "cercle")
+	for (int i = 0; i < NBPOPULATION - 1; ++i) {
+		Shape2D* shape{ nullptr };
+		if (SHAPE == "cercle") {
 			shape = new Cercle();
+			shape->randomize();
+		}
 		//if (shape == "triangle")
 		//	Triangle shape;
 		//if (shape == "rectangle")
 		//	Rectangle shape;
-		if(shape != NULL){
-			shape->randomize();
+		if(shape != nullptr){
 			Solution sol(shape);
 			sol.fitnessEvaluation();
 			mSolutions[i] = &sol;

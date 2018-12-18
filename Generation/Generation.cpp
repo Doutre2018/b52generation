@@ -149,7 +149,7 @@ Generation::State Generation::update(State & state)
 			return nextState(state);
 		}
 		else {
-			Solution s
+			//Solution s
 			return state;
 		}
 		break;
