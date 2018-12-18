@@ -20,7 +20,6 @@ public:
 	void setSolution(size_t i, Solution sol);
 	void setSolutions(Solution * listes, size_t size);
 	void populate(std::string type, size_t nbPop);
-	void parentDeath();
 	ConsoleColor::Text color();
 private :
 	ConsoleColor::Text mColor;

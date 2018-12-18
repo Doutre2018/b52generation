@@ -5,6 +5,7 @@
 #include "Point2d.h"
 #include "Console\Console.h"
 
+
 #define _USE_MATH_DEFINES
 #include <cmath>
 

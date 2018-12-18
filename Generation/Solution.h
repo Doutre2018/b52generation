@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SOLUTION_H
+#define SOLUTION_H
 #include "Shape2D.h"
 
 class Solution
@@ -14,7 +15,6 @@ public:
 private:
 	Shape2D* mShape;
 	int mFitness;
-
-
 };
 
+#endif //SOLUTION_H

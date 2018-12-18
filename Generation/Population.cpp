@@ -52,11 +52,9 @@ void Population::populate(std::string type, size_t nbPop) {
 
 	}
 }
-void Population::parentDeath() {
-	Solution * children = Reproduction::getInstance().getChildren();
-	for (int i = 0; i < NBPOPULATION - 1; ++i) {
-		mSolutions[i] = children[i];
-		//Area::getInstance().drawShape(children, NBPOPULATION, ConsoleColor::tm);
+void Population::parentDeath(Solution * childSolution, size_t size) {
+	for (int i = 0; i < size - 1; ++i) {
+		mSolutions[i] = childSolution[i];
 	}
 }
 ConsoleColor::Text Population::color() {
