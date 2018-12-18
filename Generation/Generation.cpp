@@ -10,7 +10,7 @@
 
 
 Generation::Generation(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles):
-	mArea{ Area(mHeight, mWidth) }, mReproductiveSystem{ Reproduction() }, mCivilisations{ Civilisations()},reader_m { nullptr}, mStep_by_step{ false }, mHeight{ height }, mWidth{ width }, mType{ type }, mNbPopulations{ nbPopulations }, mNbObstacles{ nbObstacles }
+	mArea{ Area(width, height) }, mReproductiveSystem{ Reproduction() }, mCivilisations{ Civilisations()},reader_m { nullptr}, mStep_by_step{ false }, mHeight{ height }, mWidth{ width }, mType{ type }, mNbPopulations{ nbPopulations }, mNbObstacles{ nbObstacles }
 {}
 Generation::~Generation(){}
 

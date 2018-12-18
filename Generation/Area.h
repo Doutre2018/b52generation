@@ -11,7 +11,7 @@
 class Area
 {
 public:
-	Area(size_t height, size_t width);
+	Area(size_t height,size_t width);
 	~Area();
 
 	void generateArea();
@@ -27,8 +27,8 @@ private :
 	ConsoleImage * mBackground;
 
 	std::list<Point2d> points_m;
-	size_t screenheight_m;
-	size_t screenwidth_m;
+	size_t mScreenHeight;
+	size_t mScreenWidth;
 };
 
 #endif //AREA_H

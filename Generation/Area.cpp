@@ -8,21 +8,22 @@
 #include "Point2d.h"
 #include "Random.h"
 
-Area::Area(size_t height, size_t width):area_m{nullptr}, screenheight_m { height }, screenwidth_m{width}{
-	ConsoleContext context(screenwidth_m, screenheight_m, "Guess the best place!", 4, 4, L"Consolas");
-	Console::defineContext(context);
+Area::Area(size_t height, size_t width):area_m{nullptr}, mScreenWidth { width }, mScreenHeight{height }{
+	
 }
 
 Area::~Area(){
 }
 
 void Area::generateArea() {
+	ConsoleContext context(mScreenWidth, mScreenHeight , "Guess the best place!", 4, 4, L"Consolas");
+	Console::defineContext(context);
 	area_m = &(Console::getInstance().writer().createImage("area"));
 }
 
 void Area::generatePoint(size_t nbObstacles){
 	for (int i = 0; i < nbObstacles; ++i) {
-		points_m.push_back(Point2d(Random::getInstance().uniformRandomize(0, screenwidth_m), Random::getInstance().uniformRandomize(0, screenheight_m)));
+		points_m.push_back(Point2d(Random::getInstance().uniformRandomize(0, mScreenWidth), Random::getInstance().uniformRandomize(0, mScreenHeight )));
 	}
 }
 
