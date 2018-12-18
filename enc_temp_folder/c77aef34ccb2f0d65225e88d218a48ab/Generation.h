@@ -6,13 +6,12 @@ class Generation
 {
 private:
 public:
-	Generation();
+	Generation(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles);
 	~Generation();
-
-	void start(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles);
 
 	enum class State { idle, generation1, fitness, stop,  elitetransfer, reproduct, substitute, pause};
 	
+	void start();
 	void pause(State & state);
 
 private :
@@ -30,12 +29,6 @@ private :
 
 	ConsoleKeyReader * reader_m;
 	ConsoleKeyReader::KeyEvents keyEvents;
-	
-	size_t mHeight;
-	size_t mWidth;
-	std::string mType;
-	size_t mNbPopulations;
-	size_t mNbObstacles;
 	
 };
 #endif //GENERATION_H

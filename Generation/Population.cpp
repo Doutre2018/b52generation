@@ -53,7 +53,7 @@ void * Population::setSolution(size_t i, Shape2D * shape) {
 	mSolutions[i] = shape;
 }
 
-void * Population::setSolutions(Shape2D*  listes[NBPOPULATION]) {
+void * Population::setSolutions(Shape2D * listes[NBPOPULATION]) {
 	for (int i = 0; i < NBPOPULATION; ++i){
 		mSolutions[i] = listes[i];
 	}
