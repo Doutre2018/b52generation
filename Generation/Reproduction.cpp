@@ -32,7 +32,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 
 			mParent1=Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
 			mParent2 = Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
-			return state;
+			state = state;
 		}
 		break;
 	case StateRep::generatechild:
@@ -78,7 +78,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 		}
 		break;
 	}
-
+	return (StateRep) 0;
 }
 Reproduction::StateRep Reproduction::nextState(StateRep & state) {
 	return (StateRep)((int)state + 1);
