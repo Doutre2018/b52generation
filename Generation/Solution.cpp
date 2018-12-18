@@ -8,21 +8,50 @@ Solution::Solution() {
 
 }
 
-
+/*
 Solution::Solution(Shape2D* shape)
 	
 {
 
 
 }
-
+*/
 Solution::~Solution()
 {
 }
+/*
+void Solution::createSoluTable(){
 
-void evalSolutionValue(std::vector<std::vector<Shape2D*>*> m) {
+	Solution soluce{};
 
-	m->solution = m->mArea * 1; //Solution::scalability(evaluated_form); SCALABILITY needs further work hence placeholder neutral value 1
+
+	for (int i = 0; i < 100; ++i)
+	{
+		soluce.soluTable.push_back(Cercle().randomize);
+
+
+	}
+
+
+}*/
+
+void Solution::evalSolutionValue() {
+	
+	for (auto shape : soluce.soluTable)
+	{
+		shape->mArea = shape->calculateArea();
+
+
+	}
+	
+
+}
+
+void Solution::evalFitness() {
+	
+	Fitness::fitnessValue(Solution soluce);
+
+
 
 }
 //THIS GOES INTO INJECTION

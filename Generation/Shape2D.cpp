@@ -36,5 +36,8 @@ Point2d Shape2D::centerPoint(Shape2D polygonOrigin) {
 }
 */
 
+double Shape2D::getArea() {
+	return mArea;
 
+}
 
