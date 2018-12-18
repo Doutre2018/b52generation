@@ -37,12 +37,7 @@ void Solution::createSoluTable(){
 
 void Solution::evalSolutionValue() {
 	
-	for (auto shape : soluce.soluTable)
-	{
-		shape->mArea = shape->calculateArea();
-
-
-	}
+	
 	
 
 }
