@@ -28,7 +28,7 @@ public:
 	void testArea();
 	void showPoint();
 	void showCivilisations();
-	void drawShape(Solution ** liste, size_t size, ConsoleColor::Text color);
+	void drawShape(Solution * liste, size_t size, ConsoleColor::Text color);
 	static Area& getInstance()
 	{
 		static Area instance;

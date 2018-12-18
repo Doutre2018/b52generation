@@ -14,16 +14,16 @@ public:
 
 	void draw(ConsoleImage & image);
 
-	Solution * getSolution(size_t i);
+	Solution getSolution(size_t i);
 
-	Solution ** getListe();
-	Solution * randomSolution();
-	void setSolution(size_t i, Solution * shape);
-	void setSolutions(Solution * listes[NBPOPULATION]);
+	Solution * getListe();
+	Solution randomSolution();
+	void setSolution(size_t i, Solution sol);
+	void setSolutions(Solution listes[NBPOPULATION]);
 	void populate();
 private :
 	ConsoleColor::Text mColor;
-	Solution *mSolutions[NBPOPULATION];
+	Solution mSolutions[NBPOPULATION];
 };
 
 #endif

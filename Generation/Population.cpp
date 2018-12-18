@@ -16,24 +16,24 @@ void Population::draw(ConsoleImage & image) {
 	Area::getInstance().drawShape(mSolutions, NBPOPULATION, mColor);
 }
 
-Solution * Population::getSolution(size_t i) {
+Solution Population::getSolution(size_t i) {
 	return mSolutions[i];
 }
 
-Solution** Population::getListe() {
+Solution* Population::getListe() {
 	return mSolutions;
 }
 
-Solution * Population::randomSolution() {
+Solution Population::randomSolution() {
 	size_t i = Random::getInstance().uniformRandomize(0, NBPOPULATION - 1);
 	return mSolutions[i];
 }
 
-void Population::setSolution(size_t i, Solution * shape) {
-	mSolutions[i] = shape;
+void Population::setSolution(size_t i, Solution sol) {
+	mSolutions[i] = sol;
 }
 
-void Population::setSolutions(Solution * listes[NBPOPULATION]) {
+void Population::setSolutions(Solution listes[NBPOPULATION]) {
 	for (int i = 0; i < NBPOPULATION; ++i){
 		mSolutions[i] = listes[i];
 	}
@@ -53,7 +53,7 @@ void Population::populate() {
 		if(shape != nullptr){
 			Solution sol(shape);
 			sol.fitnessEvaluation();
-			mSolutions[i] = &sol;
+			mSolutions[i] = sol;
 		}
 
 	}

@@ -1,6 +1,8 @@
 #include "Solution.h"
 
-
+Solution::Solution()
+{
+}
 
 Solution::Solution(Shape2D* shape, int fitness)
 	:mShape{ shape }

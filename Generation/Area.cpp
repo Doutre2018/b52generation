@@ -52,10 +52,10 @@ void Area::showCivilisations() {
 
 }
 
-void Area::drawShape(Solution** liste, size_t size, ConsoleColor::Text color)
+void Area::drawShape(Solution* liste, size_t size, ConsoleColor::Text color)
 {
-	for (int i = 0; i < size; ++i) {
-		liste[i]->shape()->draw(*area_m, color);
+	for (int i = 0; i < size-1; ++i) {
+		liste[i].shape()->draw(*area_m, color);
 	}
 }
 
