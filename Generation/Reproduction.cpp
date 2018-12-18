@@ -1,6 +1,6 @@
 #include "Reproduction.h"
 #include "Transactions.h"
-Reproduction::Reproduction()
+Reproduction::Reproduction() :state{StateRep::select}
 {
 }
 
@@ -8,7 +8,6 @@ Reproduction::Reproduction()
 Reproduction::~Reproduction()
 {
 }
-
 Reproduction::StateRep Reproduction::createChild(StateRep & state)
 {
 
@@ -44,4 +43,9 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 }
 Reproduction::StateRep Reproduction::nextState(StateRep & state) {
 	return (StateRep)((int)state + 1);
+}
+
+Reproduction::StateRep & Reproduction::getState()
+{
+	return state;
 }

@@ -2,12 +2,9 @@
 #include "Area.h"
 #define PI 3.14159265358979323846
 
-Cercle::Cercle(Point2d point, int radius)
-	:mPoint{point},
-	mRadius{ radius }
+Cercle::Cercle()
 {
-	mX = mPoint.x();
-	mY = mPoint.y();
+
 }
 
 Cercle::~Cercle()
@@ -55,7 +52,15 @@ int Cercle::calculateCirconference() {
 int Cercle::calculateDiameter() {
 	return 2 * mRadius;
 }
+ 
+void Cercle::randomize() {
+	mX = Random::getInstance().uniformRandomize(0, SIZEW);
+	mY = Random::getInstance().uniformRandomize(0, SIZEH);
 
+	mPoint=Point2d(mX, mY);
+
+	mRadius = Random::getInstance().uniformRandomize(0, SIZEH);
+}
 void Cercle::draw(ConsoleImage & image, ConsoleColor::Text color) {
 	image.drawCircle(mPoint.x(), mPoint.y(), mRadius, 178, ConsoleColor::bb + color);
 }

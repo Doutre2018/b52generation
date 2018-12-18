@@ -1,5 +1,5 @@
 #include "Fitness.h"
-#include "cmath.h"
+#include "math.h"
 
 
 void fitnessValue(Shape2D & solutions) {
@@ -11,7 +11,7 @@ void fitnessValue(Shape2D & solutions) {
 		for (int j = 0; j < sizeArray; ++j)
 		{
 			
-			preFitness += square(solutions[i].solution - solutions[j].solution) 
+			preFitness += pow(solutions[i].solution - solutions[j].solution, 2) 
 
 		}
 		solutions[i].fitness = sqrt(preFitness / sizeArray);
@@ -23,17 +23,3 @@ void fitnessValue(Shape2D & solutions) {
 
 
 
-
-
-
-
-
-
-
-//calcul avec aire et scale_up /scale_down : Solution
-
-//calcul fitness
-
-//elite picked
-
-//injection
