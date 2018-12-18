@@ -1,52 +1,27 @@
 #ifndef AREA_H
 #define AREA_H
 
+//include les objets Consoles
 #include "Console\Console.h"
-#include "Point2d.h"
-#include "Random.h"
-#include "Shape2D.h"
-#include "Cercle.h"
+#include "Console\ConsoleColor.h"
+
+//include de la Team
 #include "Solution.h"
-#define SIZEW 350
-#define SIZEH 200
-
-#define NBPOPULATION 100
-
-#define SHAPE "cercle"
-#define NBOBSTACLES 100
 
 class Area
 {
 private:
-	Area();
+	Area(size_t height, size_t width);
 	~Area();
 public:
-	std::string shape_g = "cercle";
-	void setArea(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles);
 	void generateArea();
-	void generatePoint();
+	void generatePoint(size_t nbObstacles);
 	void testArea();
 	void showPoint();
 	void showCivilisations();
 	void drawShape(Solution * liste, size_t size, ConsoleColor::Text color);
-	static Area& getInstance()
-	{
-		static Area instance;
-		return instance;
-	}
-
-
-	size_t sizeW() { return SIZEW; }
-	size_t sizeH() { return SIZEH; }
-
-	size_t nbObstacles() { return NBOBSTACLES; }
-	std::string shape() { return shape_g; }
-
 
 	std::list<Point2d> points();
-
-
-
 private :
 	ConsoleImage * area_m;
 	ConsoleImage * mBackground;

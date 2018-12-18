@@ -7,8 +7,8 @@
 class Civilisations
 {
 private:
-	Civilisations();
-	~Civilisations();
+	Civilisations(){}
+	~Civilisations(){}
 	std::vector<Population> civilisations_m;
 
 	enum class Color { brightblue , blue, brightcyan, cyan, brightgreen,green,brightmagenta, magenta, brightred,red, brightyellow,yellow};

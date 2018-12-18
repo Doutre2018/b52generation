@@ -11,15 +11,15 @@
 class Shape2D
 {
 public:
-	Shape2D();
-	~Shape2D();
+	Shape2D() {}
+	~Shape2D(){}
 	virtual int64_t encodePropreties() = 0;
 	virtual void decodePropreties(int64_t data) = 0;
 
 	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) = 0;
 	virtual int calculateArea() = 0;
-	virtual bool pointInShape() = 0;
-	virtual void randomize() = 0;
+	virtual bool pointInShape(std::list<Point2d> points) = 0;
+	virtual void randomize(size_t width, size_t height) = 0;
 
 protected:
 	double mX;
@@ -27,7 +27,6 @@ protected:
 	int mHeight;
 	int mWidth;
 	Point2d	mPoint;
-
 };
 
 #endif //SHAPE2D_H
