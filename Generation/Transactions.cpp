@@ -84,7 +84,8 @@ bool Transactions::conditiongeneratechild()
 
 bool Transactions::conditionmutate()
 {
-	return false;
+
+	return true;
 }
 
 bool Transactions::conditionstepbystepKey(ConsoleKeyReader::KeyEvents & keyEvents) {
