@@ -140,8 +140,8 @@
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="PopulationEngine.cpp" />
     <ClCompile Include="Population.cpp" />
-    <ClCompile Include="Populations.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Reproduction.cpp" />
     <ClCompile Include="Shape2D.cpp" />
@@ -174,8 +174,8 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="Point2d.h" />
     <ClInclude Include="Polygon2d.h" />
+    <ClInclude Include="PopulationEngine.h" />
     <ClInclude Include="Population.h" />
-    <ClInclude Include="Populations.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Reproduction.h" />
     <ClInclude Include="Shape2D.h" />

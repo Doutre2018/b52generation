@@ -14,6 +14,7 @@ class Solution
 {
 public:
 	Solution();
+
 	//Solution(Shape2D* shape);
 	~Solution();
 
@@ -25,6 +26,13 @@ public:
 	void evalSolutionValue(Shape2D *mSolutions[NBPOPULATION]);
 	void createSoluTable();
 	void evalFitness();
+
+	Solution(Shape2D* shape, int fitness = 0);
+	~Solution();
+
+	int fitnessEvaluation();
+	Shape2D * shape();
+
 
 private:
 	

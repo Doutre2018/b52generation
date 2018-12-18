@@ -28,9 +28,12 @@ private:
 	int mY;
 	Point2d mPoint;
 	int mRadius;
-	double solution;
+
+	Point2d mNearestPoint;
+
 
 	Polygon2d mPoly;
+
 
 };
 #endif //CERCLE_H

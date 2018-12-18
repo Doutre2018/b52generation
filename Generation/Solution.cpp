@@ -1,6 +1,10 @@
 #include "Solution.h"
 #include "Population.h"
 
+Solution::Solution()
+{
+}
+
 
 
 Solution::Solution() {
@@ -11,6 +15,10 @@ Solution::Solution() {
 /*
 Solution::Solution(Shape2D* shape)
 	
+=======
+Solution::Solution(Shape2D* shape, int fitness)
+	:mShape{ shape }
+>>>>>>> master
 {
 
 
@@ -132,12 +140,25 @@ return false;
 */
 /*
 
+
 int Solution::fitnessEvaluation()
 {
-	//if()
+	if (mShape->pointInShape())
+		mFitness = 0;
 
+	else
+		mFitness = 1;
+	return mFitness;
+}
 
+<<<<<<< HEAD
 	return 0;
 }
 
 */
+
+Shape2D * Solution::shape()
+{
+	return mShape;
+}
+

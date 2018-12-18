@@ -1,5 +1,7 @@
 #include "Generation.h"
 
+#include "Shape2D.h"
+#include "Solution.h"
 #include "Area.h"
 #include "Transactions.h"
 #include "Civilisations.h"
@@ -7,7 +9,10 @@
 #include "Console\ConsoleKeyFilterModifiers.h"
 #include "Console\ConsoleKeyFilterUp.h"
 #include "Reproduction.h"
-Generation::Generation():reader_m{ nullptr }, Mstep_by_step{false}
+
+
+Generation::Generation():
+	reader_m{ nullptr }, Mstep_by_step{false}
 {
 }
 
@@ -15,8 +20,14 @@ Generation::~Generation()
 {
 }
 
-void Generation::start()
+void Generation::start(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles)
 {
+	mHeight = height;
+	mWidth=width;
+	mType=type;
+	mNbPopulations=nbPopulations;
+	mNbObstacles=nbObstacles;
+
 	Area::getInstance().generateArea();
 	Area::getInstance().generatePoint();
 	Area::getInstance().showPoint();
@@ -140,6 +151,7 @@ Generation::State Generation::update(State & state)
 			return nextState(state);
 		}
 		else {
+			//Solution s
 			return state;
 		}
 		break;
@@ -165,8 +177,11 @@ Generation::State Generation::update(State & state)
 		if (Transactions::getInstance().conditionreproduct()) {
 			return nextState(state);
 		}
-		else {
+		else if (Civilisations::getInstance().nbPopulations()>0){
 			Reproduction::getInstance().createChild(Reproduction::getInstance().getState());
+			return state;
+		}
+		else {
 			return state;
 		}
 		break;

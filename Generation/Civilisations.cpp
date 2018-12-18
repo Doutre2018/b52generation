@@ -18,7 +18,7 @@ void Civilisations::regenerate() {
 	color = Color::brightblue;
 	
 	for (int i = 0; i < mSize; ++i) {
-		civilisations_m.push_back(Populations(colors[(int)color]));
+		civilisations_m.push_back(Population(colors[(int)color]));
 		nextColor();
 	}
 
@@ -31,10 +31,13 @@ void Civilisations::reset() {
 
 }
 
+size_t Civilisations::nbPopulations() {
+	return civilisations_m.size();
+}
 void Civilisations::createNewPopulations() {
 	
 	if (color != Color::yellow) {
-		civilisations_m.push_back(Populations(colors[(int)color]));
+		civilisations_m.push_back(Population(colors[(int)color]));
 		nextColor();
 	}
 	
@@ -57,12 +60,12 @@ void Civilisations::lastColor() {
 	color = (Color)((int)color - 1);
 }
 
-Populations Civilisations::getPopulation(int id)
+Population Civilisations::getPopulation(int id)
 {
 	return civilisations_m.at(id);
 }
 
-std::vector<Populations> Civilisations::getAll()
+std::vector<Population> Civilisations::getAll()
 {
 	return civilisations_m;
 }

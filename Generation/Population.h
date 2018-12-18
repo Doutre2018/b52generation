@@ -4,6 +4,7 @@
 #include "Shape2D.h"
 #include "Area.h"
 #include "Console\ConsoleColor.h"
+#include "Solution.h"
 
 class Population
 {
@@ -13,15 +14,17 @@ public:
 
 	void draw(ConsoleImage & image);
 
-	Shape2D * getSolution(size_t i);
+	Solution getSolution(size_t i);
 
-	Shape2D ** getListe();
-	Shape2D * randomSolution();
-	void * setSolution(size_t i, Shape2D * shape);
-	void * setSolutions(Shape2D ** listes);
+	Solution * getListe();
+	Solution randomSolution();
+	void setSolution(size_t i, Solution sol);
+	void setSolutions(Solution listes[NBPOPULATION]);
+	void populate();
+	void parentDeath();
 private :
 	ConsoleColor::Text mColor;
-	Shape2D *mSolutions[NBPOPULATION];
+	Solution mSolutions[NBPOPULATION];
 };
 
 #endif

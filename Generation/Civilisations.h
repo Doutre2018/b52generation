@@ -1,7 +1,7 @@
 #ifndef CIVILISATIONS_H
 #define CIVILISATIONS_H
 
-#include "Populations.h"
+#include "Population.h"
 #include <vector> 
 #include "Console\Console.h"
 class Civilisations
@@ -9,7 +9,7 @@ class Civilisations
 private:
 	Civilisations();
 	~Civilisations();
-	std::vector<Populations> civilisations_m;
+	std::vector<Population> civilisations_m;
 
 	enum class Color { brightblue , blue, brightcyan, cyan, brightgreen,green,brightmagenta, magenta, brightred,red, brightyellow,yellow};
 	static ConsoleColor::Text colors[12];
@@ -21,6 +21,8 @@ public :
 		return instance;
 	}
 	
+	size_t nbPopulations();
+
 	void createNewPopulations();
 
 	void removeLastPopulations();
@@ -33,8 +35,8 @@ public :
 	void reset();
 
 
-	Populations getPopulation(int id);
-	std::vector<Populations> getAll();
+	Population getPopulation(int id);
+	std::vector<Population> getAll();
 	size_t size();
 
 };
