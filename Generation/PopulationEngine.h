@@ -1,4 +1,5 @@
-#pragma once
+#ifndef POPULATIONENGINE_H
+#define POPULATIONENGINE_H
 class PopulationEngine
 {
 public:
@@ -6,3 +7,4 @@ public:
 	~PopulationEngine();
 };
 
+#endif //POPULATIONENGINE_H
