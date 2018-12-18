@@ -9,7 +9,7 @@ Reproduction::Reproduction()
 	mParent2{ 0 },
 	mEnfant{ 0 },
 	state{StateRep::select},
-	nbChild{0}
+	mNbChild{0}
 {}
 
 
@@ -109,10 +109,10 @@ void Reproduction::delivery() {
 		shape->decodePropreties(mEnfant);
 	}
 	if (shape != nullptr) {
-		mChildSolution[nbChild] = Solution(shape);
-		mChildSolution[nbChild].fitnessEvaluation();
+		mChildSolution[mNbChild] = Solution(shape);
+		mChildSolution[mNbChild].fitnessEvaluation();
 	}
-	nbChild++;
+	mNbChild++;
 }
 
 Solution * Reproduction::getChildren() {
@@ -120,5 +120,9 @@ Solution * Reproduction::getChildren() {
 }
 
 size_t Reproduction::nbChild() {
-	return nbChild;
+	return mNbChild;
+}
+
+void Reproduction::setNbChild(size_t nb) {
+	mNbChild = nb;
 }

@@ -190,6 +190,8 @@ Generation::State Generation::update(State & state)
 			return State::fitness;
 		}
 		else {
+			Civilisations::getInstance().getPopulation(0).parentDeath();
+
 			return state;
 		}
 		break;

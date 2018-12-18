@@ -12,7 +12,7 @@ private:
 	int64_t mParent2;
 	int64_t mEnfant;
 	int percentageMutate;
-	size_t nbChild;
+	size_t mNbChild;
 	Solution mChildSolution[NBPOPULATION];
 
 public:
@@ -30,6 +30,8 @@ public:
 	int64_t getParent2();
 	void delivery();
 	Solution * getChildren();
+	size_t nbChild();
+	void setNbChild(size_t nb);
 };
 
 #endif //REPRODUCTION_H
