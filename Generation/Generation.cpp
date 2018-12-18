@@ -1,5 +1,7 @@
 #include "Generation.h"
 
+#include "Shape2D.h"
+#include "Solution.h"
 #include "Area.h"
 #include "Transactions.h"
 #include "Civilisations.h"
@@ -38,7 +40,10 @@ void Generation::loop(State state) {
 	while (true)
 	{
 
-
+		Cercle cercle;
+		cercle.randomize();
+		Solution solution(&cercle);
+		solution.fitnessEvaluation();
 
 		processInput();
 		testShortcut(state);
