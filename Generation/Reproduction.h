@@ -23,6 +23,8 @@ public:
 	StateRep createChild(StateRep & state);
 	StateRep nextState(StateRep & state);
 	StateRep & getState();
+	int64_t getParent1();
+	int64_t getParent2();
 };
 
 #endif //REPRODUCTION_H

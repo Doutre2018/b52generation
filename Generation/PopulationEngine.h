@@ -1,8 +1,8 @@
 #pragma once
-class Population
+class PopulationEngine
 {
 public:
-	Population();
-	~Population();
+	PopulationEngine();
+	~PopulationEngine();
 };
 

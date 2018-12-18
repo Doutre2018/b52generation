@@ -7,8 +7,6 @@ using namespace std;
 
 int main()
 {
-	Generation::getInstance().start();
-
-
+	Generation::getInstance().start(350,200,"cercle", 30, 100);
 	return 0;
 }

@@ -1,7 +1,7 @@
 #include "Reproduction.h"
 #include "Transactions.h"
 #include "Random.h"
-#include "Populations.h"
+#include "Population.h"
 #include "Civilisations.h"
 
 Reproduction::Reproduction()
@@ -30,8 +30,8 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 
 			
 			//Shape2D *parent1= 
-			mParent1=Civilisations::getInstance().getPopulation(0).getShape(randomParentIndex1)->encodePropreties();
-			mParent1 = Civilisations::getInstance().getPopulation(0).getShape(randomParentIndex2)->encodePropreties();
+			mParent1=Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex1)->encodePropreties();
+			mParent2 = Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex2)->encodePropreties();
 			return state;
 		}
 		break;
@@ -87,4 +87,14 @@ Reproduction::StateRep Reproduction::nextState(StateRep & state) {
 Reproduction::StateRep & Reproduction::getState()
 {
 	return state;
+}
+
+int64_t Reproduction::getParent1()
+{
+	return mParent1;
+}
+
+int64_t Reproduction::getParent2()
+{
+	return mParent2;
 }

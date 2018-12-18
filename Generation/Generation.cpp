@@ -10,8 +10,9 @@
 #include "Console\ConsoleKeyFilterUp.h"
 #include "Reproduction.h"
 
-Generation::Generation() :
-	reader_m{ nullptr }, Mstep_by_step{ false }
+
+Generation::Generation():
+	reader_m{ nullptr }, Mstep_by_step{false}
 {
 }
 
