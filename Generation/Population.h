@@ -16,6 +16,9 @@ public:
 	Shape2D * getSolution(size_t i);
 
 	Shape2D ** getListe();
+	Shape2D * randomSolution();
+	void * setSolution(size_t i, Shape2D * shape);
+	void * setSolutions(Shape2D ** listes);
 private :
 	ConsoleColor::Text mColor;
 	Shape2D *mSolutions[NBPOPULATION];

@@ -43,3 +43,18 @@ Shape2D * Population::getSolution(size_t i) {
 Shape2D** Population::getListe() {
 	return mSolutions;
 }
+
+Shape2D * Population::randomSolution() {
+	size_t i = Random::getInstance().uniformRandomize(0, NBPOPULATION - 1);
+	return mSolutions[i];
+}
+
+void * Population::setSolution(size_t i, Shape2D * shape) {
+	mSolutions[i] = shape;
+}
+
+void * Population::setSolutions(Shape2D*  listes[NBPOPULATION]) {
+	for (int i = 0; i < NBPOPULATION; ++i){
+		mSolutions[i] = listes[i];
+	}
+}
