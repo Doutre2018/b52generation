@@ -39,7 +39,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 		break;
 	case StateRep::generatechild:
 		if (Transactions::getInstance().conditiongeneratechild()) {
-			state = nextState(state);
+			return nextState(state);
 		}
 		else {
 			//Je prend mes 2 parents
@@ -55,7 +55,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 	case StateRep::mutate:
 		if (Transactions::getInstance().conditionmutate()) {
 			delivery();
-			state = StateRep::select;
+			return StateRep::select;
 		}
 		else {
 			//Es ce que je fait un mutant ou pas
