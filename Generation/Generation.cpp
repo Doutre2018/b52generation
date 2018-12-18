@@ -154,6 +154,7 @@ Generation::State Generation::update(State & state)
 			return nextState(state);
 		}
 		else {
+			Solution s
 			return state;
 		}
 		break;

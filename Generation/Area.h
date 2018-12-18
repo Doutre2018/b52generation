@@ -6,7 +6,7 @@
 #include "Random.h"
 #include "Shape2D.h"
 #include "Cercle.h"
-
+#include "Solution.h"
 #define SIZEW 350
 #define SIZEH 200
 
