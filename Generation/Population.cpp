@@ -62,5 +62,6 @@ void Population::parentDeath() {
 	Solution * children = Reproduction::getInstance().getChildren();
 	for (int i = 0; i < NBPOPULATION - 1; ++i) {
 		mSolutions[i] = children[i];
+		//Area::getInstance().drawShape(children, NBPOPULATION, ConsoleColor::tm);
 	}
 }

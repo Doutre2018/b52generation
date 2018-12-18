@@ -27,8 +27,8 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 		}
 		else {
 			//Je choisie mes 2 prant dans le vecteur de forme je dois en choisir random 2
-			int randomParentIndex1 = Random::getInstance().uniformRandomize(1, 23); //23est un nombre bidon pour le nombre de forme que nous allons avoir setter
-			int randomParentIndex2 = Random::getInstance().uniformRandomize(1, 23); //23est un nombre bidon pour le nombre de forme que nous allons avoir setter
+			int randomParentIndex1 = Random::getInstance().uniformRandomize(1, NBPOPULATION-1); 
+			int randomParentIndex2 = Random::getInstance().uniformRandomize(1, NBPOPULATION-1); 
 
 			mParent1=Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
 			mParent2 = Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
@@ -54,6 +54,9 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 		if (Transactions::getInstance().conditionmutate()) {
 			delivery();
 			state = StateRep::select;
+			mParent1 = 0;
+			mParent2 = 0;
+			mEnfant = 0;
 		}
 		else {
 			//Es ce que je fait un mutant ou pas

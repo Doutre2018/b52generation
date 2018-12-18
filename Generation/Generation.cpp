@@ -190,7 +190,9 @@ Generation::State Generation::update(State & state)
 			return State::fitness;
 		}
 		else {
-			Civilisations::getInstance().getPopulation(0).parentDeath();
+			for (int i = 0; i < Civilisations::getInstance().nbPopulations(); ++i) {
+				Civilisations::getInstance().getPopulation(i).parentDeath();
+			}
 
 			return state;
 		}

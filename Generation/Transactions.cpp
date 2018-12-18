@@ -43,7 +43,7 @@ bool Transactions::conditionelitetransfer()
 
 bool Transactions::conditionreproduct()
 {
-	if (Reproduction::getInstance().nbChild() >= NBPOPULATION) {
+	if (Reproduction::getInstance().nbChild() >= NBPOPULATION-1) {
 		Reproduction::getInstance().setNbChild(0);
 		return true;
 	}
