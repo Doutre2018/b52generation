@@ -35,7 +35,7 @@ bool Cercle::pointInShape()
 {
 	for (auto Point2d : Area::getInstance().points())
 	{
-		if (mPoly.contained(Point2d))
+		if (Point2d.distance(mPoint) > mRadius)
 			return true;
 	}
 	

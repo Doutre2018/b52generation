@@ -12,6 +12,7 @@ Solution::~Solution()
 }
 
 
+
 int Solution::fitnessEvaluation()
 {
 	//if()
