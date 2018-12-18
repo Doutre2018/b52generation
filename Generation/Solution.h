@@ -6,9 +6,10 @@
 #include "Transform2d.h"
 #include <vector>
 #include "Cercle.h"
+#include "Population.h"
 
 #include "Shape2D.h"
-
+const int NBPOPULATION = 100;
 
 class Solution
 {
@@ -23,9 +24,11 @@ public:
 	//double scalability(Shape2D evaluated_form);
 	double approximateScaleMod(double colliderDistance, double farPoint);
 	//bool collision(Point2d obstacle, Shape2D evaluated_form);
-	void evalSolutionValue(Shape2D *mSolutions[NBPOPULATION]);
+	void evalSolutionValue(Solution msolutions[100]);		//BAD CODE hard coded...
 	void createSoluTable();
-	void evalFitness();
+	void evalSolutionValue(Solution mSolutions[NBPOPULATION]);
+	void evalFitness(Solution mSolution[NBPOPULATION]);
+	void buildArray(Solution mSolution[NBPOPULATION]);
 
 	Solution(Shape2D* shape, int fitness = 0);
 	~Solution();
@@ -35,11 +38,10 @@ public:
 
 
 private:
-	
-	Shape2D* mShape;
+	Shape2D mShape;
 	double mFitness;
-	double aire_forme;
-	std::vector<Shape2D*> soluTable;
+	double mAire;
+
 
 	//const int COHORT_QTY = 100;
 	//Cercle solutions[100];				//placeholder hardcoded value : issue with constant int assignment

@@ -1,22 +1,23 @@
 #include "Fitness.h"
 #include "math.h"
 #include "Solution.h"
+#include "Population.h"
 
 
-void fitnessValue(std::vector<Shape2D*> soluTable) {
+void fitnessValue(Solution mSolutions[100]) {
 
-	int sizeArray = soluTable.size();
+	int sizeArray = mSolutions.size();
 	for (int i = 0; i < sizeArray; ++i)
 	{
 		double preFitness{};
 		for (int j = 0; j < sizeArray; ++j)
 		{
 			
-			preFitness += pow(soluTable[i]->getArea() - soluTable[j]->getArea(), 2);
+			preFitness += pow(mSolutions[i]->getArea() - mSolutions[j]->getArea(), 2);
 
 		}
 
-		soluTable[i]->mFitness = sqrt(preFitness / sizeArray);
+		mSolutions[i]->mFitness = sqrt(preFitness / sizeArray);
 	}
 
 

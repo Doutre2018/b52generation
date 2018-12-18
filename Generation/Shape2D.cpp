@@ -4,6 +4,7 @@
 
 
 #include "Point2d.h"
+#include "Cercle.h"
 
 
 
@@ -35,9 +36,18 @@ Point2d Shape2D::centerPoint(Shape2D polygonOrigin) {
 
 }
 */
-
+/*
 double Shape2D::getArea() {
 	return mArea;
 
 }
 
+*/
+void Shape2D::createShapes(std::vector<Shape2D*> myShapes) {
+	myShapes[0] = new Cercle();
+	//myShapes[1] = new Cercle().Cercle::randomize();
+	//mShape[2] = new Cercle().Cercle::randomize();
+
+
+
+}

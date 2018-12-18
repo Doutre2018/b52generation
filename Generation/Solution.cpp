@@ -1,5 +1,6 @@
 #include "Solution.h"
 #include "Population.h"
+#include "Fitness.h"
 
 Solution::Solution()
 {
@@ -43,21 +44,37 @@ void Solution::createSoluTable(){
 
 }*/
 
-void Solution::evalSolutionValue(Shape2D *mSolutions[NBPOPULATION]) {
+void Solution::evalSolutionValue(Solution mSolutions[NBPOPULATION]) {
 	
-	for (std::vector<Shape2D*>::iterator it = mSolutions->begin(); it != v.end(); ++it) {
-		/* std::cout << *it; ... */
+	for (int i = 0; i < NBPOPULATION; ++i)
+	{
+		mSolutions[i].mAire = mSolutions[i].mShape->calculateArea;
+
+
 	}
 
 }
 
-void Solution::evalFitness() {
+void Solution::evalFitness(Solution mSolution[NBPOPULATION]) {
 	
-	Fitness::fitnessValue(Solution soluce);
+	Fitness::fitnessValue(mSolution);
 
 
 
 }
+
+void Solution::buildArray(Solution mSolution[NBPOPULATION])
+{
+	for (int i = 0; i < 100; ++i)
+	{
+		mSolution[i].mShape->randomize(Cercle());
+	}
+
+
+}
+
+
+
 //THIS GOES INTO INJECTION
 /*
 double Solution::MaxScalingPotential(Shape2D evaluated_form) {
@@ -156,9 +173,10 @@ int Solution::fitnessEvaluation()
 }
 
 */
-
+/*
 Shape2D * Solution::shape()
 {
 	return mShape;
 }
 
+*/

@@ -5,6 +5,7 @@
 #include "Area.h"
 #include "Console\ConsoleColor.h"
 #include "Solution.h"
+#include <vector>
 
 class Population
 {
@@ -25,6 +26,7 @@ public:
 private :
 	ConsoleColor::Text mColor;
 	Solution mSolutions[NBPOPULATION];
+	std::vector<Shape2D*> mShape(3);					//vecteur des differentes formes
 };
 
 #endif

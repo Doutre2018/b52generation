@@ -29,6 +29,7 @@ public:
 	virtual bool pointInShape() = 0;
 	virtual void randomize() = 0;
 	double getArea();
+	void createShapes(std::vector<Shape2D*> mShape);
 
 protected:
 	double mX;
@@ -36,11 +37,11 @@ protected:
 	int mHeight;
 	int mWidth;
 	Point2d	mCloseCollider;
-	double mArea;
+	//double mArea;
 	
 	
-	std::string type = "Circle";    //hardcode temporaire, utile pour collisions
-	std::vector<Shape2D*> shapePtrs;
+	//std::string type = "Circle";    //hardcode temporaire, utile pour collisions
+	//std::vector<Shape2D*> shapePtrs;
 
 };
 
