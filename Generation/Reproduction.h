@@ -25,6 +25,7 @@ public:
 	StateRep & getState();
 	int64_t getParent1();
 	int64_t getParent2();
+	int64_t getEnfant();
 };
 
 #endif //REPRODUCTION_H

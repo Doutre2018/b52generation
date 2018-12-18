@@ -33,7 +33,7 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state)
 			//Shape2D *parent1= 
 			mParent1=Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex1)->encodePropreties();
 			mParent2 = Civilisations::getInstance().getPopulation(0).getSolution(randomParentIndex2)->encodePropreties();
-			return state;
+			state = state;
 		}
 		break;
 	case StateRep::generatechild:
@@ -98,4 +98,9 @@ int64_t Reproduction::getParent1()
 int64_t Reproduction::getParent2()
 {
 	return mParent2;
+}
+
+int64_t Reproduction::getEnfant()
+{
+	return mEnfant;
 }

@@ -67,7 +67,15 @@ bool Transactions::conditionselect()
 
 bool Transactions::conditiongeneratechild()
 {
-	return false;
+	if (Reproduction::getInstance().getEnfant() != 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+
+	}
 }
 
 bool Transactions::conditionmutate()
