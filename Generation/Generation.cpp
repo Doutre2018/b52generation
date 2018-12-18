@@ -42,7 +42,7 @@ void Generation::testShortcut(State & state) {
 					mCivilisations.removeLastPopulations();
 				}
 				else if (toupper(k.keyA()) == '2') {
-					mCivilisations.createNewPopulations();
+					mCivilisations.createNewPopulations(mType, mNbPopulations, mWidth, mHeight, mArea.points());
 				} else if (toupper(k.keyA()) == 'P') {
 					pause(state);
 				} else if (toupper(k.keyA()) == 'S') {
@@ -54,7 +54,7 @@ void Generation::testShortcut(State & state) {
 				}
 			} else if (k.modifier(ConsoleKeyEvent::KeyModifier::Shift)) {
 				if (toupper(k.keyA()) == 'R') {
-					mCivilisations.regenerate(mType, mNbPopulations, mWidth, mHeight);
+					mCivilisations.regenerate(mType, mNbPopulations, mWidth, mHeight, mArea.points());
 				}
 				if (toupper(k.keyA()) == 'D') {
 					mCivilisations.reset();

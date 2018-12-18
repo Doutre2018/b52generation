@@ -2,7 +2,11 @@
 #define CIVILISATIONS_H
 
 #include "Population.h"
+#include "Point2d.h"
+
 #include <vector> 
+#include <list>
+
 #include "Console\Console.h"
 class Civilisations
 {
@@ -19,13 +23,14 @@ public :
 
 	size_t nbPopulations();
 
-	void createNewPopulations();
+	void createNewPopulations(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> pts);
 
 	void removeLastPopulations();
 
 	void nextColor();
 	void lastColor();
-	void regenerate(std::string type, size_t nbShape, size_t width, size_t height);
+
+	void regenerate(std::string type, size_t nbShape, size_t width, size_t height, std::list<Point2d> points);
 
 	void reset();
 

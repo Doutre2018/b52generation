@@ -11,8 +11,6 @@ public:
 	Population(ConsoleColor::Text color);
 	~Population();
 
-	void draw(ConsoleImage & image);
-
 	Solution getSolution(size_t i);
 
 	Solution * getListe();

@@ -28,12 +28,14 @@ void Population::setSolution(size_t i, Solution sol) {
 }
 
 void Population::setSolutions(Solution * listes, size_t size) {
+	mSolutions = new Solution[size];
 	for (int i = 0; i < size; ++i){
-		mSolutions[i] = listes[i];
+		*(mSolutions + i) = listes[i];
 	}
 }
 
 void Population::populate(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> points) {
+	mSolutions = new Solution[nbPop];
 	for (int i = 0; i < nbPop - 1; ++i) {
 		Shape2D* shape{ nullptr };
 		if (type == "cercle") {

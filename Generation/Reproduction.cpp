@@ -15,16 +15,15 @@ Reproduction::Reproduction()
 Reproduction::~Reproduction()
 {
 }
-Reproduction::StateRep Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop, std::string type)
+void Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop, std::string type)
 {
-
+	int randomParentIndex1, randomParentIndex2, mask, indexSplit;
 	//select, generatechild, mutate
 	switch (state) {
 	case StateRep::select:
 			//Je choisie mes 2 prant dans le vecteur de forme je dois en choisir random 2
-			int randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
-			int randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
-
+			randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
+			randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
 			mParent1 = c.getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
 			mParent2 = c.getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
 			checkselect(state);
@@ -32,8 +31,8 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state, Civilisations
 	case StateRep::generatechild:
 		//Je prend mes 2 parents
 		//Je choisie le randomize de la coupure
-		int indexSplit = Random::getInstance().uniformRandomize(1, 36);
-		int mask{ (int)pow(2,indexSplit) - 1 };
+		indexSplit = Random::getInstance().uniformRandomize(1, 36);
+		mask = (int)pow(2,indexSplit) - 1 ;
 		//Je realise l'enfant
 		mEnfant = mParent1 & mask | mParent2 & ~mask;
 
@@ -54,25 +53,23 @@ Reproduction::StateRep Reproduction::createChild(StateRep & state, Civilisations
 					mEnfant = mEnfant ^ maskMutate;
 				}
 			}
-			checkmutate(state);
+			checkmutate(state, type);
 			break;
 	}
 }
 
-bool Reproduction::checkselect(StateRep & state){
+void Reproduction::checkselect(StateRep & state){
 	if (mParent1 != 0 && mParent2 != 0){
 		state = nextState(state);
 	}
 }
 
-bool Reproduction::checkgeneratechild(StateRep & state){
+void Reproduction::checkgeneratechild(StateRep & state){
 	if (mEnfant != 0){
 		state = nextState(state);
-	} else {
-		return false;
 	}
 }
-bool Reproduction::checkmutate(StateRep & state){
+void Reproduction::checkmutate(StateRep & state, std::string type){
 	if (false) {
 		delivery(type);
 		mParent1 = 0;
@@ -116,7 +113,6 @@ void Reproduction::delivery(std::string type) {
 	}
 	if (shape != nullptr) {
 		mChildSolution[mNbChild] = Solution(shape);
-		mChildSolution[mNbChild].fitnessEvaluation();
 	}
 	mNbChild++;
 }

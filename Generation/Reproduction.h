@@ -28,11 +28,11 @@ public:
 	int64_t getParent1();
 	int64_t getParent2();
 	int64_t getEnfant();
-	Reproduction::StateRep createChild(StateRep & state, Civilisations c, size_t nbPop, std::string type);
+	void createChild(StateRep & state, Civilisations c, size_t nbPop, std::string type);
 
-	bool checkselect(StateRep & state);
-	bool checkgeneratechild(StateRep & state);
-	bool checkmutate(StateRep & state);
+	void checkselect(StateRep & state);
+	void checkgeneratechild(StateRep & state);
+	void checkmutate(StateRep & state, std::string type);
 
 	void delivery(std::string type);
 
