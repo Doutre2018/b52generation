@@ -47,11 +47,6 @@ void Generation::loop(State state) {
 	while (true)
 	{
 
-		Cercle cercle;
-		cercle.randomize();
-		Solution solution(&cercle);
-		solution.fitnessEvaluation();
-
 		processInput();
 		testShortcut(state);
 		if (Mstep_by_step) {
