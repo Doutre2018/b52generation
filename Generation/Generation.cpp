@@ -38,6 +38,8 @@ void Generation::loop(State state) {
 	while (true)
 	{
 
+
+
 		processInput();
 		testShortcut(state);
 		if (Mstep_by_step) {

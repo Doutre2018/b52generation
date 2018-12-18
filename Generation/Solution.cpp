@@ -15,8 +15,11 @@ Solution::~Solution()
 
 int Solution::fitnessEvaluation()
 {
-	//if()
+	
+	if (mShape->pointInShape())
+		return 0;
 
-
-	return 0;
+	else
+		return 1;
+	
 }
