@@ -81,7 +81,7 @@ int Population::totalFitness(size_t nbPop)
 	return total;
 }
 
-Solution Population::rouletteWheel(size_t nbPop)
+Solution & Population::rouletteWheel(size_t nbPop)
 {
 	int totFitness{ totalFitness(nbPop) };
 	int randomNumber{ Random::getInstance().uniformRandomize(1, totFitness) };
@@ -94,7 +94,7 @@ Solution Population::rouletteWheel(size_t nbPop)
 		++counter;
 	}
 
-	return mSolutions.at(counter - 1);
+	return  mSolutions.at(counter - 1);
 
 
 

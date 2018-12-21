@@ -24,7 +24,7 @@ public:
 	void parentDeath(std::vector<Solution>& childSolution, size_t size);
 	ConsoleColor::Text & color();
 	int totalFitness(size_t nbPop);
-	Solution rouletteWheel(size_t nbPop);
+	Solution & rouletteWheel(size_t nbPop);
 	void setElite(size_t i);
 
 private :

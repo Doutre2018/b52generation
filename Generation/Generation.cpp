@@ -116,7 +116,7 @@ bool Generation::update(){
 				return true;
 			}
 			// set elite
-			mCivilisations.getPopulation(i).setElite(bestfitness);
+			mCivilisations.getPopulation(i).setElite(pos);
 
 		}
 		//reproduction

@@ -28,8 +28,8 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 			//Selection
 			randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
 			randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
-			mParent1 = c.getPopulation(0).rouletteWheel(randomParentIndex1).shape()->encodePropreties();
-			mParent2 = c.getPopulation(0).rouletteWheel(randomParentIndex2).shape()->encodePropreties();
+			mParent1 = c.getPopulation(0).rouletteWheel(nbPop).shape()->encodePropreties();
+			mParent2 = c.getPopulation(0).rouletteWheel(nbPop).shape()->encodePropreties();
 			//Generate Child
 			indexSplit = Random::getInstance().uniformRandomize(1, 30);
 			mask = (int)pow(2, indexSplit) - 1;
