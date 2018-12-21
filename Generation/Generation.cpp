@@ -30,7 +30,7 @@ void Generation::start()
 
 
 
-	loop(State::idle);
+	loop(State::reproduct);
 }
 
 void Generation::loop(State state) {
