@@ -37,6 +37,14 @@ bool Cercle::pointInShape(std::list<Point2d> points)
 	}
 }
 
+int Cercle::borderProximity(size_t width, size_t height)
+{
+	int leftSide{ width - mX };
+
+	if(mRadius < lef)
+
+}
+
 
 int Cercle::calculateArea() {
 	int d = calculateDiameter();

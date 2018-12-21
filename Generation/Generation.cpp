@@ -24,11 +24,11 @@ void Generation::start(){
 	loop();
 }
 
-void Generation::loop() {
+void generation::loop() {
 	bool terminer = false;
 	while (!terminer){
-		processInput();
-		testShortcut();
+		processinput();
+		testshortcut();
 		terminer = update();
 		render();
 	}
