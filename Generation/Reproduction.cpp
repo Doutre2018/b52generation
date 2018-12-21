@@ -24,14 +24,15 @@ Reproduction::~Reproduction()
 void Reproduction::createChild( Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type)
 {
 	int randomParentIndex1, randomParentIndex2, mask, indexSplit;
+	int test = c.getPopulation(0).totalFitness(nbPop);
 	for (int i = 0; i < nbCivilisations; ++i) {
 		for (int j = 0; j < nbPop; ++j)
 		{
 			//Selection
 			randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
 			randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
-			mParent1 = c.getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
-			mParent2 = c.getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
+			mParent1 = c.getPopulation(i).getSolution(randomParentIndex1).shape()->encodePropreties();
+			mParent2 = c.getPopulation(i).getSolution(randomParentIndex2).shape()->encodePropreties();
 			//Generate Child
 			indexSplit = Random::getInstance().uniformRandomize(1, 30);
 			mask = (int)pow(2, indexSplit) - 1;
@@ -47,7 +48,7 @@ void Reproduction::createChild( Civilisations c, size_t nbPop, size_t nbCivilisa
 				for (int i = 0; i < nbBitChange; ++i) {
 					int indexAléatoire = Random::getInstance().uniformRandomize(1, 30);
 					int maskMutate = 1;
-					maskMutate <<= indexAléatoire - 1;
+					maskMutate <<= (indexAléatoire - 1);
 					mEnfant = mEnfant ^ maskMutate;
 				}
 			}

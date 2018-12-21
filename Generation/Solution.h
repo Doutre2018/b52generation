@@ -11,6 +11,7 @@ public:
 
 	int fitnessEvaluation(std::list<Point2d> points);
 	Shape2D * shape();
+	int getFitness();
 
 private:
 	Shape2D* mShape;
