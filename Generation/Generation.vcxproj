@@ -135,6 +135,7 @@
     <ClCompile Include="Console\ConsoleKeyReader.cpp" />
     <ClCompile Include="Console\ConsolePixel.cpp" />
     <ClCompile Include="Console\ConsoleWriter.cpp" />
+    <ClCompile Include="debugstream.cpp" />
     <ClCompile Include="Generation.cpp" />
     <ClCompile Include="Injection.cpp" />
     <ClCompile Include="main.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Console\ConsoleKeyReader.h" />
     <ClInclude Include="Console\ConsolePixel.h" />
     <ClInclude Include="Console\ConsoleWriter.h" />
+    <ClInclude Include="debugstream.h" />
     <ClInclude Include="Generation.h" />
     <ClInclude Include="Fitness.h" />
     <ClInclude Include="Point2d.h" />
@@ -174,6 +176,7 @@
     <ClInclude Include="Shape2D.h" />
     <ClInclude Include="Solution.h" />
     <ClInclude Include="Transform2d.h" />
+    <ClInclude Include="type_util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

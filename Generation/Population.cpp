@@ -2,6 +2,9 @@
 #include <iostream>
 #include "Random.h"
 #include "Cercle.h"
+#include "debugstream.h"
+
+
 Population::Population(ConsoleColor::Text color):mColor{color}
 {
 }
@@ -33,16 +36,16 @@ void Population::setSolution(size_t i, Solution & sol) {
 void Population::setSolutions(std::vector<Solution> & listes, size_t size) {
 	
 	mSolutions = listes;
-	for (int i = 0; i < size; ++i){
+	for (int i = 0; i < size; ++i) {
 		mSolutions.at(i) = listes.at(i);
 	}
 	
 	
 	Solution::evalSolutionValue(listes, size);
 	Solution::evalFitness(listes, size);
-
+	
 	for (int i = 0; i < size; i++)
-		std::cout << listes[i].getFitness();
+		debug()<< listes[i].getFitness();
 	
 }
 
