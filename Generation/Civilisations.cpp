@@ -8,7 +8,7 @@ void Civilisations::regenerate(std::string type, size_t nbShape, size_t width, s
 	color = Color::brightblue;
 	for (int i = 0; i < mSize; ++i) {
 		civilisations_m.push_back(Population(colors[(int)color]));
-		civilisations_m[i].populate(type, nbShape, width,height, points);
+		civilisations_m.at(i).populate(type, nbShape, width,height, points);
 		nextColor();
 	}
 }
@@ -33,7 +33,6 @@ void Civilisations::createNewPopulations(std::string type, size_t nbPop, size_t 
 
 void Civilisations::removeLastPopulations(size_t size) {
 	if (color != Color::brightblue) {
-		civilisations_m.back().deletePopulation(size);
 		civilisations_m.pop_back();
 		lastColor();
 	}
