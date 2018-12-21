@@ -9,7 +9,7 @@ Solution::Solution()
 {
 }
 
-Solution::Solution(Shape2D*& shape, size_t width, size_t height, int fitness)
+Solution::Solution(Shape2D* shape, size_t width, size_t height, int fitness)
 	:mShape{ shape },
 	mWidth{ width },
 	mHeight{ height },
@@ -19,12 +19,16 @@ Solution::Solution(Shape2D*& shape, size_t width, size_t height, int fitness)
 
 Solution::~Solution()
 {
-}
-
-void Solution::deleteShape() {
 	delete mShape;
 }
 
+void Solution::initialize(Shape2D * shape, size_t width, size_t height) {
+	delete mShape;
+	mShape = shape;
+	mWidth = width;
+	mHeight = height;
+	mFitness = 0;
+}
 
 int Solution::fitnessEvaluation(std::list<Point2d> points)
 {
@@ -33,7 +37,7 @@ int Solution::fitnessEvaluation(std::list<Point2d> points)
 	return mFitness;
 }
 
-Shape2D *& Solution::shape()
+Shape2D * Solution::shape()
 {
 	return mShape;
 }

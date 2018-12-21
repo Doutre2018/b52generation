@@ -15,7 +15,7 @@ public:
 
 	std::vector<Solution>& getListe();
 
-	Solution randomSolution(size_t size);
+	//Solution randomSolution(size_t size);
 	bool isTheSolution();
 	void setSolution(size_t i, Solution & sol);
 	void setSolutions(std::vector<Solution>& listes, size_t size);
@@ -24,10 +24,13 @@ public:
 	ConsoleColor::Text & color();
 	int totalFitness(size_t nbPop);
 	void rouletteWheel();
+	void setElite(size_t i);
 
 private :
 	ConsoleColor::Text mColor;
 	std::vector<Solution> mSolutions;
+	Solution mElite;
+
 };
 
 #endif

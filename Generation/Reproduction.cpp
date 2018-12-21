@@ -7,10 +7,10 @@ Reproduction::Reproduction(size_t nbPop, size_t width, size_t height)
 	:mParent1{ 0 },
 	mParent2{ 0 },
 	mEnfant{ 0 },
-	mNbChild{0},
-	mChildSolution{}
-
-{}
+	mNbChild{0}
+{
+	mChildSolution.resize(nbPop);
+}
 
 
 Reproduction::~Reproduction()
@@ -24,6 +24,7 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 	for (int i = 0; i < nbCivilisations; ++i) {
 		for (int j = 0; j < nbPop; ++j)
 		{
+
 			//Selection
 			randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
 			randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
@@ -51,10 +52,6 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 			delivery(type, j, mWidth, mHeight);
 		}
 		c.getPopulation(i).parentDeath(mChildSolution,nbPop);
-		//for (int i = 0; i < mChildSolution.size(); ++i) {
-		//	mChildSolution.at(i).deleteShape();
-		//}
-		mChildSolution.clear();
 	}
 }
 
@@ -65,6 +62,6 @@ void Reproduction::delivery(std::string const & type, size_t i, size_t width, si
 		shape->decodePropreties(mEnfant);
 	} 
 	if (shape != nullptr) {
-		mChildSolution.push_back(Solution(shape, width, height));
+		mChildSolution[i].initialize(shape, width, height);
 	}
 }

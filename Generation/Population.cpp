@@ -13,15 +13,17 @@ Population::~Population()
 Solution & Population::getSolution(size_t i) {
 	return mSolutions.at(i);
 }
-
+void Population::setElite(size_t i) {
+	mElite = getSolution(i);
+}
 std::vector<Solution> & Population::getListe() {
 	return mSolutions;
 }
 
-Solution Population::randomSolution(size_t size) {
-	size_t i = Random::getInstance().uniformRandomize(0, size - 1);
-	return mSolutions.at(i);
-}
+//Solution Population::randomSolution(size_t size) {
+//	size_t i = Random::getInstance().uniformRandomize(0, size - 1);
+//	return mSolutions.at(i);
+//}
 
 bool Population::isTheSolution() { //check if solution is good
 	return false;
@@ -39,7 +41,7 @@ void Population::setSolutions(std::vector<Solution> & listes, size_t size) {
 }
 
 void Population::populate(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> & points) {
-
+	mSolutions.resize(nbPop);
 	for (int i = 0; i < nbPop; ++i) {
 		Shape2D* shape{ nullptr };
 		if (type == "cercle") {
@@ -51,14 +53,18 @@ void Population::populate(std::string type, size_t nbPop, size_t width, size_t h
 		//if (shape == "rectangle")
 		//	Rectangle shape;
 		if(shape != nullptr){
-			mSolutions.push_back(Solution(shape, width, height));
+			mSolutions[i].initialize(shape, width, height);
 		}
 	}
 }
 void Population::parentDeath(std::vector<Solution> & childSolution, size_t size) {
-	for (int i = 0; i < size - 1; ++i) {
-		mSolutions.at(i) = childSolution.at(i);
-	}
+	mSolutions.swap(childSolution);
+	childSolution.clear();
+	childSolution.resize(size);
+
+	//for (int i = 0; i < size - 1; ++i) {
+		//mSolutions.at(i) = childSolution.at(i);
+	//}
 }
 ConsoleColor::Text & Population::color() {
 	return mColor;

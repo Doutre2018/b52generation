@@ -6,13 +6,13 @@ class Solution
 {
 public:
 	Solution();
-	Solution(Shape2D *& shape, size_t width, size_t height, int fitness=0);
+	Solution(Shape2D * shape, size_t width, size_t height, int fitness=0);
 	~Solution();
 
-	void deleteShape();
+	void initialize(Shape2D* shape, size_t width, size_t height);
 
 	int fitnessEvaluation(std::list<Point2d> points);
-	Shape2D *& shape();
+	Shape2D * shape();
 
 	int getFitness();
 

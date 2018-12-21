@@ -99,25 +99,28 @@ void Generation::pause(State & state) {
 
 //Update State
 bool Generation::update(){
-	if (mCivilisations.nbPopulations() > 0) {
-		// Calculate Fitness
-		//for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
-		//	for (int j = 0; j < mNbPopulations; ++i) {
-		//		mCivilisations.getPopulation(i).getSolution(j).fitnessEvaluation(mArea.points());
-		//	}
-		//	//if (mCivilisations.getPopulation(i).isTheSolution()) {
-		//	//	return true;
-		//	//}
-		//}
+	int bestfitness=0;
+	int pos=0;
+		for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
+			for (int j = 0; j < mNbPopulations; ++j) {
+				// Calculate Fitness
+				mCivilisations.getPopulation(i).getSolution(j).fitnessEvaluation(mArea.points());
+				//elite transfer
+				if (mCivilisations.getPopulation(i).getSolution(j).getFitness()> bestfitness) {
+					bestfitness = mCivilisations.getPopulation(i).getSolution(j).getFitness();
+					pos = j;
+				}
+			}
+			// Check if stop
+			if (mCivilisations.getPopulation(i).isTheSolution()) {
+				return true;
+			}
+			// set elite
+			mCivilisations.getPopulation(i).setElite(bestfitness);
 
-		// Check if stop
-
-		//elite transfer
-
+		}
 		//reproduction
 		mReproductiveSystem.createChild(mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
-	}
-	
 	return false;
 }
 //render
