@@ -17,38 +17,25 @@ Reproduction::Reproduction(size_t nbPop)
 Reproduction::~Reproduction()
 {
 }
+
 void Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type)
 {
 	int randomParentIndex1, randomParentIndex2, mask, indexSplit;
-	//select, generatechild, mutate
-	switch (state) {
-	case StateRep::select:
-			//Je choisie mes 2 prant dans le vecteur de forme je dois en choisir random 2
+	for (int i = 0; i < nbCivilisations; ++i) {
+		for (int j = 0; j < nbPop; ++j)
+		{
+			//Selection
 			randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
 			randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
-			if (nbCivilisations > 0) {
-				Population p = c.getPopulation(0);
-				Solution s = p.getSolution(randomParentIndex1);
-				Shape2D* shape = s.shape();
-				mParent1 = shape->encodePropreties();
-				//mParent1 = c.getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
-				mParent2 = c.getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
-			}
-			checkselect(state);
-		break;
-	case StateRep::generatechild:
-		//Je prend mes 2 parents
-		//Je choisie le randomize de la coupure
-		indexSplit = Random::getInstance().uniformRandomize(1, 30);
-		mask = (int)pow(2,indexSplit) - 1 ;
-		//Je realise l'enfant
-		mEnfant = mParent1 & mask | mParent2 & ~mask;
-
-		checkgeneratechild(state);
-		break;
-	case StateRep::mutate:
-			//Es ce que je fait un mutant ou pas
-
+			mParent1 = c.getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
+			mParent2 = c.getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
+			//Generate Child
+			indexSplit = Random::getInstance().uniformRandomize(1, 30);
+			mask = (int)pow(2, indexSplit) - 1;
+			//Je realise l'enfant
+			mEnfant = mParent1 & mask | mParent2 & ~mask;
+			//Mutate
+				//Es ce que je fait un mutant ou pas
 			if (int a = Random::getInstance().uniformRandomize(1, 100) <= percentageMutate)
 			{
 				//nombre de bit a changer
@@ -61,29 +48,8 @@ void Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop, 
 					mEnfant = mEnfant ^ maskMutate;
 				}
 			}
-			checkmutate(state, type);
-			break;
-	}
-}
-
-void Reproduction::checkselect(StateRep & state){
-	if (mParent1 != 0 && mParent2 != 0){
-		state = nextState(state);
-	}
-}
-
-void Reproduction::checkgeneratechild(StateRep & state){
-	if (mEnfant != 0){
-		state = nextState(state);
-	}
-}
-void Reproduction::checkmutate(StateRep & state, std::string type){
-	if (true) {
-		delivery(type);
-		mParent1 = 0;
-		mParent2 = 0;
-		mEnfant = 0;
-		state = StateRep::select;
+			delivery(type);
+		}
 	}
 }
 
