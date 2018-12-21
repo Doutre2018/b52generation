@@ -36,7 +36,7 @@ void Population::setSolutions(Solution * listes, size_t size) {
 
 void Population::populate(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> points) {
 	mSolutions = new Solution[nbPop];
-	for (int i = 0; i < nbPop - 1; ++i) {
+	for (int i = 0; i < nbPop; ++i) {
 		Shape2D* shape{ nullptr };
 		if (type == "cercle") {
 			shape = new Cercle();

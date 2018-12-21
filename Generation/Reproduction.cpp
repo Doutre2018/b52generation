@@ -27,7 +27,11 @@ void Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop, 
 			randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
 			randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
 			if (nbCivilisations > 0) {
-				mParent1 = c.getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
+				Population p = c.getPopulation(0);
+				Solution s = p.getSolution(randomParentIndex1);
+				Shape2D* shape = s.shape();
+				mParent1 = shape->encodePropreties();
+				//mParent1 = c.getPopulation(0).getSolution(randomParentIndex1).shape()->encodePropreties();
 				mParent2 = c.getPopulation(0).getSolution(randomParentIndex2).shape()->encodePropreties();
 			}
 			checkselect(state);
