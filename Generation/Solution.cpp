@@ -29,7 +29,7 @@ void Solution::deleteShape() {
 int Solution::fitnessEvaluation(std::list<Point2d> points)
 {
 	mFitness = mShape->borderProximity(mWidth, mHeight);
-	mFitness *= mShape->pointInShape(points);
+	//mFitness *= mShape->pointInShape(points);
 	return mFitness; 
 }
 

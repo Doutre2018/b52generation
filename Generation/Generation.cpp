@@ -20,17 +20,8 @@ void Generation::start(){
 	mArea.showPoint();
 	reader_m = &(Console::getInstance().keyReader());
 	Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterUp());
-<<<<<<< HEAD
-
-
-
-
-
-	loop(State::reproduct);
-=======
 	while (checkIdle()) {}
 	loop();
->>>>>>> 507164aa507c83a47c005a100744a0014e9ad9d5
 }
 
 void Generation::loop() {
@@ -109,21 +100,21 @@ void Generation::pause(State & state) {
 //Update State
 bool Generation::update(){
 	if (mCivilisations.nbPopulations() > 0) {
-		// Calculate Fitness
-		//for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
-		//	for (int j = 0; j < mNbPopulations; ++i) {
-		//		mCivilisations.getPopulation(i).getSolution(j).fitnessEvaluation(mArea.points());
-		//	}
-		//	//if (mCivilisations.getPopulation(i).isTheSolution()) {
-		//	//	return true;
-		//	//}
-		//}
+		 //Calculate Fitness
+		for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
+			for (int j = 0; j < mNbPopulations; ++j) {
+				mCivilisations.getPopulation(i).getSolution(j).fitnessEvaluation(mArea.points());
+			}
+			//if (mCivilisations.getPopulation(i).isTheSolution()) {
+			//	return true;
+			//}
+		}
 
 		// Check if stop
 
 		//elite transfer
 
-		//reproduction
+		///reproduction
 		mReproductiveSystem.createChild(mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
 	}
 	
