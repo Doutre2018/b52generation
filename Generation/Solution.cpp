@@ -33,7 +33,7 @@ void Solution::initialize(Shape2D * shape, size_t width, size_t height) {
 int Solution::fitnessEvaluation(std::list<Point2d> points)
 {
 	mFitness = mShape->borderProximity(mWidth, mHeight);
-	//mFitness *= mShape->pointInShape(points);
+	mFitness *= mShape->pointInShape(points);
 	return mFitness; 
 }
 
