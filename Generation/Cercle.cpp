@@ -20,7 +20,7 @@ void Cercle::decodePropreties(int64_t data){
 }
 
 
-bool Cercle::pointInShape(std::list<Point2d> points)
+int Cercle::pointInShape(std::list<Point2d> points)
 {
 	for (auto point : points){
 		if (point.distance(mPoint) < mRadius){
@@ -31,9 +31,9 @@ bool Cercle::pointInShape(std::list<Point2d> points)
 	}
 
 	if (mNearestPoint != NULL) {
-		return true;
+		return 2;
 	} else {
-		return false;
+		return 1;
 	}
 }
 
