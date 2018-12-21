@@ -2,6 +2,7 @@
 #include "Random.h"
 #include "Population.h"
 #include "Cercle.h"
+#include "Rectangle.h"
 
 Reproduction::Reproduction(size_t nbPop, size_t width, size_t mHeight)
 	:mParent1{ 0 },
@@ -58,9 +59,13 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 
 void Reproduction::delivery(std::string const & type, size_t i, size_t width, size_t height) {
 	Shape2D *shape =nullptr;
-	if (type == "cercle"){
-		shape=new Cercle();
+	if (type == "cercle") {
+		shape = new Cercle();
 		shape->decodePropreties(mEnfant);
+	}
+	if (type == "rectangle") {
+//		shape = new Rectangle();
+	//	shape->decodePropreties(mEnfant);
 	}
 	if (shape != nullptr) {
 		mChildSolution[i].initialize(shape, width, height);

@@ -137,11 +137,14 @@
     <ClCompile Include="Console\ConsoleWriter.cpp" />
     <ClCompile Include="Generation.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Polygonal.cpp" />
     <ClCompile Include="PopulationEngine.cpp" />
     <ClCompile Include="Population.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Reproduction.cpp" />
     <ClCompile Include="Solution.cpp" />
+    <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Area.h" />
@@ -162,14 +165,17 @@
     <ClInclude Include="Console\ConsoleWriter.h" />
     <ClInclude Include="Generation.h" />
     <ClInclude Include="Point2d.h" />
+    <ClInclude Include="Polygonal.h" />
     <ClInclude Include="Polygon2d.h" />
     <ClInclude Include="Population.h" />
     <ClInclude Include="PopulationEngine.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Reproduction.h" />
     <ClInclude Include="Shape2D.h" />
     <ClInclude Include="Solution.h" />
     <ClInclude Include="Transform2d.h" />
+    <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

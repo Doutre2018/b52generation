@@ -2,7 +2,7 @@
 
 #include "Random.h"
 #include "Cercle.h"
-
+#include "Rectangle.h"
 
 Population::Population(ConsoleColor::Text color)
 	:mColor{ color }
@@ -45,6 +45,9 @@ void Population::populate(std::string type, size_t nbPop, size_t width, size_t h
 		if (type == "cercle") {
 			shape = new Cercle();
 			shape->randomize(width,height);
+		} else 	if (type == "rectangle") {
+			//shape = new Rectangle();
+			//shape->randomize(width, height);
 		}
 		//if (shape == "triangle")
 		//	Triangle shape;
