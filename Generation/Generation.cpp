@@ -109,6 +109,7 @@ bool Generation::update(){
 		//elite transfer
 
 		//reproduction
+		mReproductiveSystem.createChild(mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
 		if (mReproductiveSystem.nbChild() >= mNbPopulations - 1) {
 			mReproductiveSystem.setNbChild(0);
 		}

@@ -18,7 +18,7 @@ Reproduction::~Reproduction()
 {
 }
 
-void Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type)
+void Reproduction::createChild( Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type)
 {
 	int randomParentIndex1, randomParentIndex2, mask, indexSplit;
 	for (int i = 0; i < nbCivilisations; ++i) {
