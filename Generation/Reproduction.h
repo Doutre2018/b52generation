@@ -16,7 +16,7 @@ private:
 	std::vector<Solution> mChildSolution;
 	size_t mWidth;
 	size_t mHeight;
-
+	size_t mCompteur = 0;
 public:
 	Reproduction(size_t nbPop, size_t width, size_t mHeight);
 	~Reproduction();

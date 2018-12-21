@@ -22,10 +22,6 @@ void Population::setElite(size_t i) {
 std::vector<Solution> & Population::getListe() {
 	return mSolutions;
 }
-
-bool Population::isTheSolution() { //check if solution is good
-	return false;
-}
 void Population::setSolution(size_t i, Solution & sol) {
 	mSolutions.at(i) = sol;
 }

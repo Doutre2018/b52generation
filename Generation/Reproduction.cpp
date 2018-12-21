@@ -22,6 +22,7 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 {
 	int randomParentIndex1, randomParentIndex2, mask, indexSplit;
 	
+	
 	for (int i = 0; i < nbCivilisations; ++i) {
 		for (int j = 0; j < nbPop; ++j)
 		{
@@ -64,8 +65,8 @@ void Reproduction::delivery(std::string const & type, size_t i, size_t width, si
 		shape->decodePropreties(mEnfant);
 	}
 	if (type == "rectangle") {
-//		shape = new Rectangle();
-	//	shape->decodePropreties(mEnfant);
+		//shape = new Rectangle();
+		//shape->decodePropreties(mEnfant);
 	}
 	if (shape != nullptr) {
 		mChildSolution[i].initialize(shape, width, height);
