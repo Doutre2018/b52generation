@@ -101,11 +101,17 @@ void Generation::pause(State & state) {
 bool Generation::update(){
 	if (mCivilisations.nbPopulations() > 0) {
 		// Calculate Fitness
+		for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
+			for (int j = 0; j < mNbPopulations -1; ++i) {
+				mCivilisations.getPopulation(i).getSolution(j).fitnessEvaluation(mArea.points());
+			}
+			if (mCivilisations.getPopulation(i).isTheSolution()) {
+				return true;
+			}
+		}
 
 		// Check if stop
-		if (false) {
-			return true;
-		}
+
 		//elite transfer
 
 		//reproduction

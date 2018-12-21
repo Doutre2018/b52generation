@@ -23,6 +23,9 @@ Solution Population::randomSolution(size_t size) {
 	return mSolutions[i];
 }
 
+bool Population::isTheSolution() { //check if solution is good
+	return false;
+}
 void Population::setSolution(size_t i, Solution & sol) {
 	mSolutions[i] = sol;
 }

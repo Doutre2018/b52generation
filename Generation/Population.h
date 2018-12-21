@@ -15,6 +15,7 @@ public:
 
 	Solution * getListe();
 	Solution randomSolution(size_t size);
+	bool isTheSolution();
 	void setSolution(size_t i, Solution & sol);
 	void setSolutions(Solution *& listes, size_t size);
 	void deletePopulation(size_t size);
