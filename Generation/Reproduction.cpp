@@ -40,7 +40,7 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 			if (int a = Random::getInstance().uniformRandomize(1, 100) <= percentageMutate)
 			{
 				//nombre de bit a changer
-				int nbBitChange{ 1 };
+				int nbBitChange{ 5 };
 				//Position aléatoire
 				for (int i = 0; i < nbBitChange; ++i) {
 					int indexAléatoire = Random::getInstance().uniformRandomize(1, 30);

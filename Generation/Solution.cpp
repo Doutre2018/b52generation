@@ -34,6 +34,11 @@ int Solution::fitnessEvaluation(std::list<Point2d> points)
 {
 	mFitness = mShape->borderProximity(mWidth, mHeight);
 	mFitness *= mShape->pointInShape(points);
+	if (mShape->outOfBounds(mWidth, mHeight)) {
+		mFitness *= 0.01;
+	}
+
+	
 	return mFitness; 
 }
 
