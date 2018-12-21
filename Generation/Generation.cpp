@@ -109,11 +109,7 @@ bool Generation::update(){
 		//elite transfer
 
 		//reproduction
-		if (mReproductiveSystem.nbChild() >= mNbPopulations - 1) {
-			mReproductiveSystem.setNbChild(0);
-		}
-		//substitute
-		mCivilisations.getPopulation(0).parentDeath(mReproductiveSystem.getChildren(), mNbPopulations);
+		mReproductiveSystem.createChild(mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
 	}
 	
 	return false;

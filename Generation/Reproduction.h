@@ -29,13 +29,9 @@ public:
 	int64_t getParent1();
 	int64_t getParent2();
 	int64_t getEnfant();
-	void createChild(StateRep & state, Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type);
+	void createChild(Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type);
 
-	void checkselect(StateRep & state);
-	void checkgeneratechild(StateRep & state);
-	void checkmutate(StateRep & state, std::string type);
-
-	void delivery(std::string type);
+	void delivery(std::string type, size_t i);
 
 	Solution * getChildren();
 	size_t nbChild();
