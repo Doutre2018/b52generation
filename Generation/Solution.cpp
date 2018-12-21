@@ -19,9 +19,11 @@ Solution::Solution(Shape2D*& shape, size_t width, size_t height, int fitness)
 
 Solution::~Solution()
 {
-	//delete mShape;
 }
 
+void Solution::deleteShape() {
+	delete mShape;
+}
 
 
 int Solution::fitnessEvaluation(std::list<Point2d> points)

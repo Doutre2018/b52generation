@@ -39,7 +39,7 @@ void Population::setSolutions(std::vector<Solution> & listes, size_t size) {
 }
 
 void Population::populate(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> & points) {
-	mSolutions.clear();
+
 	for (int i = 0; i < nbPop; ++i) {
 		Shape2D* shape{ nullptr };
 		if (type == "cercle") {
@@ -52,9 +52,7 @@ void Population::populate(std::string type, size_t nbPop, size_t width, size_t h
 		//	Rectangle shape;
 		if(shape != nullptr){
 			mSolutions.push_back(Solution(shape, width, height));
-			
 		}
-
 	}
 }
 void Population::parentDeath(std::vector<Solution> & childSolution, size_t size) {

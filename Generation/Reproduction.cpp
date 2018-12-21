@@ -51,6 +51,9 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 			delivery(type, j, mWidth, mHeight);
 		}
 		c.getPopulation(i).parentDeath(mChildSolution,nbPop);
+		//for (int i = 0; i < mChildSolution.size(); ++i) {
+		//	mChildSolution.at(i).deleteShape();
+		//}
 		mChildSolution.clear();
 	}
 }
