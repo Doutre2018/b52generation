@@ -65,6 +65,7 @@ void Cercle::randomize(size_t width, size_t height) {
 	mPoint=Point2d(mX, mY);
 	size_t maxRadiusX;
 	size_t maxradiusy;
+	size_t maxradius;
 	if (width - mX > mX) {
 		maxRadiusX = mX;
 	}
@@ -78,9 +79,12 @@ void Cercle::randomize(size_t width, size_t height) {
 		maxradiusy = height- mY;
 	}
 	if (maxradiusy >= maxRadiusX) {
-
+		maxradius = maxRadiusX;
 	}
-	mRadius = Random::getInstance().uniformRandomize(0, height);
+	else {
+		maxradius = maxradiusy;
+	}
+	mRadius = Random::getInstance().uniformRandomize(0, maxradius);
 }
 void Cercle::draw(ConsoleImage & image, ConsoleColor::Text color) {
 	image.drawCircle(mX, mY, mRadius, 178, ConsoleColor::bb + color);
