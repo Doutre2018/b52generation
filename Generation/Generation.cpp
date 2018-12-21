@@ -20,22 +20,25 @@ void Generation::start(){
 	mArea.showPoint();
 	reader_m = &(Console::getInstance().keyReader());
 	Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterUp());
-	loop(State::reproduct);
+	while (checkIdle()) {}
+	loop();
 }
 
-void Generation::loop(State state) {
-	while (true){
+void Generation::loop() {
+	bool terminer = false;
+	while (!terminer){
 		processInput();
-		testShortcut(state);
-		state = update(state);
-		render(state);
+		testShortcut();
+		terminer = update();
+		render();
 	}
 }
+
 
 void Generation::processInput() {
 	reader_m->read(keyEvents);
 }
-void Generation::testShortcut(State & state) {
+void Generation::testShortcut() {
 	if (keyEvents.size() > 0) {
 		for (ConsoleKeyEvent k : keyEvents) {
 			if (k.modifier(ConsoleKeyEvent::KeyModifier::Alt)) {
@@ -45,7 +48,7 @@ void Generation::testShortcut(State & state) {
 				else if (toupper(k.keyA()) == '2') {
 					mCivilisations.createNewPopulations(mType, mNbPopulations, mWidth, mHeight, mArea.points());
 				} else if (toupper(k.keyA()) == 'P') {
-					pause(state);
+					//pause(state);
 				} else if (toupper(k.keyA()) == 'S') {
 					if (mStep_by_step) {
 						mStep_by_step = false;
@@ -61,61 +64,27 @@ void Generation::testShortcut(State & state) {
 					mCivilisations.reset();
 				}
 			}else if (k.modifier(ConsoleKeyEvent::KeyModifier::Ctrl)) {
-				if (state == State::idle) {
-					if (toupper(k.keyA()) == '1') {
-						mType = "cercle";
-					} else if (toupper(k.keyA()) == '2') {
-						mType = "triangle";
-					} else if (toupper(k.keyA()) == '3') {
-						mType = "rectangle";
-					}
-				}
+				//if (state == State::idle) {
+				//	if (toupper(k.keyA()) == '1') {
+				//		mType = "cercle";
+				//	} else if (toupper(k.keyA()) == '2') {
+				//		mType = "triangle";
+				//	} else if (toupper(k.keyA()) == '3') {
+				//		mType = "rectangle";
+				//	}
+				//}
 			}
 		}
 	}
 }
 
 //Checkers of State
-void Generation::checkIdle(State & state) {
+bool Generation::checkIdle() {
 	if (keyEvents.size() > 0) {
 		keyEvents.clear();
-		state = nextState(state);
+		return true;
 	}
-}
-void Generation::checkGen1(State & state) {
-	if (false) {
-		state = nextState(state);
-	}
-}
-void Generation::checkFitness(State & state) {
-	if (true) {
-		state = nextState(state);
-	}
-}
-void Generation::checkStop(State & state) {
-	if (true) {
-		state = nextState(state);
-	}
-}
-void Generation::checkEliteTransfer(State & state) {
-	if (true) {
-		state = nextState(state);
-	}
-}
-void Generation::checkReproduct(State & state) {
-	if (mReproductiveSystem.nbChild() >= mNbPopulations - 1) {
-		mReproductiveSystem.setNbChild(0);
-		state = nextState(state);
-	}
-}
-void Generation::checkSubstitute(State & state) {
-	if (true) {
-		mCivilisations.getPopulation(0).parentDeath(mReproductiveSystem.getChildren(),mNbPopulations);
-		state = State::fitness;
-	}
-}
-Generation::State Generation::nextState(State & state) {
-	return (State)((int)state + 1);
+	return false;
 }
 void Generation::pause(State & state) {
 	if (pausedState == State::pause) {
@@ -129,33 +98,28 @@ void Generation::pause(State & state) {
 }
 
 //Update State
-Generation::State Generation::update(State & state)
-{
-	switch (state) {
-	case State::idle: checkIdle(state);
-		break;
-	case State::generation1: checkGen1(state);
-		break;
-	case State::fitness: checkFitness(state);
-		break;
-	case State::stop:checkStop(state);
-		break;
-	case State::elitetransfer:checkEliteTransfer(state);
-		break;
-	case State::reproduct:
-		if (mCivilisations.nbPopulations()>0) {
-			mReproductiveSystem.createChild(mReproductiveSystem.getState(),mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
+bool Generation::update(){
+	if (mCivilisations.nbPopulations() > 0) {
+		// Calculate Fitness
+
+		// Check if stop
+		if (false) {
+			return true;
 		}
-		checkReproduct(state);
-		break;
-	case State::substitute:
-		checkSubstitute(state);
-		break;
+		//elite transfer
+
+		//reproduction
+		if (mReproductiveSystem.nbChild() >= mNbPopulations - 1) {
+			mReproductiveSystem.setNbChild(0);
+		}
+		//substitute
+		mCivilisations.getPopulation(0).parentDeath(mReproductiveSystem.getChildren(), mNbPopulations);
 	}
-	return state;
+	
+	return false;
 }
 //render
-void Generation::render(State state){
+void Generation::render(){
 	mArea.showPoint();
 	mArea.showCivilisations(mCivilisations.getAll(),mNbPopulations);
 	Console::getInstance().writer().push("area");

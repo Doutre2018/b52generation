@@ -14,28 +14,20 @@ public:
 
 	void start();
 
+
 	enum class State { idle, generation1, fitness, stop,  elitetransfer, reproduct, substitute, pause};
 	
 	void pause(State & state);
 
 private :
 	State pausedState = State::pause;
-	
-	void loop(State state);
-	void testShortcut(State & state);
+	void loop();
 	void processInput();
-	void render(State state);
-	State update(State& state);
+	void testShortcut();
+	bool update();
+	void render();
 
-	Generation::State nextState(State& state);
-
-	void checkIdle(State & state);
-	void checkGen1(State & state);
-	void checkFitness(State & state);
-	void checkStop(State & state);
-	void checkEliteTransfer(State & state);
-	void checkReproduct(State & state);
-	void checkSubstitute(State & state);
+	bool checkIdle();
 
 
 
