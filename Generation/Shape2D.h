@@ -20,6 +20,7 @@ public:
 	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) = 0;
 	virtual int calculateArea() = 0;
 	virtual bool pointInShape(std::list<Point2d> points) = 0;
+	virtual int borderProximity(size_t width, size_t height) = 0;
 	virtual void randomize(size_t width, size_t height) = 0;
 
 protected:

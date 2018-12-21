@@ -57,7 +57,7 @@ void Population::populate(std::string type, size_t nbPop, size_t width, size_t h
 		//if (shape == "rectangle")
 		//	Rectangle shape;
 		if(shape != nullptr){
-			Solution sol(shape);
+			Solution sol(shape, width, height, totalFitness(nbPop));
 			sol.fitnessEvaluation(points);
 			mSolutions[i] = sol;
 			
@@ -72,4 +72,19 @@ void Population::parentDeath(Solution *& childSolution, size_t size) {
 }
 ConsoleColor::Text & Population::color() {
 	return mColor;
+}
+
+int Population::totalFitness(size_t nbPop)
+{
+	int total{ 0 };
+	for (int i{ 0 }; i < nbPop; ++i)
+	{
+		Solution a = mSolutions[i];
+		total += a.getFitness();
+	}
+	return total;
+}
+
+void Population::rouletteWheel()
+{
 }

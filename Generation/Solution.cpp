@@ -1,11 +1,14 @@
 #include "Solution.h"
+#include "Area.h"
 
 Solution::Solution()
 {
 }
 
-Solution::Solution(Shape2D*& shape, int fitness)
-	:mShape{ shape }
+Solution::Solution(Shape2D*& shape, size_t width, size_t height, int fitness)
+	:mShape{ shape },
+	mWidth{ width },
+	mHeight{ height }
 {
 }
 
@@ -17,15 +20,17 @@ Solution::~Solution()
 
 int Solution::fitnessEvaluation(std::list<Point2d> points)
 {
-	if (mShape->pointInShape(points))
-		mFitness = 0;
+	mFitness = mShape->borderProximity(mWidth, mHeight);
 
-	else
-		mFitness = 1;
 	return mFitness;
 }
 
 Shape2D *& Solution::shape()
 {
 	return mShape;
+}
+
+int Solution::getFitness()
+{
+	return mFitness;
 }

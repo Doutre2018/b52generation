@@ -14,12 +14,14 @@ private:
 	int percentageMutate;
 	size_t mNbChild;
 	Solution * mChildSolution;
+	size_t mWidth;
+	size_t mHeight;
 
 public:
-	Reproduction(size_t nbPop);
+	Reproduction(size_t nbPop, size_t width, size_t mHeight);
 	~Reproduction();
 	void createChild(Civilisations & c, size_t nbPop, size_t nbCivilisations, std::string type);
-	void delivery(std::string type, size_t i);
+	void delivery(std::string type, size_t i, size_t width, size_t height);
 };
 
 #endif //REPRODUCTION_H

@@ -3,7 +3,7 @@
 #include "Population.h"
 #include "Cercle.h"
 
-Reproduction::Reproduction(size_t nbPop)
+Reproduction::Reproduction(size_t nbPop, size_t width, size_t height)
 	:mParent1{ 0 },
 	mParent2{ 0 },
 	mEnfant{ 0 },
@@ -20,6 +20,7 @@ Reproduction::~Reproduction()
 void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivilisations, std::string type)
 {
 	int randomParentIndex1, randomParentIndex2, mask, indexSplit;
+	int test = c.getPopulation(0).totalFitness(nbPop);
 	for (int i = 0; i < nbCivilisations; ++i) {
 		for (int j = 0; j < nbPop; ++j)
 		{
@@ -43,23 +44,23 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 				for (int i = 0; i < nbBitChange; ++i) {
 					int indexAléatoire = Random::getInstance().uniformRandomize(1, 30);
 					int maskMutate = 1;
-					maskMutate <<= indexAléatoire - 1;
+					maskMutate <<= (indexAléatoire - 1);
 					mEnfant = mEnfant ^ maskMutate;
 				}
 			}
-			delivery(type, j);
+			delivery(type, j, mWidth, mHeight);
 		}
 		c.getPopulation(i).parentDeath(mChildSolution,nbPop);
 	}
 }
 
-void Reproduction::delivery(std::string type, size_t i) {
+void Reproduction::delivery(std::string type, size_t i, size_t width, size_t height) {
 	Shape2D *shape =nullptr;
 	if (type == "cercle"){
 		shape=new Cercle();
 		shape->decodePropreties(mEnfant);
 	} 
 	if (shape != nullptr) {
-		mChildSolution[i] = Solution(shape);
+		mChildSolution[i] = Solution(shape, width, height);
 	}
 }
