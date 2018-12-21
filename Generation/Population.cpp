@@ -27,11 +27,16 @@ void Population::setSolution(size_t i, Solution & sol) {
 	mSolutions[i] = sol;
 }
 
-void Population::setSolutions(Solution * listes, size_t size) {
-	delete mSolutions;
+void Population::setSolutions(Solution *& listes, size_t size) {
 	mSolutions = new Solution[size];
 	for (int i = 0; i < size; ++i){
 		*(mSolutions + i) = listes[i];
+	}
+}
+
+void Population::deletePopulation(size_t size) {
+	for (int i = 0; i < size; ++i) {
+		delete mSolutions[i].shape();
 	}
 }
 
@@ -57,7 +62,7 @@ void Population::populate(std::string type, size_t nbPop, size_t width, size_t h
 
 	}
 }
-void Population::parentDeath(Solution * childSolution, size_t size) {
+void Population::parentDeath(Solution *& childSolution, size_t size) {
 	for (int i = 0; i < size - 1; ++i) {
 		mSolutions[i] = childSolution[i];
 	}

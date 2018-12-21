@@ -6,11 +6,11 @@ class Solution
 {
 public:
 	Solution();
-	Solution(Shape2D* shape, int fitness = 0);
+	Solution(Shape2D*& shape, int fitness = 0);
 	~Solution();
 
 	int fitnessEvaluation(std::list<Point2d> points);
-	Shape2D * shape();
+	Shape2D *& shape();
 
 private:
 	Shape2D* mShape;

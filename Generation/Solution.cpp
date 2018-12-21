@@ -4,7 +4,7 @@ Solution::Solution()
 {
 }
 
-Solution::Solution(Shape2D* shape, int fitness)
+Solution::Solution(Shape2D*& shape, int fitness)
 	:mShape{ shape }
 {
 }
@@ -25,7 +25,7 @@ int Solution::fitnessEvaluation(std::list<Point2d> points)
 	return mFitness;
 }
 
-Shape2D * Solution::shape()
+Shape2D *& Solution::shape()
 {
 	return mShape;
 }

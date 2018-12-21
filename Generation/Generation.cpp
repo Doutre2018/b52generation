@@ -43,7 +43,7 @@ void Generation::testShortcut() {
 		for (ConsoleKeyEvent k : keyEvents) {
 			if (k.modifier(ConsoleKeyEvent::KeyModifier::Alt)) {
 				if (toupper(k.keyA()) == '1') {
-					mCivilisations.removeLastPopulations();
+					mCivilisations.removeLastPopulations(mNbPopulations);
 				}
 				else if (toupper(k.keyA()) == '2') {
 					mCivilisations.createNewPopulations(mType, mNbPopulations, mWidth, mHeight, mArea.points());

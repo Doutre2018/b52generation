@@ -18,9 +18,6 @@ public:
 	virtual bool pointInShape(std::list<Point2d> points) override;
 	virtual void randomize(size_t width, size_t height) override;
 	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) override;
-
-	int calculateCirconference();
-	int calculateDiameter();
 	
 
 private:

@@ -7,7 +7,6 @@ Reproduction::Reproduction(size_t nbPop)
 	:mParent1{ 0 },
 	mParent2{ 0 },
 	mEnfant{ 0 },
-	state{StateRep::select},
 	mNbChild{0},
 	mChildSolution{new Solution[nbPop]}
 
@@ -18,7 +17,7 @@ Reproduction::~Reproduction()
 {
 }
 
-void Reproduction::createChild( Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type)
+void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivilisations, std::string type)
 {
 	int randomParentIndex1, randomParentIndex2, mask, indexSplit;
 	for (int i = 0; i < nbCivilisations; ++i) {
@@ -63,8 +62,4 @@ void Reproduction::delivery(std::string type, size_t i) {
 	if (shape != nullptr) {
 		mChildSolution[i] = Solution(shape);
 	}
-}
-
-Solution * Reproduction::getChildren() {
-	return mChildSolution;
 }

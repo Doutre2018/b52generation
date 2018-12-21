@@ -25,7 +25,8 @@ public :
 
 	void createNewPopulations(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> & pts);
 
-	void removeLastPopulations();
+	void removeLastPopulations(size_t size);
+
 
 	void nextColor();
 	void lastColor();
@@ -37,7 +38,6 @@ public :
 
 	Population & getPopulation(int id);
 	std::vector<Population> &getAll();
-	size_t size();
 
 };
 

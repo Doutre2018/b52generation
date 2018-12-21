@@ -40,6 +40,11 @@ ConsoleColor::ConsoleColor(CHAR_INFO charInfo)
 {
 }
 
+ConsoleColor::ConsoleColor(Mask mask)
+	: mColor{ static_cast<uint16_t>(mask) }
+{
+}
+
 uint16_t ConsoleColor::color() const
 {
 	return mColor;
@@ -229,7 +234,7 @@ ConsoleColor ConsoleColor::random()
 
 ConsoleColor ConsoleColor::invalid()
 {
-	return ConsoleColor(static_cast<uint16_t>(Mask::Invalid));
+	return ConsoleColor(Mask::Invalid);
 }
 
 
