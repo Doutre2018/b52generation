@@ -7,12 +7,12 @@ Cercle::Cercle(){}
 Cercle::~Cercle(){}
 
 int64_t Cercle::encodePropreties(){
-	int64_t mask{ 0b1111'1111 };
+	int64_t mask{ 0b1111'1111'11 };
 	return ((mX & mask) << 10 | (mY & mask) << 20 | (mRadius & mask));
 }
 
 void Cercle::decodePropreties(int64_t data){
-	int64_t mask{ 0b1111'1111 };
+	int64_t mask{ 0b1111'1111'11 };
 
 	mRadius = mask & data;
 	mY = (data >> 20) & mask;
