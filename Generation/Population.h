@@ -4,6 +4,7 @@
 #include "Shape2D.h"
 #include "Console\ConsoleColor.h"
 #include "Solution.h"
+#include <vector>
 
 class Population
 {
@@ -23,11 +24,12 @@ public:
 	void parentDeath(std::vector<Solution>& childSolution, size_t size);
 	ConsoleColor::Text & color();
 	int totalFitness(size_t nbPop);
-	void rouletteWheel();
+	Solution rouletteWheel(size_t nbPop);
 	void setElite(size_t i);
 
 private :
 	ConsoleColor::Text mColor;
+
 	std::vector<Solution> mSolutions;
 	Solution mElite;
 

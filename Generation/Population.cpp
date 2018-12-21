@@ -2,7 +2,10 @@
 
 #include "Random.h"
 #include "Cercle.h"
-Population::Population(ConsoleColor::Text color):mColor{color}
+
+
+Population::Population(ConsoleColor::Text color)
+	:mColor{ color }
 {
 }
 
@@ -19,11 +22,6 @@ void Population::setElite(size_t i) {
 std::vector<Solution> & Population::getListe() {
 	return mSolutions;
 }
-
-//Solution Population::randomSolution(size_t size) {
-//	size_t i = Random::getInstance().uniformRandomize(0, size - 1);
-//	return mSolutions.at(i);
-//}
 
 bool Population::isTheSolution() { //check if solution is good
 	return false;
@@ -73,14 +71,37 @@ ConsoleColor::Text & Population::color() {
 int Population::totalFitness(size_t nbPop)
 {
 	int total{ 0 };
+	
+
 	for (int i{ 0 }; i < nbPop; ++i)
 	{
-		Solution* a = &mSolutions.at(i);
+		Solution * a = &mSolutions.at(i);
 		total += a->getFitness();
 	}
 	return total;
 }
 
-void Population::rouletteWheel()
+Solution Population::rouletteWheel(size_t nbPop)
 {
+	int totFitness{ totalFitness(nbPop) };
+	int randomNumber{ Random::getInstance().uniformRandomize(0, totFitness) };
+
+	int counter{ -1 };
+
+	while(randomNumber > 0)
+	{ 
+		++counter;
+		randomNumber -= mSolutions.at(counter).getFitness();
+	}
+
+	return mSolutions.at(counter);
+
+
+
+	//for (int i{ 0 }; i < nbPop; ++i)
+	//{
+	//	Solution a = mSolutions[i];
+	//	double prop = a.getFitness() / totFitness;
+	//	a.setProportionFitness(prop);
+	//}
 }

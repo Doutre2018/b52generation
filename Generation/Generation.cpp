@@ -102,7 +102,7 @@ bool Generation::update(){
 	int bestfitness=0;
 	int pos=0;
 		for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
-			for (int j = 0; j < mNbPopulations; ++j) {
+			for (int j = 0; j < mNbPopulations -1; ++j) {
 				// Calculate Fitness
 				mCivilisations.getPopulation(i).getSolution(j).fitnessEvaluation(mArea.points());
 				//elite transfer
