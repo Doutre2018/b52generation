@@ -6,7 +6,7 @@ class Solution
 {
 public:
 	Solution();
-	Solution(Shape2D* shape, int fitness = 0);
+	Solution(Shape2D* shape, size_t width, size_t height, int fitness = 0);
 	~Solution();
 
 	int fitnessEvaluation(std::list<Point2d> points);
@@ -15,6 +15,8 @@ public:
 private:
 	Shape2D* mShape;
 	int mFitness;
+	size_t mWidth;
+	size_t mHeight;
 };
 
 #endif //SOLUTION_H

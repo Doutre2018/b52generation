@@ -10,7 +10,7 @@
 
 
 Generation::Generation(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles):
-	mArea{ Area(width, height) }, mReproductiveSystem{ Reproduction(nbPopulations) }, mCivilisations{ Civilisations()},reader_m { nullptr}, mStep_by_step{ false }, mHeight{ height }, mWidth{ width }, mType{ type }, mNbPopulations{ nbPopulations }, mNbObstacles{ nbObstacles }
+	mArea{ Area(width, height) }, mReproductiveSystem{ Reproduction(nbPopulations, width, height) }, mCivilisations{ Civilisations()},reader_m { nullptr}, mStep_by_step{ false }, mHeight{ height }, mWidth{ width }, mType{ type }, mNbPopulations{ nbPopulations }, mNbObstacles{ nbObstacles }
 {}
 Generation::~Generation(){}
 
@@ -24,11 +24,11 @@ void Generation::start(){
 	loop();
 }
 
-void generation::loop() {
+void Generation::loop() {
 	bool terminer = false;
 	while (!terminer){
-		processinput();
-		testshortcut();
+		processInput();
+		testShortcut();
 		terminer = update();
 		render();
 	}

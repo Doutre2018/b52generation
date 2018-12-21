@@ -47,7 +47,7 @@ void Population::populate(std::string type, size_t nbPop, size_t width, size_t h
 		//if (shape == "rectangle")
 		//	Rectangle shape;
 		if(shape != nullptr){
-			Solution sol(shape);
+			Solution sol(shape, width, height);
 			sol.fitnessEvaluation(points);
 			mSolutions[i] = sol;
 		}

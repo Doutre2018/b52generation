@@ -3,13 +3,16 @@
 #include "Population.h"
 #include "Cercle.h"
 
-Reproduction::Reproduction(size_t nbPop)
+Reproduction::Reproduction(size_t nbPop, size_t width, size_t height)
 	:mParent1{ 0 },
 	mParent2{ 0 },
 	mEnfant{ 0 },
-	state{StateRep::select},
-	mNbChild{0},
-	mChildSolution{new Solution[nbPop]}
+	state{ StateRep::select },
+	mNbChild{ 0 },
+	mChildSolution{ new Solution[nbPop] },
+	mWidth{ width },
+	mHeight{ height }
+
 
 {}
 
@@ -48,20 +51,20 @@ void Reproduction::createChild( Civilisations c, size_t nbPop, size_t nbCivilisa
 					mEnfant = mEnfant ^ maskMutate;
 				}
 			}
-			delivery(type, j);
+			delivery(type, j, mWidth, mHeight);
 		}
 		c.getPopulation(i).parentDeath(mChildSolution,nbPop);
 	}
 }
 
-void Reproduction::delivery(std::string type, size_t i) {
+void Reproduction::delivery(std::string type, size_t i, size_t width, size_t height) {
 	Shape2D *shape =nullptr;
 	if (type == "cercle"){
 		shape=new Cercle();
 		shape->decodePropreties(mEnfant);
 	} 
 	if (shape != nullptr) {
-		mChildSolution[i] = Solution(shape);
+		mChildSolution[i] = Solution(shape, width, height);
 	}
 }
 
