@@ -136,19 +136,12 @@
     <ClCompile Include="Console\ConsolePixel.cpp" />
     <ClCompile Include="Console\ConsoleWriter.cpp" />
     <ClCompile Include="Generation.cpp" />
-    <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="PopulationEngine.cpp" />
     <ClCompile Include="Population.cpp" />
-    <ClCompile Include="Populations.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Reproduction.cpp" />
-    <ClCompile Include="Shape2D.cpp" />
-    <ClCompile Include="Shortcut.cpp" />
-    <ClCompile Include="Size.cpp" />
     <ClCompile Include="Solution.cpp" />
-    <ClCompile Include="Transactions.cpp" />
-    <ClCompile Include="Transformation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Area.h" />
@@ -168,21 +161,15 @@
     <ClInclude Include="Console\ConsolePixel.h" />
     <ClInclude Include="Console\ConsoleWriter.h" />
     <ClInclude Include="Generation.h" />
-    <ClInclude Include="Geometry.h" />
-    <ClInclude Include="Point.h" />
     <ClInclude Include="Point2d.h" />
     <ClInclude Include="Polygon2d.h" />
     <ClInclude Include="Population.h" />
-    <ClInclude Include="Populations.h" />
+    <ClInclude Include="PopulationEngine.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Reproduction.h" />
     <ClInclude Include="Shape2D.h" />
-    <ClInclude Include="Shortcut.h" />
-    <ClInclude Include="Size.h" />
     <ClInclude Include="Solution.h" />
-    <ClInclude Include="Transactions.h" />
     <ClInclude Include="Transform2d.h" />
-    <ClInclude Include="Transformation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

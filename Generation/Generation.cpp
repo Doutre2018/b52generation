@@ -1,257 +1,100 @@
 #include "Generation.h"
 
+#include "Shape2D.h"
+#include "Solution.h"
 #include "Area.h"
-#include "Transactions.h"
 #include "Civilisations.h"
-#include "Shortcut.h"
 #include "Console\ConsoleKeyFilterModifiers.h"
 #include "Console\ConsoleKeyFilterUp.h"
 #include "Reproduction.h"
-Generation::Generation():reader_m{ nullptr }, Mstep_by_step{false}
-{
-}
-
-Generation::~Generation()
-{
-}
-
-void Generation::start()
-{
-	Area::getInstance().generateArea();
-	Area::getInstance().generatePoint();
-	Area::getInstance().showPoint();
 
 
-	Generation::getInstance().reader_m = &(Console::getInstance().keyReader());
-	//Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterModifiers());
+Generation::Generation(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles):
+	mArea{ Area(width, height) }, mReproductiveSystem{ Reproduction(nbPopulations, width, height) }, mCivilisations{ Civilisations()},reader_m { nullptr}, mStep_by_step{ false }, mHeight{ height }, mWidth{ width }, mType{ type }, mNbPopulations{ nbPopulations }, mNbObstacles{ nbObstacles }
+{}
+Generation::~Generation(){}
+
+void Generation::start(){
+	mArea.generateArea();
+	mArea.generatePoint(mNbObstacles);
+	mArea.showPoint();
+	reader_m = &(Console::getInstance().keyReader());
 	Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterUp());
+<<<<<<< HEAD
 
 
 
 
 
 	loop(State::reproduct);
+=======
+	while (checkIdle()) {}
+	loop();
+>>>>>>> 507164aa507c83a47c005a100744a0014e9ad9d5
 }
 
-void Generation::loop(State state) {
-
-	while (true)
-	{
-
+void Generation::loop() {
+	bool terminer = false;
+	while (!terminer){
 		processInput();
-		testShortcut(state);
-		if (Mstep_by_step) {
-			state = updateSbS(state);
-		}
-		else {
-			state = update(state);
-		}
-		render(state);
+		testShortcut();
+		terminer = update();
+		render();
 	}
 }
 
-void Generation::testShortcut(State & state) {
+
+void Generation::processInput() {
+	reader_m->read(keyEvents);
+}
+void Generation::testShortcut() {
 	if (keyEvents.size() > 0) {
-		
 		for (ConsoleKeyEvent k : keyEvents) {
 			if (k.modifier(ConsoleKeyEvent::KeyModifier::Alt)) {
 				if (toupper(k.keyA()) == '1') {
-					Shortcut::getInstance().removeCivilisations();
+					mCivilisations.removeLastPopulations(mNbPopulations);
 				}
 				else if (toupper(k.keyA()) == '2') {
-					Shortcut::getInstance().addCivilisations();
-				}
-				else if (toupper(k.keyA()) == 'P') {
-					Shortcut::getInstance().pause(state);
-				}
-				else if (toupper(k.keyA()) == 'S') {
-					if (Mstep_by_step) {
-						Mstep_by_step = false;
-					}
-					else {
-						Mstep_by_step = true;
+					mCivilisations.createNewPopulations(mType, mNbPopulations, mWidth, mHeight, mArea.points());
+				} else if (toupper(k.keyA()) == 'P') {
+					//pause(state);
+				} else if (toupper(k.keyA()) == 'S') {
+					if (mStep_by_step) {
+						mStep_by_step = false;
+				} else {
+						mStep_by_step = true;
 					}
 				}
-				
-			}
-			if (k.modifier(ConsoleKeyEvent::KeyModifier::Shift)) {
+			} else if (k.modifier(ConsoleKeyEvent::KeyModifier::Shift)) {
 				if (toupper(k.keyA()) == 'R') {
-					Shortcut::getInstance().regenerate();
+					mCivilisations.regenerate(mType, mNbPopulations, mWidth, mHeight, mArea.points());
 				}
 				if (toupper(k.keyA()) == 'D') {
-					Shortcut::getInstance().reset();
+					mCivilisations.reset();
 				}
-			}
-
-			if (k.modifier(ConsoleKeyEvent::KeyModifier::Ctrl)) {
-				if (state == State::idle) {
-					if (toupper(k.keyA()) == '1') {
-						Area::getInstance().shape_g = "cercle";
-					}
-					if (toupper(k.keyA()) == '2') {
-						Area::getInstance().shape_g = "triangle";
-					}
-					if (toupper(k.keyA()) == '3') {
-						Area::getInstance().shape_g = "rectangle";
-					}
-				}
-				
+			}else if (k.modifier(ConsoleKeyEvent::KeyModifier::Ctrl)) {
+				//if (state == State::idle) {
+				//	if (toupper(k.keyA()) == '1') {
+				//		mType = "cercle";
+				//	} else if (toupper(k.keyA()) == '2') {
+				//		mType = "triangle";
+				//	} else if (toupper(k.keyA()) == '3') {
+				//		mType = "rectangle";
+				//	}
+				//}
 			}
 		}
 	}
 }
-void Generation::processInput()
-{
-	reader_m->read(keyEvents);
 
-}
-
-void Generation::render(State state)
-{
-	Area::getInstance().showPoint();
-	Area::getInstance().showCivilisations();
-	Console::getInstance().writer().push("area");
-
-
-}
-
-Generation::State Generation::update(State & state)
-{
-	//idle, generation1, fitness, stop,  elitetransfer, reproduct, substitute
-	switch (state) {
-	case State::idle : 
-		if(Transactions::getInstance().conditionidle(keyEvents)){
-			return nextState(state);
-		}
-		else {
-			return state;
-		}
-		break;
-	case State::generation1:
-		if (Transactions::getInstance().conditiongen1()) {
-			return nextState(state);
-		}
-		else {
-			return state;
-		}
-		break;
-	case State::fitness:
-		if (Transactions::getInstance().conditionfitness()) {
-			return nextState(state);
-		}
-		else {
-			return state;
-		}
-		break;
-	case State::stop:
-		if (Transactions::getInstance().conditionstop()) {
-			//si les conditions sont vrais, arrêter.
-			return state;
-		}
-		else {
-			//si les conditions sont fausses pour stop, continuer
-			return nextState(state);
-		}
-		break;
-	case State::elitetransfer:
-		if (Transactions::getInstance().conditionelitetransfer()) {
-			return nextState(state);
-		}
-		else {
-			return state;
-		}
-		break;
-	case State::reproduct:
-		if (Transactions::getInstance().conditionreproduct()) {
-			return nextState(state);
-		}
-		else {
-			Reproduction::getInstance().createChild(Reproduction::getInstance().getState());
-			return state;
-		}
-		break;
-	case State::substitute:
-		if (Transactions::getInstance().conditionsubstitute()) {
-			return State::fitness;
-		}
-		else {
-			return state;
-		}
-		break;
+//Checkers of State
+bool Generation::checkIdle() {
+	if (keyEvents.size() > 0) {
+		keyEvents.clear();
+		return true;
 	}
+	return false;
 }
-
-
-Generation::State Generation::updateSbS(State & state)
-{
-	//idle, generation1, fitness, stop,  elitetransfer, reproduct, substitute
-	switch (state) {
-	case State::idle:
-		if (Transactions::getInstance().conditionidle(keyEvents) && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
-			return nextState(state);
-		}
-		else {
-			return state;
-		}
-		break;
-	case State::generation1:
-		if (Transactions::getInstance().conditiongen1() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
-			return nextState(state);
-		}
-		else {
-			return state;
-		}
-		break;
-	case State::fitness:
-		if (Transactions::getInstance().conditionfitness() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
-			return nextState(state);
-		}
-		else {
-			return state;
-		}
-		break;
-	case State::stop:
-		if (Transactions::getInstance().conditionstop() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
-			//si les conditions sont vrais, arrêter.
-			return state;
-		}
-		else {
-			//si les conditions sont fausses pour stop, continuer
-			return nextState(state);
-		}
-		break;
-	case State::elitetransfer:
-		if (Transactions::getInstance().conditionelitetransfer() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
-			return nextState(state);
-		}
-		else {
-			return state;
-		}
-		break;
-	case State::reproduct:
-		if (Transactions::getInstance().conditionreproduct() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
-			return nextState(state);
-		}
-		else {
-			return state;
-		}
-		break;
-	case State::substitute:
-		if (Transactions::getInstance().conditionsubstitute() && Transactions::getInstance().conditionstepbystepKey(keyEvents)) {
-			return State::fitness;
-		}
-		else {
-			return state;
-		}
-		break;
-	}
-}
-
-Generation::State Generation::nextState(State & state)
-{
-	return (State) ((int) state + 1);
-}
-
 void Generation::pause(State & state) {
 	if (pausedState == State::pause) {
 		pausedState = state;
@@ -262,3 +105,35 @@ void Generation::pause(State & state) {
 		pausedState = State::pause;
 	}
 }
+
+//Update State
+bool Generation::update(){
+	if (mCivilisations.nbPopulations() > 0) {
+		// Calculate Fitness
+		//for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
+		//	for (int j = 0; j < mNbPopulations; ++i) {
+		//		mCivilisations.getPopulation(i).getSolution(j).fitnessEvaluation(mArea.points());
+		//	}
+		//	//if (mCivilisations.getPopulation(i).isTheSolution()) {
+		//	//	return true;
+		//	//}
+		//}
+
+		// Check if stop
+
+		//elite transfer
+
+		//reproduction
+		mReproductiveSystem.createChild(mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
+	}
+	
+	return false;
+}
+//render
+void Generation::render(){
+	mArea.showPoint();
+	mArea.showCivilisations(mCivilisations.getAll(),mNbPopulations);
+	Console::getInstance().writer().push("area");
+}
+
+

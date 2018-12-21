@@ -2,37 +2,49 @@
 #define GENERATION_H
 #include "Console\Console.h"
 
+#include "Area.h"
+#include "Reproduction.h"
+#include "Civilisations.h"
+
 class Generation
 {
-private:
-	Generation();
-	~Generation();
 public:
-	static Generation& getInstance()
-	{
-		static Generation instance;
-		return instance;
-	}
+	Generation(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles);
+	~Generation();
+
+	void start();
+
+
 	enum class State { idle, generation1, fitness, stop,  elitetransfer, reproduct, substitute, pause};
 	
-	void start();
 	void pause(State & state);
 
 private :
 	State pausedState = State::pause;
-	
-	void loop(State state);
-	void testShortcut(State & state);
+	void loop();
 	void processInput();
-	void render(State state);
-	State update(State& state);
-	Generation::State updateSbS(State & state);
-	Generation::State nextState(State& state);
+	void testShortcut();
+	bool update();
+	void render();
 
-	bool Mstep_by_step;
+	bool checkIdle();
+
+
+
+	bool mStep_by_step;
 
 	ConsoleKeyReader * reader_m;
 	ConsoleKeyReader::KeyEvents keyEvents;
+	
+	size_t mHeight;
+	size_t mWidth;
+	std::string mType;
+	size_t mNbPopulations;
+	size_t mNbObstacles;
+	
+	Area mArea;
+	Reproduction mReproductiveSystem;
+	Civilisations mCivilisations;
 	
 };
 #endif //GENERATION_H

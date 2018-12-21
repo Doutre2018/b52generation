@@ -178,6 +178,7 @@ private:
 		BackgroundBrightness	= BACKGROUND_INTENSITY,
 		Invalid					= 0b1111'1111'1111'1111				// <=-- bad strategy to do otherwise : to do job
 	};
+	ConsoleColor(Mask mask);
 };
 
 inline ConsoleColor operator+(ConsoleColor::Text tColor, ConsoleColor::Background bColor) {

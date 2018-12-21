@@ -1,41 +1,43 @@
 #ifndef CIVILISATIONS_H
 #define CIVILISATIONS_H
 
-#include "Populations.h"
+#include "Population.h"
+#include "Point2d.h"
+
 #include <vector> 
+#include <list>
+
 #include "Console\Console.h"
 class Civilisations
 {
 private:
-	Civilisations();
-	~Civilisations();
-	std::vector<Populations> civilisations_m;
+
+	std::vector<Population> civilisations_m;
 
 	enum class Color { brightblue , blue, brightcyan, cyan, brightgreen,green,brightmagenta, magenta, brightred,red, brightyellow,yellow};
 	static ConsoleColor::Text colors[12];
 	Color color = Color::brightblue;
 public :
-	static Civilisations& getInstance()
-	{
-		static Civilisations instance;
-		return instance;
-	}
-	
-	void createNewPopulations();
+	Civilisations() {}
+	~Civilisations() {}
 
-	void removeLastPopulations();
+	size_t nbPopulations();
+
+	void createNewPopulations(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> & pts);
+
+	void removeLastPopulations(size_t size);
+
 
 	void nextColor();
 	void lastColor();
 
-	void regenerate();
+	void regenerate(std::string type, size_t nbShape, size_t width, size_t height, std::list<Point2d> & points);
 
 	void reset();
 
 
-	Populations getPopulation(int id);
-	std::vector<Populations> getAll();
-	size_t size();
+	Population & getPopulation(int id);
+	std::vector<Population> &getAll();
 
 };
 

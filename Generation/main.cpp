@@ -7,8 +7,17 @@ using namespace std;
 
 int main()
 {
-	Generation::getInstance().start();
+	//Creation des variables pour créer la generation
+	size_t width = 350;
+	size_t height = 200;
+	std::string type = "cercle";
+	size_t nbShape = 100;
+	size_t nbObstacles = 100;
 
+	//Creation de Generation
+	Generation g(width, height, type, nbShape, nbObstacles);
 
+	//commencer la generation
+	g.start();
 	return 0;
 }
