@@ -7,7 +7,6 @@ Reproduction::Reproduction(size_t nbPop, size_t width, size_t mHeight)
 	:mParent1{ 0 },
 	mParent2{ 0 },
 	mEnfant{ 0 },
-	state{StateRep::select},
 	mNbChild{0},
 	mChildSolution{new Solution[nbPop]}
 
@@ -18,18 +17,18 @@ Reproduction::~Reproduction()
 {
 }
 
-void Reproduction::createChild( Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type)
+void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivilisations, std::string type)
 {
 	int randomParentIndex1, randomParentIndex2, mask, indexSplit;
-	int test = c.getPopulation(0).totalFitness(nbPop);
+	
 	for (int i = 0; i < nbCivilisations; ++i) {
 		for (int j = 0; j < nbPop; ++j)
 		{
 			//Selection
 			randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
 			randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
-			mParent1 = c.getPopulation(i).getSolution(randomParentIndex1).shape()->encodePropreties();
-			mParent2 = c.getPopulation(i).getSolution(randomParentIndex2).shape()->encodePropreties();
+			mParent1 = c.getPopulation(0).rouletteWheel(nbPop).shape()->encodePropreties();
+			mParent2 = c.getPopulation(0).rouletteWheel(nbPop).shape()->encodePropreties();
 			//Generate Child
 			indexSplit = Random::getInstance().uniformRandomize(1, 30);
 			mask = (int)pow(2, indexSplit) - 1;
@@ -49,23 +48,19 @@ void Reproduction::createChild( Civilisations c, size_t nbPop, size_t nbCivilisa
 					mEnfant = mEnfant ^ maskMutate;
 				}
 			}
-			delivery(type, j);
+			delivery(type, j, mWidth, mHeight);
 		}
 		c.getPopulation(i).parentDeath(mChildSolution,nbPop);
 	}
 }
 
-void Reproduction::delivery(std::string type, size_t i) {
-	Shape2D *shape =nullptr;
-	if (type == "cercle"){
-		shape=new Cercle();
+void Reproduction::delivery(std::string type, size_t i, size_t width, size_t height) {
+	Shape2D *shape = nullptr;
+	if (type == "cercle") {
+		shape = new Cercle();
 		shape->decodePropreties(mEnfant);
-	} 
-	if (shape != nullptr) {
-		mChildSolution[i] = Solution(shape);
 	}
-}
-
-Solution * Reproduction::getChildren() {
-	return mChildSolution;
+	if (shape != nullptr) {
+		mChildSolution[i] = Solution(shape, width, height);
+	}
 }

@@ -2,7 +2,10 @@
 
 #include "Random.h"
 #include "Cercle.h"
-Population::Population(ConsoleColor::Text color):mColor{color}
+
+
+Population::Population(ConsoleColor::Text color)
+	:mColor{ color }
 {
 }
 
@@ -23,15 +26,23 @@ Solution Population::randomSolution(size_t size) {
 	return mSolutions[i];
 }
 
+bool Population::isTheSolution() { //check if solution is good
+	return false;
+}
 void Population::setSolution(size_t i, Solution & sol) {
 	mSolutions[i] = sol;
 }
 
-void Population::setSolutions(Solution * listes, size_t size) {
-	delete mSolutions;
+void Population::setSolutions(Solution *& listes, size_t size) {
 	mSolutions = new Solution[size];
 	for (int i = 0; i < size; ++i){
 		*(mSolutions + i) = listes[i];
+	}
+}
+
+void Population::deletePopulation(size_t size) {
+	for (int i = 0; i < size; ++i) {
+		delete mSolutions[i].shape();
 	}
 }
 
@@ -49,7 +60,7 @@ void Population::populate(std::string type, size_t nbPop, size_t width, size_t h
 		//if (shape == "rectangle")
 		//	Rectangle shape;
 		if(shape != nullptr){
-			Solution sol(shape, width, height);
+			Solution sol(shape, width, height, totalFitness(nbPop));
 			sol.fitnessEvaluation(points);
 			mSolutions[i] = sol;
 			
@@ -57,7 +68,7 @@ void Population::populate(std::string type, size_t nbPop, size_t width, size_t h
 
 	}
 }
-void Population::parentDeath(Solution * childSolution, size_t size) {
+void Population::parentDeath(Solution *& childSolution, size_t size) {
 	for (int i = 0; i < size - 1; ++i) {
 		mSolutions[i] = childSolution[i];
 	}
@@ -69,6 +80,8 @@ ConsoleColor::Text & Population::color() {
 int Population::totalFitness(size_t nbPop)
 {
 	int total{ 0 };
+	
+
 	for (int i{ 0 }; i < nbPop; ++i)
 	{
 		Solution a = mSolutions[i];
@@ -77,12 +90,27 @@ int Population::totalFitness(size_t nbPop)
 	return total;
 }
 
-void Population::rouletteWheel(size_t nbPop)
+Solution Population::rouletteWheel(size_t nbPop)
 {
-	int totFitness = totalFitness(nbPop);
-	for (int i{ 0 }; i < nbPop; ++i)
-	{
-		Solution a = mSolutions[i];
-		a.setProportionFitness(a.getFitness()/ totFitness);
+	int totFitness{ totalFitness(nbPop) };
+	int randomNumber{ Random::getInstance().uniformRandomize(0, totFitness) };
+
+	int counter{ -1 };
+
+	while(randomNumber > 0)
+	{ 
+		++counter;
+		randomNumber -= mSolutions[counter].getFitness();
 	}
+
+	return mSolutions[counter];
+
+
+
+	//for (int i{ 0 }; i < nbPop; ++i)
+	//{
+	//	Solution a = mSolutions[i];
+	//	double prop = a.getFitness() / totFitness;
+	//	a.setProportionFitness(prop);
+	//}
 }

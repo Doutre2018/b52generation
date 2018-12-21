@@ -8,9 +8,9 @@ public:
 	Solution();
 	Solution(Shape2D* shape, size_t width, size_t height, int fitness = 0, double proportionFitness=0);
 	~Solution();
-
 	int fitnessEvaluation(std::list<Point2d> points);
-	Shape2D * shape();
+	Shape2D *& shape();
+
 	int getFitness();
 	void setProportionFitness(double proportionFitness);
 

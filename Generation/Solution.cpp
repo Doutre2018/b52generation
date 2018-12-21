@@ -25,7 +25,7 @@ int Solution::fitnessEvaluation(std::list<Point2d> points)
 	return mFitness;
 }
 
-Shape2D * Solution::shape()
+Shape2D *& Solution::shape()
 {
 	return mShape;
 }

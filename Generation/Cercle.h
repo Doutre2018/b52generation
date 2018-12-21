@@ -19,9 +19,6 @@ public:
 	virtual int borderProximity(size_t width, size_t height) override;
 	virtual void randomize(size_t width, size_t height) override;
 	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) override;
-
-	int calculateCirconference();
-	int calculateDiameter();
 	
 
 private:

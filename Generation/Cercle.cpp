@@ -67,18 +67,10 @@ int Cercle::borderProximity(size_t width, size_t height)
 
 
 int Cercle::calculateArea() {
-	int d = calculateDiameter();
+	int d = 2 * mRadius;
 	return (mPi*(d*d)) / 4;
 }
 
-int Cercle::calculateCirconference() {
-	return 2 * mPi * mRadius;
-}
-
-int Cercle::calculateDiameter() {
-	return 2 * mRadius;
-}
- 
 void Cercle::randomize(size_t width, size_t height) {
 	mX = Random::getInstance().uniformRandomize(0, width);
 	mY = Random::getInstance().uniformRandomize(0, height);
