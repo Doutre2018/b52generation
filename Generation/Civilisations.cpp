@@ -2,19 +2,19 @@
 
 ConsoleColor::Text Civilisations::colors[12]{ ConsoleColor::tb,ConsoleColor::tB,ConsoleColor::tc,ConsoleColor::tC, ConsoleColor::tg, ConsoleColor::tG, ConsoleColor::tm,ConsoleColor::tM,ConsoleColor::tr,ConsoleColor::tR, ConsoleColor::ty,ConsoleColor::tY };
 
-void Civilisations::regenerate(std::string type, size_t nbShape, size_t width, size_t height, std::list<Point2d> points) {
-	size_t mSize = size();
+void Civilisations::regenerate(std::string type, size_t nbShape, size_t width, size_t height, std::list<Point2d> & points) {
+	size_t mSize = nbPopulations();
 	civilisations_m.clear();
 	color = Color::brightblue;
 	for (int i = 0; i < mSize; ++i) {
 		civilisations_m.push_back(Population(colors[(int)color]));
-		civilisations_m[i].populate(type, nbShape, width,height, points);
+		civilisations_m.at(i).populate(type, nbShape, width,height, points);
 		nextColor();
 	}
 }
 
 void Civilisations::reset() {
-	size_t mSize = size();
+	size_t mSize = nbPopulations();
 	civilisations_m.clear();
 	color = Color::brightblue;
 }
@@ -22,15 +22,16 @@ void Civilisations::reset() {
 size_t Civilisations::nbPopulations() {
 	return civilisations_m.size();
 }
-void Civilisations::createNewPopulations(std::string type, size_t nbPop, size_t width, size_t height,std::list<Point2d> pts) {
+
+void Civilisations::createNewPopulations(std::string type, size_t nbPop, size_t width, size_t height,std::list<Point2d> & pts) {
 	if (color != Color::yellow) {
 		civilisations_m.push_back(Population(colors[(int)color]));
-		civilisations_m.at(size() - 1).populate(type,nbPop,width,height,pts);
+		civilisations_m.at(nbPopulations() - 1).populate(type,nbPop,width,height,pts);
 		nextColor();
 	}
 }
 
-void Civilisations::removeLastPopulations() {
+void Civilisations::removeLastPopulations(size_t size) {
 	if (color != Color::brightblue) {
 		civilisations_m.pop_back();
 		lastColor();
@@ -51,8 +52,4 @@ Population & Civilisations::getPopulation(int id){
 
 std::vector<Population> & Civilisations::getAll(){
 	return civilisations_m;
-}
-
-size_t Civilisations::size() {
-	return civilisations_m.size();
 }

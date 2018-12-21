@@ -19,9 +19,9 @@ public:
 	void testArea();
 	void showPoint();
 	void showCivilisations(std::vector<Population>& populations, size_t size);
-	void drawShape(Solution * liste, size_t size, ConsoleColor::Text color);
+	void drawShape(std::vector<Solution>& liste, size_t size, ConsoleColor::Text color);
+	std::list<Point2d> & points();
 
-	std::list<Point2d> points();
 private :
 	ConsoleImage * area_m;
 	ConsoleImage * mBackground;

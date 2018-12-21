@@ -37,39 +37,48 @@ bool Cercle::pointInShape(std::list<Point2d> points)
 	}
 }
 
+int Cercle::borderProximity(size_t width, size_t height)
+{
+	size_t maxRadiusX;
+	size_t maxRadiusy;
+	size_t maxRadius;
+
+	if (width - mX > mX) {
+		maxRadiusX = mX;
+	}
+	else {
+		maxRadiusX = width - mX;
+	}
+	if (height - mY > mY) {
+		maxRadiusy = mY;
+	}
+	else {
+		maxRadiusy = height - mY;
+	}
+	if (maxRadiusy >= maxRadiusX) {
+		maxRadius = maxRadiusX;
+	}
+	else {
+		maxRadius = maxRadiusy;
+	}
+
+	return maxRadius;
+}
+
 
 int Cercle::calculateArea() {
-	int d = calculateDiameter();
+	int d = 2 * mRadius;
 	return (mPi*(d*d)) / 4;
 }
 
-int Cercle::calculateCirconference() {
-	return 2 * mPi * mRadius;
-}
-
-int Cercle::calculateDiameter() {
-	return 2 * mRadius;
-}
- 
 void Cercle::randomize(size_t width, size_t height) {
 	mX = Random::getInstance().uniformRandomize(0, width);
 	mY = Random::getInstance().uniformRandomize(0, height);
 	mPoint=Point2d(mX, mY);
-//	size_t maxRadiusX;
-//	size_t maxRadiusY;
-//	if (width - mX > mX) {
-//
-//	}
-//	else {
-//
-//	}
-//	if (height - mY > mY) {
-//
-//	}
-//	else {
-//
-//	}
-	mRadius = Random::getInstance().uniformRandomize(0, height);
+	
+	size_t maxRadius = Cercle::borderProximity(width, height);
+
+	mRadius = Random::getInstance().uniformRandomize(0, maxRadius);
 }
 void Cercle::draw(ConsoleImage & image, ConsoleColor::Text color) {
 	image.drawCircle(mX, mY, mRadius, 178, ConsoleColor::bb + color);

@@ -13,29 +13,15 @@ private:
 	int64_t mEnfant;
 	int percentageMutate;
 	size_t mNbChild;
-	Solution * mChildSolution;
+	std::vector<Solution> mChildSolution;
+	size_t mWidth;
+	size_t mHeight;
 
 public:
-	Reproduction(size_t nbPop);
+	Reproduction(size_t nbPop, size_t width, size_t mHeight);
 	~Reproduction();
-
-
-
-
-	enum class StateRep { select, generatechild, mutate };
-	StateRep state;
-	StateRep nextState(StateRep & state);
-	StateRep & getState();
-	int64_t getParent1();
-	int64_t getParent2();
-	int64_t getEnfant();
-	void createChild(Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type);
-
-	void delivery(std::string type);
-
-	Solution * getChildren();
-	size_t nbChild();
-	void setNbChild(size_t nb);
+	void createChild(Civilisations & c, size_t nbPop, size_t nbCivilisations, std::string type);
+	void delivery(std::string const & type, size_t i, size_t width, size_t height);
 };
 
 #endif //REPRODUCTION_H

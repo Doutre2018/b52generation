@@ -45,13 +45,13 @@ void Area::showCivilisations(std::vector<Population> & populations, size_t size)
 	}
 }
 
-void Area::drawShape(Solution* liste, size_t size, ConsoleColor::Text color){
+void Area::drawShape(std::vector<Solution> & liste, size_t size, ConsoleColor::Text color){
 	for (int i = 0; i < size-1; ++i) {
-		liste[i].shape()->draw(*area_m, color);
+		liste.at(i).shape()->draw(*area_m, color);
 	}
 }
 
-std::list<Point2d> Area::points(){
+std::list<Point2d> & Area::points(){
 	return points_m;
 }
 

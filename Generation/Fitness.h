@@ -6,7 +6,7 @@ class Solution;
 class Fitness {
 
 public:
-	static void fitnessValue(Solution * mSolutions); //array filled with all shapes from a cohort 
+	static void fitnessValue(std::vector<Solution> mSolutions, size_t size); //array filled with all shapes from a cohort 
 
 
 private:

@@ -4,24 +4,24 @@
 #include "Population.h"
 
 
-void Fitness::fitnessValue(Solution * mSolutions) {
+void Fitness::fitnessValue(std::vector<Solution> mSolutions, size_t size) {
 
-	int sizeArray = NBPOPULATION;
+	
 	double fit_value;
 	double distanceCollider;
 	
 
 
-	for (int i = 0; i < 100; ++i)
+	for (int i = 0; i < size; ++i)
 	{
 		double preFitness{};
-		for (int j = 0; j < 100; ++j)
+		for (int j = 0; j < size; ++j)
 		{
 
 			preFitness += pow(mSolutions[i].aire() - mSolutions[j].aire(), 2);
 
 		}
-		fit_value = sqrt(preFitness / sizeArray);
+		fit_value = sqrt(preFitness / size);
 		fit_value = 1 / fit_value;
 
 		/*

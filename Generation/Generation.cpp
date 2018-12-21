@@ -10,7 +10,7 @@
 
 
 Generation::Generation(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles):
-	mArea{ Area(width, height) }, mReproductiveSystem{ Reproduction(nbPopulations) }, mCivilisations{ Civilisations()},reader_m { nullptr}, mStep_by_step{ false }, mHeight{ height }, mWidth{ width }, mType{ type }, mNbPopulations{ nbPopulations }, mNbObstacles{ nbObstacles }
+	mArea{ Area(width, height) }, mReproductiveSystem{ Reproduction(nbPopulations, width, height) }, mCivilisations{ Civilisations()},reader_m { nullptr}, mStep_by_step{ false }, mHeight{ height }, mWidth{ width }, mType{ type }, mNbPopulations{ nbPopulations }, mNbObstacles{ nbObstacles }
 {}
 Generation::~Generation(){}
 
@@ -20,8 +20,20 @@ void Generation::start(){
 	mArea.showPoint();
 	reader_m = &(Console::getInstance().keyReader());
 	Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterUp());
+/*<<<<<<< HEAD
+
+
+
+
+
+	loop(State::reproduct);
+=======*/
+
+
+
 	while (checkIdle()) {}
 	loop();
+
 }
 
 void Generation::loop() {
@@ -43,7 +55,7 @@ void Generation::testShortcut() {
 		for (ConsoleKeyEvent k : keyEvents) {
 			if (k.modifier(ConsoleKeyEvent::KeyModifier::Alt)) {
 				if (toupper(k.keyA()) == '1') {
-					mCivilisations.removeLastPopulations();
+					mCivilisations.removeLastPopulations(mNbPopulations);
 				}
 				else if (toupper(k.keyA()) == '2') {
 					mCivilisations.createNewPopulations(mType, mNbPopulations, mWidth, mHeight, mArea.points());
@@ -101,20 +113,21 @@ void Generation::pause(State & state) {
 bool Generation::update(){
 	if (mCivilisations.nbPopulations() > 0) {
 		// Calculate Fitness
+		//for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
+		//	for (int j = 0; j < mNbPopulations; ++i) {
+		//		mCivilisations.getPopulation(i).getSolution(j).fitnessEvaluation(mArea.points());
+		//	}
+		//	//if (mCivilisations.getPopulation(i).isTheSolution()) {
+		//	//	return true;
+		//	//}
+		//}
 
 		// Check if stop
-		if (false) {
-			return true;
-		}
+
 		//elite transfer
 
 		//reproduction
 		mReproductiveSystem.createChild(mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
-		if (mReproductiveSystem.nbChild() >= mNbPopulations - 1) {
-			mReproductiveSystem.setNbChild(0);
-		}
-		//substitute
-		mCivilisations.getPopulation(0).parentDeath(mReproductiveSystem.getChildren(), mNbPopulations);
 	}
 	
 	return false;
