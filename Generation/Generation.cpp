@@ -20,8 +20,17 @@ void Generation::start(){
 	mArea.showPoint();
 	reader_m = &(Console::getInstance().keyReader());
 	Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterUp());
+<<<<<<< HEAD
+
+
+
+
+
+	loop(State::reproduct);
+=======
 	while (checkIdle()) {}
 	loop();
+>>>>>>> 507164aa507c83a47c005a100744a0014e9ad9d5
 }
 
 void Generation::loop() {
