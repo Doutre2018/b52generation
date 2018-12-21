@@ -12,7 +12,12 @@ Solution::Solution(Shape2D* shape, int fitness)
 Solution::~Solution()
 {
 }
+void Solution::evalFitness(Solution * mSolutions) {
 
+	Fitness::fitnessValue(mSolutions);
+
+
+}
 
 
 int Solution::fitnessEvaluation(std::list<Point2d> points)
@@ -28,4 +33,29 @@ int Solution::fitnessEvaluation(std::list<Point2d> points)
 Shape2D * Solution::shape()
 {
 	return mShape;
+}
+
+void Solution::evalSolutionValue(Solution mSolutions[], size_t size) {
+
+	for (int i = 0; i < size; ++i)
+	{
+		mSolutions[i].mAire = (mSolutions[i].mShape->calculateArea());
+
+
+	}
+
+}
+
+
+double Solution::aire() {
+	return mAire;
+
+
+}
+
+void Solution::setMFitness(double value) {
+
+	mFitness = (double) value;
+
+
 }

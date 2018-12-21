@@ -74,3 +74,11 @@ void Cercle::randomize(size_t width, size_t height) {
 void Cercle::draw(ConsoleImage & image, ConsoleColor::Text color) {
 	image.drawCircle(mX, mY, mRadius, 178, ConsoleColor::bb + color);
 }
+/*
+Point2d Cercle::mPoint() {
+	return mPoint;
+
+
+}
+
+*/

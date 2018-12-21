@@ -32,6 +32,11 @@ void Population::setSolutions(Solution * listes, size_t size) {
 	for (int i = 0; i < size; ++i){
 		*(mSolutions + i) = listes[i];
 	}
+
+	Solution::evalSolutionValue(mSolutions, size);
+	Solution::evalFitness(mSolutions);
+
+
 }
 
 void Population::populate(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> points) {

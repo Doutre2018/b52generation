@@ -5,6 +5,10 @@
 #include <iostream>
 using namespace std;
 
+
+
+
+
 int main()
 {
 	//Creation des variables pour créer la generation

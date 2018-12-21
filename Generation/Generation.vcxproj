@@ -136,12 +136,15 @@
     <ClCompile Include="Console\ConsolePixel.cpp" />
     <ClCompile Include="Console\ConsoleWriter.cpp" />
     <ClCompile Include="Generation.cpp" />
+    <ClCompile Include="Injection.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PopulationEngine.cpp" />
     <ClCompile Include="Population.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Reproduction.cpp" />
+    <ClCompile Include="Shape2D.cpp" />
     <ClCompile Include="Solution.cpp" />
+    <ClCompile Include="Fitness.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Area.h" />
@@ -161,6 +164,7 @@
     <ClInclude Include="Console\ConsolePixel.h" />
     <ClInclude Include="Console\ConsoleWriter.h" />
     <ClInclude Include="Generation.h" />
+    <ClInclude Include="Fitness.h" />
     <ClInclude Include="Point2d.h" />
     <ClInclude Include="Polygon2d.h" />
     <ClInclude Include="Population.h" />
