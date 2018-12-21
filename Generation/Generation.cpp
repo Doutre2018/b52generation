@@ -88,17 +88,17 @@ void Generation::checkGen1(State & state) {
 	}
 }
 void Generation::checkFitness(State & state) {
-	if (false) {
+	if (true) {
 		state = nextState(state);
 	}
 }
 void Generation::checkStop(State & state) {
-	if (false) {
+	if (true) {
 		state = nextState(state);
 	}
 }
 void Generation::checkEliteTransfer(State & state) {
-	if (false) {
+	if (true) {
 		state = nextState(state);
 	}
 }
@@ -109,7 +109,8 @@ void Generation::checkReproduct(State & state) {
 	}
 }
 void Generation::checkSubstitute(State & state) {
-	if (false) {
+	if (true) {
+		mCivilisations.getPopulation(0).parentDeath(mReproductiveSystem.getChildren(),mNbPopulations);
 		state = State::fitness;
 	}
 }
