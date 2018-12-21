@@ -8,15 +8,15 @@ Cercle::~Cercle(){}
 
 int64_t Cercle::encodePropreties(){
 	int64_t mask{ 0b1111'1111 };
-	return ((mX & mask) << 8 | (mY & mask) << 16 | (mRadius & mask));
+	return ((mX & mask) << 10 | (mY & mask) << 20 | (mRadius & mask));
 }
 
 void Cercle::decodePropreties(int64_t data){
 	int64_t mask{ 0b1111'1111 };
 
 	mRadius = mask & data;
-	mY = (data >> 16) & mask;
-	mX = (data >> 8) & mask;
+	mY = (data >> 20) & mask;
+	mX = (data >> 10) & mask;
 }
 
 
