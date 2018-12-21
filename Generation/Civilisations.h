@@ -23,14 +23,14 @@ public :
 
 	size_t nbPopulations();
 
-	void createNewPopulations(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> pts);
+	void createNewPopulations(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> & pts);
 
 	void removeLastPopulations();
 
 	void nextColor();
 	void lastColor();
 
-	void regenerate(std::string type, size_t nbShape, size_t width, size_t height, std::list<Point2d> points);
+	void regenerate(std::string type, size_t nbShape, size_t width, size_t height, std::list<Point2d> & points);
 
 	void reset();
 
