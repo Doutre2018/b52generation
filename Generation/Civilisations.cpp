@@ -2,7 +2,7 @@
 
 ConsoleColor::Text Civilisations::colors[12]{ ConsoleColor::tb,ConsoleColor::tB,ConsoleColor::tc,ConsoleColor::tC, ConsoleColor::tg, ConsoleColor::tG, ConsoleColor::tm,ConsoleColor::tM,ConsoleColor::tr,ConsoleColor::tR, ConsoleColor::ty,ConsoleColor::tY };
 
-void Civilisations::regenerate(std::string type, size_t nbShape, size_t width, size_t height, std::list<Point2d> points) {
+void Civilisations::regenerate(std::string type, size_t nbShape, size_t width, size_t height, std::list<Point2d> & points) {
 	size_t mSize = size();
 	civilisations_m.clear();
 	color = Color::brightblue;
@@ -22,7 +22,7 @@ void Civilisations::reset() {
 size_t Civilisations::nbPopulations() {
 	return civilisations_m.size();
 }
-void Civilisations::createNewPopulations(std::string type, size_t nbPop, size_t width, size_t height,std::list<Point2d> pts) {
+void Civilisations::createNewPopulations(std::string type, size_t nbPop, size_t width, size_t height,std::list<Point2d> & pts) {
 	if (color != Color::yellow) {
 		civilisations_m.push_back(Population(colors[(int)color]));
 		civilisations_m.at(size() - 1).populate(type,nbPop,width,height,pts);

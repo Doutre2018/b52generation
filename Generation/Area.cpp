@@ -51,7 +51,7 @@ void Area::drawShape(Solution* liste, size_t size, ConsoleColor::Text color){
 	}
 }
 
-std::list<Point2d> Area::points(){
+std::list<Point2d> & Area::points(){
 	return points_m;
 }
 
