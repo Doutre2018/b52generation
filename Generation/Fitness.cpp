@@ -4,29 +4,31 @@
 #include "Population.h"
 
 
-void fitnessValue(Solution mSolutions[100]) {
+void Fitness::fitnessValue(Solution mSolutions[NBPOPULATION]) {
 
-	int sizeArray = mSolutions.size();
-	for (int i = 0; i < sizeArray; ++i)
+	int sizeArray = NBPOPULATION;
+	for (int i = 0; i < 100; ++i)
 	{
 		double preFitness{};
-		for (int j = 0; j < sizeArray; ++j)
+		for (int j = 0; j < 100; ++j)
 		{
 			
-			preFitness += pow(mSolutions[i]->getArea() - mSolutions[j]->getArea(), 2);
+			preFitness += pow(mSolutions[i].getMShape()->getArea() - mSolutions[j].getMShape()->getArea(), 2);
 
 		}
 
-		mSolutions[i]->mFitness = sqrt(preFitness / sizeArray);
+		mSolutions[i].setMFitness(sqrt(preFitness / sizeArray));
 	}
 
 
 }
 
-
+/*
 void fitnessValue(Solution soluce) {
 
-	int sizeArray = (soluce.soluTable)->size();
+	int sizeArray = NBPOPULATION;
+
+
 	for (int i = 0; i < sizeArray; ++i)
 	{
 		double preFitness{};
@@ -43,5 +45,7 @@ void fitnessValue(Solution soluce) {
 
 }
 
+
+*/
 
 

@@ -2,11 +2,6 @@
 #include "Population.h"
 #include "Fitness.h"
 
-Solution::Solution()
-{
-}
-
-
 
 Solution::Solution() {
 
@@ -55,26 +50,47 @@ void Solution::evalSolutionValue(Solution mSolutions[NBPOPULATION]) {
 
 }
 
-void Solution::evalFitness(Solution mSolution[NBPOPULATION]) {
+void Solution::evalFitness(Solution mSolutions[NBPOPULATION]) {
 	
-	Fitness::fitnessValue(mSolution);
+	Fitness::fitnessValue(mSolutions);
 
 
 
 }
-
+/*
 void Solution::buildArray(Solution mSolution[NBPOPULATION])
 {
 	for (int i = 0; i < 100; ++i)
 	{
-		mSolution[i].mShape->randomize(Cercle());
+		mSolution[i].mShape = Cercle::Cercle();
+		mSolution[i].mShape.randomize();
+
 	}
 
 
 }
+*/
+
+Shape2D* Solution::getMShape() {
+
+	return mShape;
 
 
+}
+double Solution::getMFitness() {
+	return mFitness;
 
+
+}
+double Solution::getMAire() {
+
+	return mAire;
+}
+void Solution::setMFitness(double newFitness) {
+
+	mFitness = newFitness;
+
+}
 //THIS GOES INTO INJECTION
 /*
 double Solution::MaxScalingPotential(Shape2D evaluated_form) {

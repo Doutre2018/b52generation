@@ -1,7 +1,7 @@
 #ifndef POPULATIONS_H
 #define POPULATIONS_H
 
-#include "Shape2D.h"
+//#include "Shape2D.h"
 #include "Area.h"
 #include "Console\ConsoleColor.h"
 #include "Solution.h"
@@ -26,7 +26,7 @@ public:
 private :
 	ConsoleColor::Text mColor;
 	Solution mSolutions[NBPOPULATION];
-	std::vector<Shape2D*> mShape(3);					//vecteur des differentes formes
+	//::vector<Shape2D*> myShapes(3);					//vecteur des differentes formes
 };
 
 #endif

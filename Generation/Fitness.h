@@ -6,7 +6,7 @@
 class Fitness {	
 
 	public:
-		static void fitnessValue(Solution mSolutions[100]); //array filled with all shapes from a cohort 
+		static void fitnessValue(Solution mSolutions[NBPOPULATION]); //array filled with all shapes from a cohort 
 
 
 

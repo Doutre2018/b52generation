@@ -29,7 +29,7 @@ public:
 	virtual bool pointInShape() = 0;
 	virtual void randomize() = 0;
 	double getArea();
-	void createShapes(std::vector<Shape2D*> mShape);
+	void createShapes(std::vector<Shape2D*> tableShape);
 
 protected:
 	double mX;
@@ -37,6 +37,7 @@ protected:
 	int mHeight;
 	int mWidth;
 	Point2d	mCloseCollider;
+	std::vector<Shape2D*> tableShape;
 	//double mArea;
 	
 	

@@ -43,8 +43,8 @@ double Shape2D::getArea() {
 }
 
 */
-void Shape2D::createShapes(std::vector<Shape2D*> myShapes) {
-	myShapes[0] = new Cercle();
+void Shape2D::createShapes(std::vector<Shape2D*> tableShapes) {
+	tableShapes[0] = new Cercle();
 	//myShapes[1] = new Cercle().Cercle::randomize();
 	//mShape[2] = new Cercle().Cercle::randomize();
 
