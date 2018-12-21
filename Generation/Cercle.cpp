@@ -20,7 +20,7 @@ void Cercle::decodePropreties(int64_t data){
 }
 
 
-int Cercle::pointInShape(std::list<Point2d> points)
+double Cercle::pointInShape(std::list<Point2d> points)
 {
 	for (auto point : points){
 		if (point.distance(mPoint) < mRadius){
@@ -31,7 +31,7 @@ int Cercle::pointInShape(std::list<Point2d> points)
 	}
 
 	if (mNearestPoint != NULL) {
-		return 2;
+		return 4;
 	} else {
 		return 1;
 	}
@@ -63,6 +63,19 @@ int Cercle::borderProximity(size_t width, size_t height)
 	}
 
 	return maxRadius;
+}
+
+bool Cercle::outOfBounds(size_t width, size_t height)
+{
+	if (mRadius <= mX || mRadius <= mY){
+		return true;
+	}
+	else if (width - mX < mRadius || height - mY < mRadius) {
+		return true;
+	}
+
+
+	return false;
 }
 
 
