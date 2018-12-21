@@ -1,5 +1,5 @@
 #include "Population.h"
-
+#include <iostream>
 #include "Random.h"
 #include "Cercle.h"
 Population::Population(ConsoleColor::Text color):mColor{color}
@@ -41,6 +41,8 @@ void Population::setSolutions(std::vector<Solution> & listes, size_t size) {
 	Solution::evalSolutionValue(listes, size);
 	Solution::evalFitness(listes, size);
 
+	for (int i = 0; i < size; i++)
+		std::cout << listes[i].getFitness();
 	
 }
 
