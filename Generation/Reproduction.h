@@ -31,7 +31,7 @@ public:
 	int64_t getEnfant();
 	void createChild(Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type);
 
-	void delivery(std::string type);
+	void delivery(std::string type, size_t i);
 
 	Solution * getChildren();
 	size_t nbChild();

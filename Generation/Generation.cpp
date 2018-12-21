@@ -110,11 +110,6 @@ bool Generation::update(){
 
 		//reproduction
 		mReproductiveSystem.createChild(mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
-		if (mReproductiveSystem.nbChild() >= mNbPopulations - 1) {
-			mReproductiveSystem.setNbChild(0);
-		}
-		//substitute
-		mCivilisations.getPopulation(0).parentDeath(mReproductiveSystem.getChildren(), mNbPopulations);
 	}
 	
 	return false;

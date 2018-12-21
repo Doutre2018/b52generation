@@ -48,56 +48,23 @@ void Reproduction::createChild( Civilisations c, size_t nbPop, size_t nbCivilisa
 					mEnfant = mEnfant ^ maskMutate;
 				}
 			}
-			delivery(type);
+			delivery(type, j);
 		}
+		c.getPopulation(i).parentDeath(mChildSolution,nbPop);
 	}
 }
 
-Reproduction::StateRep Reproduction::nextState(StateRep & state) {
-	return (StateRep)((int)state + 1);
-}
-
-Reproduction::StateRep & Reproduction::getState()
-{
-	return state;
-}
-
-int64_t Reproduction::getParent1()
-{
-	return mParent1;
-}
-
-int64_t Reproduction::getParent2()
-{
-	return mParent2;
-}
-
-int64_t Reproduction::getEnfant()
-{
-	return mEnfant;
-}
-
-
-void Reproduction::delivery(std::string type) {
+void Reproduction::delivery(std::string type, size_t i) {
 	Shape2D *shape =nullptr;
 	if (type == "cercle"){
 		shape=new Cercle();
 		shape->decodePropreties(mEnfant);
 	} 
 	if (shape != nullptr) {
-		mChildSolution[mNbChild] = Solution(shape);
+		mChildSolution[i] = Solution(shape);
 	}
-	mNbChild++;
 }
 
 Solution * Reproduction::getChildren() {
 	return mChildSolution;
-}
-
-size_t Reproduction::nbChild() {
-	return mNbChild;
-}
-
-void Reproduction::setNbChild(size_t nb) {
-	mNbChild = nb;
 }

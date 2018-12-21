@@ -55,20 +55,23 @@ void Cercle::randomize(size_t width, size_t height) {
 	mX = Random::getInstance().uniformRandomize(0, width);
 	mY = Random::getInstance().uniformRandomize(0, height);
 	mPoint=Point2d(mX, mY);
-//	size_t maxRadiusX;
-//	size_t maxRadiusY;
-//	if (width - mX > mX) {
-//
-//	}
-//	else {
-//
-//	}
-//	if (height - mY > mY) {
-//
-//	}
-//	else {
-//
-//	}
+	size_t maxRadiusX;
+	size_t maxradiusy;
+	if (width - mX > mX) {
+		maxRadiusX = mX;
+	}
+	else {
+		maxRadiusX = width- mX;
+	}
+	if (height - mY > mY) {
+		maxradiusy  = mY;
+	}
+	else {
+		maxradiusy = height- mY;
+	}
+	if (maxradiusy >= maxRadiusX) {
+
+	}
 	mRadius = Random::getInstance().uniformRandomize(0, height);
 }
 void Cercle::draw(ConsoleImage & image, ConsoleColor::Text color) {
