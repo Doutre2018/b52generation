@@ -39,7 +39,7 @@ void Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop, 
 	case StateRep::generatechild:
 		//Je prend mes 2 parents
 		//Je choisie le randomize de la coupure
-		indexSplit = Random::getInstance().uniformRandomize(1, 36);
+		indexSplit = Random::getInstance().uniformRandomize(1, 30);
 		mask = (int)pow(2,indexSplit) - 1 ;
 		//Je realise l'enfant
 		mEnfant = mParent1 & mask | mParent2 & ~mask;
@@ -55,7 +55,7 @@ void Reproduction::createChild(StateRep & state, Civilisations c, size_t nbPop, 
 				int nbBitChange{ 1 };
 				//Position aléatoire
 				for (int i = 0; i < nbBitChange; ++i) {
-					int indexAléatoire = Random::getInstance().uniformRandomize(1, 36);
+					int indexAléatoire = Random::getInstance().uniformRandomize(1, 30);
 					int maskMutate = 1;
 					maskMutate <<= indexAléatoire - 1;
 					mEnfant = mEnfant ^ maskMutate;

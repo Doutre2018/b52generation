@@ -8,7 +8,7 @@ Cercle::~Cercle(){}
 
 int64_t Cercle::encodePropreties(){
 	int64_t mask{ 0b1111'1111'11 };
-	return ((mX & mask) << 10 | (mY & mask) << 20 | (mRadius & mask));
+	return (((mX & mask) << 10) | ((mY & mask) << 20) | (mRadius & mask));
 }
 
 void Cercle::decodePropreties(int64_t data){
@@ -55,8 +55,22 @@ void Cercle::randomize(size_t width, size_t height) {
 	mX = Random::getInstance().uniformRandomize(0, width);
 	mY = Random::getInstance().uniformRandomize(0, height);
 	mPoint=Point2d(mX, mY);
+//	size_t maxRadiusX;
+//	size_t maxRadiusY;
+//	if (width - mX > mX) {
+//
+//	}
+//	else {
+//
+//	}
+//	if (height - mY > mY) {
+//
+//	}
+//	else {
+//
+//	}
 	mRadius = Random::getInstance().uniformRandomize(0, height);
 }
 void Cercle::draw(ConsoleImage & image, ConsoleColor::Text color) {
-	image.drawCircle(mPoint.x(), mPoint.y(), mRadius, 178, ConsoleColor::bb + color);
+	image.drawCircle(mX, mY, mRadius, 178, ConsoleColor::bb + color);
 }
