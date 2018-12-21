@@ -8,7 +8,7 @@ Reproduction::Reproduction(size_t nbPop, size_t width, size_t height)
 	mParent2{ 0 },
 	mEnfant{ 0 },
 	mNbChild{0},
-	mChildSolution{new Solution[nbPop]}
+	mChildSolution{}
 
 {}
 
@@ -51,16 +51,17 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 			delivery(type, j, mWidth, mHeight);
 		}
 		c.getPopulation(i).parentDeath(mChildSolution,nbPop);
+		mChildSolution.clear();
 	}
 }
 
-void Reproduction::delivery(std::string type, size_t i, size_t width, size_t height) {
+void Reproduction::delivery(std::string const & type, size_t i, size_t width, size_t height) {
 	Shape2D *shape =nullptr;
 	if (type == "cercle"){
 		shape=new Cercle();
 		shape->decodePropreties(mEnfant);
 	} 
 	if (shape != nullptr) {
-		mChildSolution[i] = Solution(shape, width, height);
+		mChildSolution.push_back(Solution(shape, width, height));
 	}
 }

@@ -12,7 +12,7 @@
 class Shape2D
 {
 public:
-	Shape2D() {}
+	Shape2D() : mX{ 0.0 }, mY{ 0.0 }, mHeight{ 0 }, mWidth{ 0 } {}
 	~Shape2D(){}
 	virtual int64_t encodePropreties() = 0;
 	virtual void decodePropreties(int64_t data) = 0;
