@@ -59,6 +59,22 @@ void Population::parentDeath(Solution * childSolution, size_t size) {
 		mSolutions[i] = childSolution[i];
 	}
 }
+
 ConsoleColor::Text Population::color() {
 	return mColor;
+}
+
+int Population::totalFitness(size_t nbPop)
+{
+	int total{ 0 };
+	for (int i{ 0 }; i < nbPop; ++i)
+	{
+		Solution a = mSolutions[i];
+		total += a.getFitness();
+	}
+	return total;
+}
+
+void Population::rouletteWheel()
+{
 }

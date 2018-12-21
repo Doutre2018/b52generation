@@ -21,6 +21,7 @@ Reproduction::~Reproduction()
 void Reproduction::createChild( Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type)
 {
 	int randomParentIndex1, randomParentIndex2, mask, indexSplit;
+	int test = c.getPopulation(0).totalFitness(nbPop);
 	for (int i = 0; i < nbCivilisations; ++i) {
 		for (int j = 0; j < nbPop; ++j)
 		{

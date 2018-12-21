@@ -29,3 +29,8 @@ Shape2D * Solution::shape()
 {
 	return mShape;
 }
+
+int Solution::getFitness()
+{
+	return mFitness;
+}
