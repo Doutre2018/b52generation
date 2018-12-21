@@ -16,8 +16,9 @@ private:
 	Solution * mChildSolution;
 
 public:
-	Reproduction();
+	Reproduction(size_t nbPop);
 	~Reproduction();
+
 
 
 
@@ -28,7 +29,7 @@ public:
 	int64_t getParent1();
 	int64_t getParent2();
 	int64_t getEnfant();
-	void createChild(StateRep & state, Civilisations c, size_t nbPop, std::string type);
+	void createChild(StateRep & state, Civilisations c, size_t nbPop, size_t nbCivilisations, std::string type);
 
 	void checkselect(StateRep & state);
 	void checkgeneratechild(StateRep & state);
@@ -42,3 +43,4 @@ public:
 };
 
 #endif //REPRODUCTION_H
+

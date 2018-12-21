@@ -10,7 +10,7 @@
 
 
 Generation::Generation(size_t height, size_t width, std::string type, size_t nbPopulations, size_t nbObstacles):
-	mArea{ Area(width, height) }, mReproductiveSystem{ Reproduction() }, mCivilisations{ Civilisations()},reader_m { nullptr}, mStep_by_step{ false }, mHeight{ height }, mWidth{ width }, mType{ type }, mNbPopulations{ nbPopulations }, mNbObstacles{ nbObstacles }
+	mArea{ Area(width, height) }, mReproductiveSystem{ Reproduction(nbPopulations) }, mCivilisations{ Civilisations()},reader_m { nullptr}, mStep_by_step{ false }, mHeight{ height }, mWidth{ width }, mType{ type }, mNbPopulations{ nbPopulations }, mNbObstacles{ nbObstacles }
 {}
 Generation::~Generation(){}
 
@@ -31,6 +31,7 @@ void Generation::loop(State state) {
 		render(state);
 	}
 }
+
 void Generation::processInput() {
 	reader_m->read(keyEvents);
 }
@@ -142,7 +143,7 @@ Generation::State Generation::update(State & state)
 		break;
 	case State::reproduct:
 		if (mCivilisations.nbPopulations()>0) {
-			mReproductiveSystem.createChild(mReproductiveSystem.getState(),mCivilisations, mNbPopulations, mType);
+			mReproductiveSystem.createChild(mReproductiveSystem.getState(),mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
 		}
 		checkReproduct(state);
 		break;
