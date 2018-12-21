@@ -21,7 +21,7 @@ public:
 	void parentDeath(Solution * childSolution, size_t size);
 	ConsoleColor::Text & color();
 	int totalFitness(size_t nbPop);
-	void rouletteWheel();
+	void rouletteWheel(size_t nbPop);
 
 private :
 	ConsoleColor::Text mColor;

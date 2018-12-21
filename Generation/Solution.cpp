@@ -5,7 +5,7 @@ Solution::Solution()
 {
 }
 
-Solution::Solution(Shape2D* shape, size_t width, size_t height, int fitness)
+Solution::Solution(Shape2D* shape, size_t width, size_t height, int fitness, double proportionFitness)
 	:mShape{ shape },
 	mWidth{ width },
 	mHeight{ height }
@@ -33,4 +33,9 @@ Shape2D * Solution::shape()
 int Solution::getFitness()
 {
 	return mFitness;
+}
+
+void Solution::setProportionFitness(double proportionFitness)
+{
+	mProportionFitness = proportionFitness;
 }

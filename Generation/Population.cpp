@@ -77,6 +77,12 @@ int Population::totalFitness(size_t nbPop)
 	return total;
 }
 
-void Population::rouletteWheel()
+void Population::rouletteWheel(size_t nbPop)
 {
+	int totFitness = totalFitness(nbPop);
+	for (int i{ 0 }; i < nbPop; ++i)
+	{
+		Solution a = mSolutions[i];
+		a.setProportionFitness(a.getFitness()/ totFitness);
+	}
 }
