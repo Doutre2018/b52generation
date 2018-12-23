@@ -23,6 +23,7 @@ public:
 	virtual int borderProximity(size_t width, size_t height) = 0;
 	virtual bool outOfBounds(size_t width, size_t height) = 0;
 	virtual void randomize(size_t width, size_t height) = 0;
+	//Point2d mPoint();
 
 protected:
 	double mX;

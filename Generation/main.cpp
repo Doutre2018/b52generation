@@ -3,7 +3,12 @@
 #include "Cercle.h"
 #include "Point2d.h"
 #include <iostream>
+#include "debugstream.h"
 using namespace std;
+
+
+
+
 
 int main()
 {
@@ -14,6 +19,9 @@ int main()
 	size_t nbShape = 100;
 	size_t nbObstacles = 10;
 
+
+
+	debug()<< "tesst";
 	//Creation de Generation
 	Generation g(width, height, type, nbShape, nbObstacles);
 

@@ -20,8 +20,25 @@ void Generation::start(){
 	mArea.showPoint();
 	reader_m = &(Console::getInstance().keyReader());
 	Console::getInstance().keyReader().installFilter(new ConsoleKeyFilterUp());
+<<<<<<< HEAD
+/*<<<<<<< HEAD
+
+
+
+
+
+	loop(State::reproduct);
+=======*/
+
+
+
 	while (checkIdle()) {}
 	loop();
+
+=======
+	while (checkIdle()) {}
+	loop();
+>>>>>>> master
 }
 
 void Generation::loop() {
@@ -98,6 +115,23 @@ void Generation::pause(State & state) {
 }
 
 //Update State
+<<<<<<< HEAD
+bool Generation::update() {
+	if (mCivilisations.nbPopulations() > 0) {
+		// Calculate Fitness
+		//for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
+		//	for (int j = 0; j < mNbPopulations; ++i) {
+		//		mCivilisations.getPopulation(i).getSolution(j).fitnessEvaluation(mArea.points());
+		//	}
+		//	//if (mCivilisations.getPopulation(i).isTheSolution()) {
+		//	//	return true;
+		//	//}
+		//}
+
+		// Check if stop
+
+		//elite transfer
+=======
 bool Generation::update(){
 	int bestfitness=0;
 	int pos=0;
@@ -117,11 +151,37 @@ bool Generation::update(){
 			}
 			// set elite
 			mCivilisations.getPopulation(i).setElite(pos);
+>>>>>>> master
 
 		}
 		//reproduction
+<<<<<<< HEAD
+		std::vector<Solution> listing;
+
+		for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
+			for (int j = 0; j < mNbPopulations; ++j) {
+				mCivilisations.getPopulation(i).getSolution(j).fitnessEvaluation(mArea.points());
+
+
+
+
+			}
+
+			listing = mCivilisations.getPopulation(i).getListe();
+			Solution::evalSolutionValue(listing, listing.size());
+			Solution::evalFitness(listing, listing.size());
+
+
+			mReproductiveSystem.createChild(mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
+		}
+
+		return false;
+
+	}
+=======
 		mReproductiveSystem.createChild(mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
 	return false;
+>>>>>>> master
 }
 //render
 void Generation::render(){

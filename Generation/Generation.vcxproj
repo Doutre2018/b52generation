@@ -121,9 +121,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Area.cpp" />
-    <ClCompile Include="Cercle.cpp" />
-    <ClCompile Include="Civilisations.cpp" />
     <ClCompile Include="Console\Console.cpp" />
     <ClCompile Include="Console\ConsoleColor.cpp" />
     <ClCompile Include="Console\ConsoleContext.cpp" />
@@ -135,21 +132,27 @@
     <ClCompile Include="Console\ConsoleKeyReader.cpp" />
     <ClCompile Include="Console\ConsolePixel.cpp" />
     <ClCompile Include="Console\ConsoleWriter.cpp" />
-    <ClCompile Include="Generation.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Polygonal.cpp" />
-    <ClCompile Include="PopulationEngine.cpp" />
-    <ClCompile Include="Population.cpp" />
     <ClCompile Include="Random.cpp" />
-    <ClCompile Include="Rectangle.cpp" />
-    <ClCompile Include="Reproduction.cpp" />
-    <ClCompile Include="Solution.cpp" />
-    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Area.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Cercle.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Civilisations.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\debugstream.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Fitness.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Generation.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Injection.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\main.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Mathematical.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Polygonal.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Population.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\PopulationEngine.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Random.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Rectangle.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Reproduction.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Shape2D.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Solution.cpp" />
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Area.h" />
-    <ClInclude Include="Cercle.h" />
-    <ClInclude Include="Civilisations.h" />
     <ClInclude Include="Console\Console.h" />
     <ClInclude Include="Console\ConsoleColor.h" />
     <ClInclude Include="Console\ConsoleContext.h" />
@@ -163,19 +166,26 @@
     <ClInclude Include="Console\ConsoleKeyReader.h" />
     <ClInclude Include="Console\ConsolePixel.h" />
     <ClInclude Include="Console\ConsoleWriter.h" />
-    <ClInclude Include="Generation.h" />
-    <ClInclude Include="Point2d.h" />
-    <ClInclude Include="Polygonal.h" />
-    <ClInclude Include="Polygon2d.h" />
-    <ClInclude Include="Population.h" />
-    <ClInclude Include="PopulationEngine.h" />
-    <ClInclude Include="Random.h" />
-    <ClInclude Include="Rectangle.h" />
-    <ClInclude Include="Reproduction.h" />
-    <ClInclude Include="Shape2D.h" />
-    <ClInclude Include="Solution.h" />
-    <ClInclude Include="Transform2d.h" />
-    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Area.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Cercle.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Civilisations.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\debugstream.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Fitness.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Generation.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Mathematical.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Point2d.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Polygon2d.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Polygonal.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Population.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\PopulationEngine.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Random.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Rectangle.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Reproduction.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Shape2D.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Solution.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Transform2d.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Triangle.h" />
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\type_util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

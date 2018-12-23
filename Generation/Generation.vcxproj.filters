@@ -24,24 +24,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Generation.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Cercle.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Civilisations.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Area.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Console\Console.cpp">
       <Filter>Fichiers sources\Console</Filter>
     </ClCompile>
@@ -75,59 +57,65 @@
     <ClCompile Include="Console\ConsoleWriter.cpp">
       <Filter>Fichiers sources\Console</Filter>
     </ClCompile>
-    <ClCompile Include="Reproduction.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="PopulationEngine.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Population.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Random.cpp">
       <Filter>Fichiers sources\Outils</Filter>
     </ClCompile>
-    <ClCompile Include="Triangle.cpp">
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Area.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Rectangle.cpp">
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Cercle.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Polygonal.cpp">
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Civilisations.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\debugstream.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Fitness.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Generation.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Injection.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Mathematical.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Polygonal.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Population.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\PopulationEngine.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Random.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Rectangle.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Reproduction.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Shape2D.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Solution.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Triangle.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Generation.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Cercle.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Shape2D.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Civilisations.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Random.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Area.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Point2d.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Polygon2d.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform2d.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Console\Console.h">
       <Filter>Fichiers d%27en-tête\Console</Filter>
     </ClInclude>
@@ -167,22 +155,64 @@
     <ClInclude Include="Console\ConsoleWriter.h">
       <Filter>Fichiers d%27en-tête\Console</Filter>
     </ClInclude>
-    <ClInclude Include="Reproduction.h">
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Area.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="PopulationEngine.h">
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Cercle.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Population.h">
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Civilisations.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Polygonal.h">
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\debugstream.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Triangle.h">
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Fitness.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Rectangle.h">
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Generation.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Mathematical.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Point2d.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Polygon2d.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Polygonal.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Population.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\PopulationEngine.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Random.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Rectangle.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Reproduction.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Shape2D.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Solution.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Transform2d.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\Triangle.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Y:\9943474\C++ AI\REGEN-GENETICC\b52generation\Generation\type_util.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

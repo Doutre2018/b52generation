@@ -21,17 +21,40 @@ Reproduction::~Reproduction()
 void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivilisations, std::string type)
 {
 	int randomParentIndex1, randomParentIndex2, mask, indexSplit;
+<<<<<<< HEAD
+	int test = c.getPopulation(0).totalFitness(nbPop);
+	std::vector<int> parentIndex;
+	std::vector<Solution> listing;
+
+	
+
+=======
 	
 	
+>>>>>>> master
 	for (int i = 0; i < nbCivilisations; ++i) {
+
+		listing = c.getPopulation(i).getListe();
+		Population::rouletteWheel(listing, test, parentIndex);
 		for (int j = 0; j < nbPop; ++j)
 		{
 
 			//Selection
+<<<<<<< HEAD
+			for (int z = 0; z <  200; z += 2)
+			{
+				randomParentIndex1 = 1;
+				randomParentIndex2 = 2;
+				mParent1 = c.getPopulation(i).getSolution(randomParentIndex1).shape()->encodePropreties();
+				mParent2 = c.getPopulation(i).getSolution(randomParentIndex2).shape()->encodePropreties();
+			}
+			
+=======
 			randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
 			randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
 			mParent1 = c.getPopulation(0).rouletteWheel(nbPop).shape()->encodePropreties();
 			mParent2 = c.getPopulation(0).rouletteWheel(nbPop).shape()->encodePropreties();
+>>>>>>> master
 			//Generate Child
 			indexSplit = Random::getInstance().uniformRandomize(1, 30);
 			mask = (int)pow(2, indexSplit) - 1;
