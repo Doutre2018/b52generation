@@ -6,6 +6,7 @@
 #include "Mathematical.h"
 
 
+
 Population::Population(ConsoleColor::Text color):mColor{color}
 {
 }
@@ -81,34 +82,53 @@ int Population::totalFitness(size_t nbPop)
 	return total;
 }
 
-void Population::rouletteWheel(std::vector<Solution> listing, int test)
+void Population::rouletteWheel(std::vector<Solution> listing, int test, std::vector<int> parentIndex)
 {
 	const int sizeArray = listing.size() * 2;
-	int parentIndex[200];   //2 parents pour futur enfant...7
+	
 	int targetIndex{};
 	int totalFitness{};
+	Solution temp;
 	
-	/*On pourrait inclure une fonction sorting pour avoir les fitness les plus élevés en premier. Dans les faits, le sorting se fera beaucoup de lui meme via
-	l'enfantage (elite en premiers puis via le parentage probable (meilleur fitness avec meilleur fitness) au fil du temps notre array sera presque sorted out.
-	Dans les faits, pour l'étape de pre enfantage, le sorting n'a d'avantage que de 'frapper' la bonne valeur randomized rapidement. Un pre sorting ne presenterait
-	qu'un gain modéré pour un coût opérationel élevé. Pour ces motifs, le sorting n'a pas lieu.
-	*/
-	Mathematical::sortThing(listing);
+	
+	Mathematical::sortThing(listing); // sort de la liste de solutions 
+	
+
+	for (int i = 0; i < listing.size(); i++)
+		debug() << listing.at(i).getFitness();
+	
+	int format = listing.size() % 2 == 0 ? listing.size() / 2 - 1 : listing.size() / 2; //reverse the ascending sort
+
+	for (int i = 0; i < format; ++i)
+	{
+		temp = listing.at(i);
+		listing.at(i) = listing.at(format - i);
+		listing.at(format - i) = temp;
+	}
+
+
+	for (int i = 0; i < listing.size(); i++)
+		debug() << listing.at(i).getFitness();
+
+	/*
+	
 
 	for (int i = 0; i < sizeArray; ++i)
 	{
 		targetIndex = Random::getInstance().uniformRandomize(1, test - 1);
 		int j = 0;
-		while (targetIndex > listing.at(j).getFitness() + totalFitness)
+
+		while (targetIndex > listing.at(j).getFitness() + totalFitness && j < 100)
 		{
 			totalFitness += listing.at(j).getFitness();
 			++j;
 		}
-
+		parentIndex.at(i) = j;
+		targetIndex = 0;
 	}
 
 
-
+	*/
 	
 	
 }

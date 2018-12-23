@@ -23,7 +23,7 @@ public:
 	void parentDeath(std::vector<Solution>& childSolution, size_t size);
 	ConsoleColor::Text & color();
 	int totalFitness(size_t nbPop);
-	static void rouletteWheel(std::vector<Solution> listing, int test);
+	static void rouletteWheel(std::vector<Solution> listing, int test, std::vector<int> parentIndex);
 
 private :
 	ConsoleColor::Text mColor;
