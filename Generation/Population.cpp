@@ -86,7 +86,7 @@ int Population::totalFitness(size_t nbPop)
 		
 		if(a->getFitness() >= 0 && a->getFitness() <900)
 			total += a->getFitness();
-		debug() << total << a->getFitness();
+		debug()  << "value added" << a->getFitness() << "total" << total;
 	}
 	return (int) total;
 }
@@ -94,38 +94,33 @@ int Population::totalFitness(size_t nbPop)
 
 void Population::rouletteWheel(std::vector<Solution> listing, int test, std::vector<int> parentIndex)
 {
-	const int sizeArray = listing.size() * 2;
-	
+	const int sizeArray = parentIndex.size();
+	int compteur{};
 	int targetIndex{};
-	int totalFitness{0};
+	int totalFitness{};
 	Solution temp;
-	
-	
+
+
 	Mathematical::sortThing(listing); // sort de la liste de solutions 
-	
+
 
 	for (int i = 0; i < listing.size(); i++)
 	{
-		debug() << listing.at(i).getFitness();
+
 		if (listing.at(i).getFitness() < 0)
+		{
 			listing.at(i).setMFitness(0);
-		debug() << listing.at(i).getFitness();
+			compteur++;
+		}
 	}
-	int format = listing.size() % 2 == 0 ? listing.size() / 2 - 1 : listing.size() / 2; //reverse the ascending sort
+	debug() << "compteur minus zero roulette" << compteur;
 
-	for (int i = 0; i < format; ++i)
-	{
-		temp = listing.at(i);
-		listing.at(i) = listing.at(format - i);
-		listing.at(format - i) = temp;
-	}
-
-
+	/*
 	for (int i = 0; i < listing.size(); i++)
 		debug() << listing.at(i).getFitness();
+		*/
 
-	
-	
+
 
 	for (int i = 0; i < sizeArray; ++i)
 	{
@@ -135,7 +130,7 @@ void Population::rouletteWheel(std::vector<Solution> listing, int test, std::vec
 			targetIndex = 0;
 		int j = 0;
 
-		while (targetIndex > listing.at(j).getFitness() + totalFitness && j < 100)
+		while (targetIndex > listing.at(j).getFitness() + totalFitness && j < 99)
 		{
 			totalFitness += listing.at(j).getFitness();
 			++j;
@@ -143,10 +138,11 @@ void Population::rouletteWheel(std::vector<Solution> listing, int test, std::vec
 		parentIndex.at(i) = j;
 		targetIndex = 0;
 	}
+	for (int i = 0; i < sizeArray; i++)
+		debug() << "parent index " << i << " : " << parentIndex.at(i);
 
 
-	
-	
+}
 //**************************************************************
 /*
 Solution & Population::rouletteWheel(size_t nbPop)
@@ -173,4 +169,4 @@ Solution & Population::rouletteWheel(size_t nbPop)
 	//	a.setProportionFitness(prop);
 	//}
 >>>>>>> master*/
-}
+

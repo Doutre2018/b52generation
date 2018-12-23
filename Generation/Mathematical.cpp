@@ -12,6 +12,7 @@ void Mathematical::sortThing(std::vector<Solution> mSolutions) {
 	int arraySize = mSolutions.size();
 	std::vector<double> index;
 
+	/*
 	for (int i = 0; i < arraySize; i++)
 	{
 		mSolutions.at(i).getFitness() > 9999 ? index.push_back(0) : index.push_back(mSolutions.at(i).getFitness());
@@ -19,19 +20,21 @@ void Mathematical::sortThing(std::vector<Solution> mSolutions) {
 
 	}
 	index.shrink_to_fit();
+	*/
+	//std::sort(index.begin(), index.end());
+	//std::reverse(index.begin(), index.end());
+	
 
-	std::sort(index.begin(), index.end());
-	std::reverse(index.begin(), index.end());
+
+	std::sort(mSolutions.begin(), mSolutions.end(), [](Solution l, Solution r) { return l.getFitness() < r.getFitness(); });
+	std::reverse(mSolutions.begin(), mSolutions.end());
+
 	debug() << "sorted";
 	for (int i = 0; i < 100; i++)
-		debug()<<index.at(i);
+		debug() << mSolutions.at(i).getFitness();
 
 	debug() << "end sort";
 	;
-
-
-	//std::sort(mSolutions.begin(), mSolutions.end(), [](Solution l, Solution r) { return l.getFitness() < r.getFitness(); });
-	
 
 	/*
 	int i = 0; 

@@ -24,6 +24,7 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 
 	int test = c.getPopulation(0).totalFitness(nbPop);
 	std::vector<int> parentIndex(200);
+	
 	std::vector<Solution> listing;
 
 	
@@ -32,48 +33,55 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 
 		listing = c.getPopulation(i).getListe();
 		Population::rouletteWheel(listing, test, parentIndex);
-		for (int j = 0; j < nbPop; ++j)
+		for (int j = 0, z =0, h = 0; j < nbPop; ++j, z+=2)
 		{
+			if (j < 194)
+			{
+				randomParentIndex1 = parentIndex.at(z);
+				randomParentIndex2 = parentIndex.at(z + 1);
+				mParent1 = c.getPopulation(i).getSolution(randomParentIndex1).shape()->encodePropreties();
+				mParent2 = c.getPopulation(i).getSolution(randomParentIndex2).shape()->encodePropreties();
+			}
+			else
+			{
 				
-			
-			for (int z = 0; z <  200; z += 2)
-			{
-			randomParentIndex1 = 1;
-			randomParentIndex2 = 2;
-			mParent1 = c.getPopulation(i).getSolution(randomParentIndex1).shape()->encodePropreties();
-			mParent2 = c.getPopulation(i).getSolution(randomParentIndex2).shape()->encodePropreties();
+					randomParentIndex1 = parentIndex.at(h);
+					randomParentIndex2 = parentIndex.at(h);
+					mParent1 = c.getPopulation(i).getSolution(randomParentIndex1).shape()->encodePropreties();
+					mParent2 = c.getPopulation(i).getSolution(randomParentIndex2).shape()->encodePropreties();
+					h++;
+				
 			}
-
-			
-/*>>>>>>> master*//*		
-			randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
-			randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
-			mParent1 = c.getPopulation(0).getrouletteWheel(nbPop).shape()->encodePropreties();
-			mParent2 = c.getPopulation(0).rouletteWheel(nbPop).shape()->encodePropreties();
-			*/
-			//Selection
+				/*>>>>>>> master*//*
+							randomParentIndex1 = Random::getInstance().uniformRandomize(1, nbPop - 1);
+							randomParentIndex2 = Random::getInstance().uniformRandomize(1, nbPop - 1);
+							mParent1 = c.getPopulation(0).getrouletteWheel(nbPop).shape()->encodePropreties();
+							mParent2 = c.getPopulation(0).rouletteWheel(nbPop).shape()->encodePropreties();
+							*/
+							//Selection
 
 
-			//Generate Child
-			indexSplit = Random::getInstance().uniformRandomize(1, 30);
-			mask = (int)pow(2, indexSplit) - 1;
-			//Je realise l'enfant
-			mEnfant = mParent1 & mask | mParent2 & ~mask;
-			//Mutate
-				//Es ce que je fait un mutant ou pas
-			if (int a = Random::getInstance().uniformRandomize(1, 100) <= percentageMutate)
-			{
-				//nombre de bit a changer
-				int nbBitChange{ 5 };
-				//Position aléatoire
-				for (int i = 0; i < nbBitChange; ++i) {
-					int indexAléatoire = Random::getInstance().uniformRandomize(1, 30);
-					int maskMutate = 1;
-					maskMutate <<= (indexAléatoire - 1);
-					mEnfant = mEnfant ^ maskMutate;
+							//Generate Child
+				indexSplit = Random::getInstance().uniformRandomize(1, 30);
+				mask = (int)pow(2, indexSplit) - 1;
+				//Je realise l'enfant
+				mEnfant = mParent1 & mask | mParent2 & ~mask;
+				//Mutate
+					//Es ce que je fait un mutant ou pas
+				if (int a = Random::getInstance().uniformRandomize(1, 100) <= percentageMutate)
+				{
+					//nombre de bit a changer
+					int nbBitChange{ 5 };
+					//Position aléatoire
+					for (int i = 0; i < nbBitChange; ++i) {
+						int indexAléatoire = Random::getInstance().uniformRandomize(1, 30);
+						int maskMutate = 1;
+						maskMutate <<= (indexAléatoire - 1);
+						mEnfant = mEnfant ^ maskMutate;
+					}
 				}
-			}
-			delivery(type, j, mWidth, mHeight);
+				delivery(type, j, mWidth, mHeight);
+			
 		}
 		c.getPopulation(i).parentDeath(mChildSolution,nbPop);
 	}
