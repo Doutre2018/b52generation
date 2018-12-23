@@ -21,7 +21,14 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 {
 	int randomParentIndex1, randomParentIndex2, mask, indexSplit;
 	int test = c.getPopulation(0).totalFitness(nbPop);
+	std::vector<Solution> listing;
+
+	
+
 	for (int i = 0; i < nbCivilisations; ++i) {
+
+		listing = c.getPopulation(i).getListe();
+		Population::rouletteWheel(listing, test);
 		for (int j = 0; j < nbPop; ++j)
 		{
 			//Selection

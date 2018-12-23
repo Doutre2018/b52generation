@@ -9,7 +9,7 @@ void Mathematical::sortThing(std::vector<Solution> mSolutions) {
 	for (int i = 0; i < mSolutions.size(); ++i)
 	{
 
-		Mathematical::quickSort(mSolutions, 0, mSolutions.size());
+		Mathematical::quickSort(mSolutions, 0, mSolutions.size()-1);
 
 
 

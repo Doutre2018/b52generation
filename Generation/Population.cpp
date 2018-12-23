@@ -3,6 +3,7 @@
 #include "Random.h"
 #include "Cercle.h"
 #include "debugstream.h"
+#include "Mathematical.h"
 
 
 Population::Population(ConsoleColor::Text color):mColor{color}
@@ -80,16 +81,33 @@ int Population::totalFitness(size_t nbPop)
 	return total;
 }
 
-void Population::rouletteWheel()
+void Population::rouletteWheel(std::vector<Solution> listing, int test)
 {
-
+	const int sizeArray = listing.size() * 2;
+	int parentIndex[200];   //2 parents pour futur enfant...7
+	int targetIndex{};
+	int totalFitness{};
+	
 	/*On pourrait inclure une fonction sorting pour avoir les fitness les plus élevés en premier. Dans les faits, le sorting se fera beaucoup de lui meme via
 	l'enfantage (elite en premiers puis via le parentage probable (meilleur fitness avec meilleur fitness) au fil du temps notre array sera presque sorted out.
 	Dans les faits, pour l'étape de pre enfantage, le sorting n'a d'avantage que de 'frapper' la bonne valeur randomized rapidement. Un pre sorting ne presenterait
 	qu'un gain modéré pour un coût opérationel élevé. Pour ces motifs, le sorting n'a pas lieu.
 	*/
+	Mathematical::sortThing(listing);
 
-	
+	for (int i = 0; i < sizeArray; ++i)
+	{
+		targetIndex = Random::getInstance().uniformRandomize(1, test - 1);
+		int j = 0;
+		while (targetIndex > listing.at(j).getFitness() + totalFitness)
+		{
+			totalFitness += listing.at(j).getFitness();
+			++j;
+		}
+
+	}
+
+
 
 	
 	
