@@ -21,10 +21,12 @@ void Mathematical::sortThing(std::vector<Solution> mSolutions) {
 	index.shrink_to_fit();
 
 	std::sort(index.begin(), index.end());
+	std::reverse(index.begin(), index.end());
+	debug() << "sorted";
 	for (int i = 0; i < 100; i++)
 		debug()<<index.at(i);
 
-
+	debug() << "end sort";
 	;
 
 

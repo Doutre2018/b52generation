@@ -7,6 +7,7 @@ Solution::Solution()
 	mHeight{ 0 },
 	mFitness{ 0 }
 {
+
 }
 
 
@@ -41,13 +42,16 @@ void Solution::initialize(Shape2D * shape, size_t width, size_t height) {
 
 int Solution::fitnessEvaluation(std::list<Point2d> points)
 {
-	mFitness = mShape->borderProximity(mWidth, mHeight);
-	mFitness *= mShape->pointInShape(points);
+	double temp = mFitness;
+	temp = mShape->borderProximity(mWidth, mHeight);
+	temp *= mShape->pointInShape(points);
 	if (mShape->outOfBounds(mWidth, mHeight)) {
 		mFitness *= 0.01;
 	}
-
 	
+	if (temp > 0 && temp < 500)
+		mFitness = temp;
+
 	return mFitness; 
 }
 
@@ -80,7 +84,7 @@ void Solution::setMFitness(double value) {
 	if (value >= 0 || value < 900)
 		mFitness = value;
 	else
-		mFitness = 335;
+		mFitness = 0;
 
 
 }
