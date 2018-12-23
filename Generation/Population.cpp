@@ -41,12 +41,6 @@ void Population::setSolutions(std::vector<Solution> & listes, size_t size) {
 	}
 	
 	
-	Solution::evalSolutionValue(listes, size);
-	Solution::evalFitness(listes, size);
-	
-	for (int i = 0; i < size; i++)
-		debug()<< listes[i].getFitness();
-	
 }
 
 void Population::populate(std::string type, size_t nbPop, size_t width, size_t height, std::list<Point2d> & points) {
@@ -88,4 +82,15 @@ int Population::totalFitness(size_t nbPop)
 
 void Population::rouletteWheel()
 {
+
+	/*On pourrait inclure une fonction sorting pour avoir les fitness les plus élevés en premier. Dans les faits, le sorting se fera beaucoup de lui meme via
+	l'enfantage (elite en premiers puis via le parentage probable (meilleur fitness avec meilleur fitness) au fil du temps notre array sera presque sorted out.
+	Dans les faits, pour l'étape de pre enfantage, le sorting n'a d'avantage que de 'frapper' la bonne valeur randomized rapidement. Un pre sorting ne presenterait
+	qu'un gain modéré pour un coût opérationel élevé. Pour ces motifs, le sorting n'a pas lieu.
+	*/
+
+	
+
+	
+	
 }

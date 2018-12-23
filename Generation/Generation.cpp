@@ -110,7 +110,7 @@ void Generation::pause(State & state) {
 }
 
 //Update State
-bool Generation::update(){
+bool Generation::update() {
 	if (mCivilisations.nbPopulations() > 0) {
 		// Calculate Fitness
 		//for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
@@ -127,10 +127,28 @@ bool Generation::update(){
 		//elite transfer
 
 		//reproduction
-		mReproductiveSystem.createChild(mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
+		std::vector<Solution> listing;
+
+		for (int i = 0; i < mCivilisations.nbPopulations(); ++i) {
+			for (int j = 0; j < mNbPopulations; ++j) {
+				mCivilisations.getPopulation(i).getSolution(j).fitnessEvaluation(mArea.points());
+
+
+
+
+			}
+
+			listing = mCivilisations.getPopulation(i).getListe();
+			Solution::evalSolutionValue(listing, listing.size());
+			Solution::evalFitness(listing, listing.size());
+
+
+			mReproductiveSystem.createChild(mCivilisations, mNbPopulations, mCivilisations.nbPopulations(), mType);
+		}
+
+		return false;
+
 	}
-	
-	return false;
 }
 //render
 void Generation::render(){

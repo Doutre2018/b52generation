@@ -1,13 +1,13 @@
 #include "Solution.h"
 
 
+
+
+
 /*
-
-
-
 void Injection::reStart(Solution * mSolutions) {
 
-int [] tableDeletes
+	int[] tableDeletes;
 
 	if (Injection::stagnation())
 	{
@@ -16,39 +16,38 @@ int [] tableDeletes
 
 			for (Solution z : mSolutions)
 			{
-				if(Injection.tooClose(z, s && z != s)
+				if (Injection.tooClose(z == s)
+					;
+				else
 					z.deleteSolution;
 
-		
 		
 			}
 
 		}
 
-
-
 	}
-
 
 }
 
+//mise en veilleuse
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//restart fresh
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

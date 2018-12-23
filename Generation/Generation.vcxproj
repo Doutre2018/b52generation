@@ -139,6 +139,7 @@
     <ClCompile Include="Generation.cpp" />
     <ClCompile Include="Injection.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mathematical.cpp" />
     <ClCompile Include="PopulationEngine.cpp" />
     <ClCompile Include="Population.cpp" />
     <ClCompile Include="Random.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="debugstream.h" />
     <ClInclude Include="Generation.h" />
     <ClInclude Include="Fitness.h" />
+    <ClInclude Include="Mathematical.h" />
     <ClInclude Include="Point2d.h" />
     <ClInclude Include="Polygon2d.h" />
     <ClInclude Include="Population.h" />
