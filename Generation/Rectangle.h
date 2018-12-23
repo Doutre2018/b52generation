@@ -1,42 +1,24 @@
-#ifndef CERCLE_H
-#define CERCLE_H
-
-#include "Shape2D.h"
-#include "Point2d.h"
-#include "Polygon2d.h"
-#include "Random.h"
-
-class Cercle : public Shape2D
+#pragma once
+#include "Polygonal.h"
+class Rectangle :
+	public Polygonal
 {
 public:
-	Cercle();
-	~Cercle();
+	Rectangle();
+	~Rectangle();
+
+	void create();
 
 	virtual int calculateArea() override;
 	virtual int64_t encodePropreties() override;
 	virtual void decodePropreties(int64_t data) override;
 	virtual double pointInShape(std::list<Point2d> points) override;
 	virtual int borderProximity(size_t width, size_t height) override;
-	virtual bool outOfBounds(size_t width, size_t height) override;
 	virtual void randomize(size_t width, size_t height) override;
 	virtual void draw(ConsoleImage & image, ConsoleColor::Text color) override;
 
-
-	
-	
-
-private:
-	const float mPi = 3.14159265358979323846;
-
-	int mX;
-	int mY;
-	Point2d mPoint;
-	int mRadius;
-	Point2d mNearestPoint;
-
-	Polygon2d mPoly;
-
+private :
+	Polygon2d p;
 
 };
-#endif //CERCLE_H
 

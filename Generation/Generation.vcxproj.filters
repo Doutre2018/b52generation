@@ -87,6 +87,7 @@
     <ClCompile Include="Random.cpp">
       <Filter>Fichiers sources\Outils</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Fitness.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -100,6 +101,15 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Mathematical.cpp">
+=======
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Polygonal.cpp">
+>>>>>>> master
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -182,6 +192,7 @@
     <ClInclude Include="Population.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Fitness.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -192,6 +203,15 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Mathematical.h">
+=======
+    <ClInclude Include="Polygonal.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+>>>>>>> master
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

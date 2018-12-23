@@ -139,14 +139,23 @@
     <ClCompile Include="Generation.cpp" />
     <ClCompile Include="Injection.cpp" />
     <ClCompile Include="main.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="Mathematical.cpp" />
+=======
+    <ClCompile Include="Polygonal.cpp" />
+>>>>>>> master
     <ClCompile Include="PopulationEngine.cpp" />
     <ClCompile Include="Population.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Reproduction.cpp" />
     <ClCompile Include="Shape2D.cpp" />
     <ClCompile Include="Solution.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="Fitness.cpp" />
+=======
+    <ClCompile Include="Triangle.cpp" />
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Area.h" />
@@ -170,15 +179,21 @@
     <ClInclude Include="Fitness.h" />
     <ClInclude Include="Mathematical.h" />
     <ClInclude Include="Point2d.h" />
+    <ClInclude Include="Polygonal.h" />
     <ClInclude Include="Polygon2d.h" />
     <ClInclude Include="Population.h" />
     <ClInclude Include="PopulationEngine.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Reproduction.h" />
     <ClInclude Include="Shape2D.h" />
     <ClInclude Include="Solution.h" />
     <ClInclude Include="Transform2d.h" />
+<<<<<<< HEAD
     <ClInclude Include="type_util.h" />
+=======
+    <ClInclude Include="Triangle.h" />
+>>>>>>> master
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

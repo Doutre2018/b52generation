@@ -2,7 +2,9 @@
 
 #include <list>
 
-Cercle::Cercle(){}
+Cercle::Cercle()
+	:mNearestPoint{9999} 
+{}
 
 Cercle::~Cercle(){}
 
@@ -20,21 +22,15 @@ void Cercle::decodePropreties(int64_t data){
 }
 
 
-bool Cercle::pointInShape(std::list<Point2d> points)
+double Cercle::pointInShape(std::list<Point2d> points)
 {
 	for (auto point : points){
-		if (point.distance(mPoint) < mRadius){
-			if (point.distance(mPoint) < point.distance(mNearestPoint)){
-				mNearestPoint = point;
-			}
+		if (point.distance(mPoint) < point.distance(mNearestPoint)) 
+			mNearestPoint = point;
 		}
-	}
-
-	if (mNearestPoint != NULL) {
-		return true;
-	} else {
-		return false;
-	}
+		
+		return mNearestPoint.distance(mPoint) / (double) mRadius;             //scale down or up according to distance to radius ratio
+	
 }
 
 int Cercle::borderProximity(size_t width, size_t height)
@@ -63,6 +59,19 @@ int Cercle::borderProximity(size_t width, size_t height)
 	}
 
 	return maxRadius;
+}
+
+bool Cercle::outOfBounds(size_t width, size_t height)
+{
+	if (mRadius <= mX || mRadius <= mY){
+		return true;
+	}
+	else if (width - mX < mRadius || height - mY < mRadius) {
+		return true;
+	}
+
+
+	return false;
 }
 
 

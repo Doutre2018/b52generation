@@ -9,7 +9,8 @@ Solution::Solution()
 {
 }
 
-Solution::Solution(Shape2D*& shape, size_t width, size_t height, double fitness)
+
+Solution::Solution(Shape2D* shape, size_t width, size_t height, double fitness, double proportionFitness)
 
 	:mShape{ shape },
 	mWidth{ width },
@@ -20,6 +21,7 @@ Solution::Solution(Shape2D*& shape, size_t width, size_t height, double fitness)
 
 Solution::~Solution()
 {
+	//delete mShape;
 }
 void Solution::evalFitness(std::vector<Solution> mSolutions, size_t size) {
 
@@ -28,20 +30,28 @@ void Solution::evalFitness(std::vector<Solution> mSolutions, size_t size) {
 }
 
 
-void Solution::deleteShape() {
+void Solution::initialize(Shape2D * shape, size_t width, size_t height) {
 	delete mShape;
 
+	mShape = shape;
+	mWidth = width;
+	mHeight = height;
+	mFitness = 0;
 }
-
 
 int Solution::fitnessEvaluation(std::list<Point2d> points)
 {
 	mFitness = mShape->borderProximity(mWidth, mHeight);
 	mFitness *= mShape->pointInShape(points);
-	return mFitness;
+	if (mShape->outOfBounds(mWidth, mHeight)) {
+		mFitness *= 0.01;
+	}
+
+	
+	return mFitness; 
 }
 
-Shape2D *& Solution::shape()
+Shape2D * Solution::shape()
 {
 	return mShape;
 }
@@ -67,7 +77,10 @@ double Solution::aire() {
 
 void Solution::setMFitness(double value) {
 
-	mFitness = (double) value;
+	if (value >= 0 || value < 900)
+		mFitness = value;
+	else
+		mFitness = 335;
 
 
 }
@@ -75,5 +88,11 @@ void Solution::setMFitness(double value) {
 int Solution::getFitness()
 {
 	return mFitness;
+}
+
+
+void Solution::setProportionFitness(double proportionFitness)
+{
+	mProportionFitness = proportionFitness;
 }
 

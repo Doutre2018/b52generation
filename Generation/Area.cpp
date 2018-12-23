@@ -43,6 +43,8 @@ void Area::showCivilisations(std::vector<Population> & populations, size_t size)
 	for (Population& p : populations) {
 		drawShape(p.getListe(), size, p.color());
 	}
+
+
 }
 
 void Area::drawShape(std::vector<Solution> & liste, size_t size, ConsoleColor::Text color){

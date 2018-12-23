@@ -22,7 +22,10 @@ void Fitness::fitnessValue(std::vector<Solution> mSolutions, size_t size) {
 
 		}
 		fit_value = sqrt(preFitness / size);
-		fit_value = 1 / fit_value;
+		if(fit_value == 0)
+			fit_value = 400;
+		if (fit_value < 0)
+			fit_value = 0;
 
 		/*
 		Point2d pt = 
