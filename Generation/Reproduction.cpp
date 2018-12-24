@@ -68,7 +68,7 @@ void Reproduction::createChild( Civilisations & c, size_t nbPop, size_t nbCivili
 				mEnfant = mParent1 & mask | mParent2 & ~mask;
 				//Mutate
 					//Es ce que je fait un mutant ou pas
-				if (int a = Random::getInstance().uniformRandomize(1, 100) <= 3)		//20 percentageMutate
+				if (int a = Random::getInstance().uniformRandomize(1, 100) <= 8)		//20 percentageMutate
 				{
 					//nombre de bit a changer
 					int nbBitChange{ 5 };
