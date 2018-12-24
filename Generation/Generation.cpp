@@ -33,6 +33,8 @@ void Generation::loop() {
 		testShortcut();
 		terminer = update();
 		render();
+		for (int i = 0; i < 100000; i++)
+			;
 	}
 }
 

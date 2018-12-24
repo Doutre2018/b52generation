@@ -92,7 +92,7 @@ int Population::totalFitness(size_t nbPop)
 }
 
 
-void Population::rouletteWheel(std::vector<Solution> listing, int test, std::vector<int> parentIndex)
+void Population::rouletteWheel(std::vector<Solution> listing, int test, std::vector<int> & parentIndex)
 {
 	const int sizeArray = parentIndex.size();
 	int compteur{};
@@ -137,6 +137,7 @@ void Population::rouletteWheel(std::vector<Solution> listing, int test, std::vec
 		}
 		parentIndex.at(i) = j;
 		targetIndex = 0;
+		totalFitness = 0;
 	}
 	for (int i = 0; i < sizeArray; i++)
 		debug() << "parent index " << i << " : " << parentIndex.at(i);

@@ -25,7 +25,7 @@ public:
 	ConsoleColor::Text & color();
 	int totalFitness(size_t nbPop);
 
-	static void rouletteWheel(std::vector<Solution> listing, int test, std::vector<int> parentIndex);
+	static void rouletteWheel(std::vector<Solution> listing, int test, std::vector<int> & parentIndex);
 
 	void setElite(size_t i);
 

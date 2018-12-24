@@ -11,7 +11,7 @@ private:
 	int64_t mParent1;
 	int64_t mParent2;
 	int64_t mEnfant;
-	int percentageMutate;
+	int percentageMutate{ 20 };
 	size_t mNbChild;
 	std::vector<Solution> mChildSolution;
 	size_t mWidth;
